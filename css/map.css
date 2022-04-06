@@ -1,0 +1,189 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow:hidden;
+}
+
+body {
+    display:grid;
+    justify-content: center;
+    grid-template-rows: 10vh 90vh;
+    height: 100vh;
+
+    background-image: url(image/luca-bravo-cs6Omgsf0fU-unsplash.jpeg);
+    background-size: cover;
+    background-repeat:no-repeat;
+    background-position:right;
+   
+}
+
+header {
+    position:fixed;
+    grid-row: 1;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position:sticky;
+}
+
+header .line {
+    width: 10vw;
+    height:1vh;
+    background-color: white;
+    
+}
+
+header img {
+    width:4rem;
+    height:4rem;
+    margin: auto 0;
+}
+
+main {
+    grid-row:2;
+    display:grid;
+    grid-template-columns: 20vw 60vw 20vw;
+
+ 
+}
+
+#left-menu {
+    grid-column: 1;
+}
+
+#right-menu {
+    grid-column:3;
+}
+
+#left-menu, #right-menu {
+    background-color: none;
+    opacity: 0.9;
+    
+    
+    border-top: 2px solid rgb(132, 123, 255,40%);
+
+    width:20vw;
+    height:50%;
+    
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+   
+}
+
+#left-menu div ul, #right-menu div ul {
+    display: none;
+}
+
+#left-menu div, #right-menu div {
+    width:100%;
+    height:auto;
+    border: 2px solid rgb(132, 123, 255,40%);
+    border-right:none;
+    border-left:none;
+    background-color: rgb(132, 123, 255,30%);
+}
+
+#left-menu div:hover, #right-menu div:hover {
+    background-color: purple;
+    padding:1em;
+    cursor:pointer;
+}
+
+#left-menu h2, #right-menu h2 {
+    color: white;
+    opacity:1;
+    margin-left:1em;
+    
+}
+
+#left-menu ul, #right-menu ul {
+    margin-left:1em;
+    width:9em;
+    height:3em;
+    background-color: rgb(132, 123, 255,30%);
+    
+}
+
+
+#map {
+    background-image: url(./image/map.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-position: right;
+
+    grid-column: 2;
+    
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    border: 5px solid rgb(132, 123, 255,40%);
+    position: sticky;
+    
+}
+
+#mobile img {
+    width: 80px;
+    height:auto;
+}
+
+nav {
+    display:flex;
+    position:sticky;
+    justify-content: center;
+    align-content: start;
+   
+    border:2px solid rgb(132, 123, 255,40%);
+    border-bottom:none;
+    border-top:none;
+    height: 10vh;
+    width: 100%;
+    position:fixed;
+}
+
+ul {
+    list-style: none;
+}
+
+nav div ul li:nth-of-type(1) {
+    border: 2px solid white;
+    width:2vw;
+    height:1vw;
+    margin-bottom:0.5em;
+}
+
+nav div ul li:nth-of-type(2) {
+    border: 2px solid white;
+    width:2vw;
+    height:1vw;
+    margin-bottom:0.5em;
+}
+
+nav div ul li:nth-of-type(3) {
+    border: 2px solid white;
+    width:2vw;
+    height:1vw;
+    margin-bottom: bottom 0.5em;
+}
+
+nav div:nth-of-type(1) {
+    margin: 1em;
+    border:none;
+    width:8%;
+} 
+
+nav div {
+    width: 20%;
+    height:10vh;
+    border-left: 2px solid white;
+    margin-top:0.5em;
+}
+
+nav div h1{
+    color: white;
+    font-size:1.5em;
+    margin: 0.2em;
+}
+

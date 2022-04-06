@@ -1,0 +1,37 @@
+
+* {
+    padding: 0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+main {
+    height:100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main div {
+    width: auto;
+    height:10vh;
+    background-color: rgba(128, 0, 128,0.3);
+    color:black;
+    border:5px solid black;
+    border-radius: 8px;
+    text-align: center;
+    padding:1em;
+    
+}
+
+main div h1 {
+    font-size: 2em;
+    line-height: 1.5;
+    color:black;
+    text-decoration: none;
+    
+}
+
+main div h1:hover {
+    color: blue;
+}
