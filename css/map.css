@@ -48,6 +48,25 @@ main {
  
 }
 
+header button {
+    background-color:rgb(132, 123, 255,30%);
+    border-radius: 0.6em;
+    color:white;
+    font-weight: 900;
+    height:5vh;
+    width:auto;
+    padding:0.5em;
+    margin: 0 5em;
+}
+
+header button:hover {
+    background-color: purple;
+    color: black;
+    cursor:pointer;
+    height:5.2vh;
+    transition: ease 0.8s;
+} 
+
 #left-menu {
     grid-column: 1;
 }
