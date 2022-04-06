@@ -48,7 +48,7 @@ main {
  
 }
 
-header button {
+.btn-main {
     background-color:rgb(132, 123, 255,30%);
     border-radius: 0.6em;
     color:white;
@@ -59,7 +59,7 @@ header button {
     margin: 0 5em;
 }
 
-header button:hover {
+.btn-main:hover {
     background-color: purple;
     color: black;
     cursor:pointer;
