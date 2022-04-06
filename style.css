@@ -12,6 +12,10 @@ body {
     height: 100vh;
     /* background-color: #f79478; */
     background-color:#FCF3ED;
+    background-image: url(image/luca-bravo-cs6Omgsf0fU-unsplash.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:right;
    
 }
 
@@ -37,40 +41,52 @@ main {
 }
 
 #left-menu {
-    background-color:;
-    width:30vw;
-    height:50%;
-    grid-column:1;
+    grid-column: 1;
+}
 
+#right-menu {
+    grid-column:3;
+}
+
+#left-menu, #right-menu {
+    background-color: none;
+    opacity: 0.9;
+    
+    
+    border-top: 2px solid rgb(132, 123, 255,40%);
+
+    width:20vw;
+    height:50%;
+    
     display:flex;
     flex-direction: column;
     justify-content: space-between;
-    
-    
+   
 }
 
-#left-menu h2 {
+#left-menu div ul, #right-menu div ul {
+    display: none;
+}
+
+#left-menu div, #right-menu div {
+    width:100%;
+    height:auto;
+    border: 2px solid rgb(132, 123, 255,40%);
+    border-right:none;
+    background-color: rgb(132, 123, 255,30%);
+}
+
+#left-menu h2, #right-menu h2 {
+    color: white;
+    opacity:1;
     margin-left:1em;
+    
 }
 
 #left-menu ul {
     margin-left:1em;
 }
 
-#right-menu {
-    width:30vw;
-    height:50%;
-    grid-column:3;
-
-    display:flex;
-    flex-direction: column;
-    justify-content: space-between;
-    
-}
-
-#right-menu h2 {
-    margin-left:1em;
-}
 
 #map {
     background-image: url(./image/map.png);
@@ -84,7 +100,7 @@ main {
     display: grid;
     grid-template-columns: repeat(9, 1fr);
     grid-template-rows: repeat(10, 1fr);
-    border: 3px solid black;
+    border: 5px solid rgb(132, 123, 255,40%);
     position: sticky;
     
 }
@@ -99,9 +115,8 @@ nav {
     position:sticked;
     justify-content: center;
     align-content: start;
-    background:linear-gradient(to left, #f46b45, #eea849);
-    background:
-    border:2px solid black;
+   
+    border:2px solid rgb(132, 123, 255,40%);
     border-bottom:none;
     border-top:none;
     height: 10vh;
