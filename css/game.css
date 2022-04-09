@@ -12,7 +12,7 @@
     background-image: url(../ressources/cartes/Map_4.png);
     background-size:cover;
     background-repeat:no-repeat;
-    background-position: left;
+    background-position: center;
     height:90vh;
     width:auto;
     max-width:90vh;
@@ -49,6 +49,8 @@
    
 } */
 
+/* BORDER TREES */
+
 #top-left-border-tree {
     background-color: whitesmoke;
     opacity:0.5;
@@ -83,6 +85,19 @@
      grid-column:1/span 30;
      grid-row:27/span 4;
 }
+
+
+/* OBSTACLES ALONE */
+
+#big-tree {
+    background-color: white;
+    opacity: 0.5;
+    grid-row: 15;
+    grid-column:13;
+}
+
+
+/* HERO */
 
 #mobile {
     background-color: yellow;

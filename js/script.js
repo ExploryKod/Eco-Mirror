@@ -1,123 +1,120 @@
-let ligne = 1;
-let colonne = 1;
 let hero = document.querySelector("#mobile");
 let map = document.querySelector("#map");
+let ligne = 1;
+let colonne = 1;
 
-let bigTreePosition = [
-    [572.046875, 471.578125],
-    [549.390625, 471.578125]];
 
-function GetHeroPosition(hero) {
+function GetGridPositionHero(hero) {
 
+    let heroGridPositionRow = getComputedStyle(hero).gridRow;
+    let heroGridPositionColumn = getComputedStyle(hero).gridColumn;
     
-    let heroPositionX = hero.getBoundingClientRect().x;
-    let heroPositionY = hero.getBoundingClientRect().y;
+    let heroGridPosition = [heroGridPositionRow, heroGridPositionColumn];
 
-    console.log(hero);
-    console.log("==== hero position X ======");
-    console.log(heroPositionX);
-    console.log("==== hero position Y ======");
-    console.log(heroPositionY);
-  
-    let heroPosition = [heroPositionX, heroPositionY];
-
-    return heroPosition;
+    return heroGridPosition;
 }
 
-function GetObstaclePosition() {
+function GetBorderTreeGridPosition() {
 
-    let obstacle = document.querySelector(".border-trees");
-    let obstaclePositionY = obstacle.getBoundingClientRect().y;
-    let obstaclePositionX = obstacle.getBoundingClientRect().x;
+    let borderTree = document.querySelector(".border-trees");
+    let borderTreeGridPositionRow = getComputedStyle(borderTree).gridRow;
+    let borderTreeGridPositionColumn = getComputedStyle(borderTree).gridColumn;
 
-    console.log(obstacle);
-    console.log("==== obstacle X======");
-    console.log(obstaclePositionX);
-    console.log("==== obstacle Y======");
-    console.log(obstaclePositionY);
-   
+    console.log(borderTree);
+    console.log(">>>>>> Row border Tree======");
+    console.log(borderTreePositionRow);
+    console.log(">>>>> Column border Tree======");
+    console.log(borderTreePositionColumn);
 
-    let obstaclePosition = [obstaclePositionX, obstaclePositionY];
+    let borderTreePosition = [borderTreeGridPositionRow, borderTreeGridPositionColumn];
 
-    return obstaclePosition;
+    return borderTreePosition;
 }
 
-function forbadeMovement() {
-    let heroPos = GetHeroPosition(hero);
-    let obstaclePos = GetObstaclePosition();
 
-    console.log("===== hero POS:")
-    console.log("Y:"+heroPos[0]+"  X:"+heroPos[1]);
-    console.log("=== forbidden obstacle POS:")
-    console.log("Y:"+obstaclePos[0]+"  X:"+obstaclePos[1]);
+function ObstacleGridPosition() {
+    
+    let bigTree = document.querySelector("#big-tree");
+    let bigTreeGridPositionRow = getComputedStyle(bigTree).gridRow;
+    let bigTreeGridPositionColumn = getComputedStyle(bigTree).gridColumn;
 
+    let bigTreeGridPosition = [bigTreeGridPositionRow, bigTreeGridPositionColumn];
+    
+    console.log(">>>>>>> big tree grid Row-Col position >>>>>>>>")
+    console.log(bigTreeGridPosition);
+
+    return bigTreeGridPosition;
 }
 
-// La fonction de déplacement
 function moveHero(event) {
+    
     let touche = event.key;
+
+    console.log("--- touche pressée: ---------")
+    console.log(touche)
+
+    // Position de l'obstacle 
+    ObstaclePosition = ObstacleGridPosition()
+    let a = ObstaclePosition.join("").toString();
+    console.log("=== Big Tree position Row Col ==========")
+    console.log(a);
+
+    heroGridPosition = GetGridPositionHero(hero);
+    let b = heroGridPosition.join("").toString();
+    console.log("===== Hero Grid Row-Col Position string ======")
+    console.log(b);
 
     // fleche haut
     if (touche == "ArrowUp") {
-        if (ligne > 1) {
-            ligne--; // On enlève 1 à la ligne
+            if ((ligne > 1) && (a !== b)) {
+                ligne--; // On enlève 1 à la ligne
+               // console.log("haut, ligne : " + ligne);
+        } else {
+            hero.style.gridRow = ligne--;
         }
-        // console.log("haut, ligne : " + ligne);
     }
+
     // fleche bas
     else if (touche == "ArrowDown") {
-        if (ligne < 30) {
-            ligne++; // On ajoute 1 à la ligne
+        if ((ligne < 30) && (a !== b)) {
+                ligne++; // On ajoute 1 à la ligne
+
+            } else {
+                hero.style.gridRow = ligne;
+            }
+            // console.log("bas, ligne : " + ligne);
         }
-        // console.log("bas, ligne : " + ligne);
-    }
+
     // fleche gauche
     else if (touche == "ArrowLeft") {
-        if (colonne > 1) {
-            colonne--; // On enlève 1 à la colonne
+        if ((colonne > 1) && (a !== b)){
+                colonne--; // On enlève 1 à la colonne
+
+            } else {
+                colonne--;
+            }
+            // console.log("gauche, colonne : " + colonne);
         }
-        // console.log("gauche, colonne : " + colonne);
-    }
+
     // fleche droite
     else if (touche == "ArrowRight") {
-        if (colonne < 30) {
-            colonne++; // On ajoute 1 à la colonne
+        if ((colonne < 30) && (a !== b)) {
+                colonne++; // On ajoute 1 à la colonne
+
+            } else {
+                colonne++;
+            }
+
         }
-        // console.log("droite, colonne : " + colonne);
-    }
 
-
-    // Positionner l'élément
     hero.style.gridColumn = colonne;
     hero.style.gridRow = ligne;
 
-    let heroPositionX = hero.getBoundingClientRect().x;
-    let heroPositionY = hero.getBoundingClientRect().y;
-
-    let heroPosition = [heroPositionX, heroPositionY];
-
-    console.log("=== GET HERO POSITION with getbounding ======= ");
-    console.log(heroPosition);
-    console.log("X position:"+ heroPositionX);
-    console.log("Y position:" + heroPositionY);
-
-  
-    let obstaclePosition = GetObstaclePosition();
-        
-    console.log("==== OBSTACLE POSITION with getbounding=====");
-    console.log(obstaclePosition);
-    console.log(map.style);
-    if ((heroPosition[0] === obstaclePosition[0]) && (heroPosition[1] === obstaclePosition[1])) {
-        window.alert("obstacle");
-        console.log("FFFFFFFFFFFFF");
-        
     }
 
-}
+GetGridPositionHero(hero)
+ObstacleGridPosition()
 
-GetObstaclePosition();
-GetHeroPosition(hero);
-forbadeMovement();
 
 console.log("=================================================")
 console.log("=================================================")
