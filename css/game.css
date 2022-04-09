@@ -1,0 +1,102 @@
+
+.viewport{
+
+    width: calc(var(--pixel - size) * 160);
+    height: calc(var(--pixel - size) * 144);
+    overflow: hidden;
+    background: #61ddf7;
+    position: relative;
+ }
+
+.viewport, #map {
+    background-image: url(../ressources/cartes/Map_4.png);
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position: left;
+    height:90vh;
+    width:auto;
+    max-width:90vh;
+    min-width:90vh;
+    /* object-fit: contain;
+    object-position: center; */
+ 
+    
+    grid-column: 2;
+
+
+    display: grid;
+    grid-template-columns: repeat(30, 1fr);
+    grid-template-rows: repeat(30, 1fr);
+    border: 5px solid rgb(132, 123, 255,40%);
+    position: sticky;
+
+    image-rendering: pixelated;
+    /* transform: scale(1); */
+    
+}
+
+/* #map img {
+    
+    height:inherit;
+    width:inherit;
+    object-fit:contain;
+
+    position:fixed;
+    
+
+    grid-column:1/span 20;
+    grid-row:1/span 20;
+   
+} */
+
+#top-left-border-tree {
+    background-color: whitesmoke;
+    opacity:0.5;
+    grid-column:1/span 13;
+    grid-row:1/span 4;
+}
+
+#top-right-border-tree {
+    background-color: whitesmoke;
+    opacity:0.5;
+    grid-column:18/span 10;
+    grid-row:1/span 4;
+}
+
+#left-border-tree {
+     background-color: whitesmoke;
+     opacity:0.5;
+     grid-column:1/span 5;
+     grid-row:5/span 26;
+}
+
+#right-border-tree {
+     background-color: whitesmoke;
+     opacity:0.5;
+     grid-column:26/span 5;
+     grid-row:1/span 30;
+}
+
+#bottom-border-tree {
+     background-color: whitesmoke;
+     opacity:0.5;
+     grid-column:1/span 30;
+     grid-row:27/span 4;
+}
+
+#mobile {
+    background-color: yellow;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+#mobile img {
+    width: 100%;
+    height:auto;
+    position:relative;
+    z-index:99;
+}
+
+
+
+

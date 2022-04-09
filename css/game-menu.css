@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -10,13 +11,19 @@ body {
     justify-content: center;
     grid-template-rows: 10vh 90vh;
     height: 100vh;
-
-    background-image: url(image/luca-bravo-cs6Omgsf0fU-unsplash.jpeg);
+    
+    background-image: url(../ressources/images-menus/map-background.jpeg);
     background-size: cover;
     background-repeat:no-repeat;
     background-position:right;
+
+    /* transform: scale(1); */
    
 }
+
+/* =================== HEADER ======================== */
+
+
 
 header {
     position:fixed;
@@ -49,23 +56,43 @@ main {
 }
 
 .btn-main {
-    background-color:rgb(132, 123, 255,30%);
+    background-color: rgb(0 70 130);
+    box-shadow: inset 9px 9px 4px #244d9a, inset -9px -9px 17px #002039;
     border-radius: 0.6em;
-    color:white;
+    color: white;
     font-weight: 900;
-    height:5vh;
-    width:auto;
-    padding:0.5em;
-    margin: 0 5em;
+    height: 5vh;
+    padding: 0.8em;
+    margin: 1.5em;
+    border: none;
 }
 
 .btn-main:hover {
-    background-color: purple;
+    background-color: #b39a40;
+    box-shadow: inset -9px -9px 4px #e3c24b, inset -2px -2px 28px #8a7a39;
     color: black;
-    cursor:pointer;
-    height:5.2vh;
+    cursor: pointer;
+    height: 8.2vh;
     transition: ease 0.8s;
 } 
+
+
+nav {
+    display:flex;
+    position:sticky;
+    justify-content: center;
+    align-content: start;
+   
+    border:2px solid rgb(132, 123, 255,40%);
+    border-bottom:none;
+    border-top:none;
+    height: 10vh;
+    width: 100%;
+    position:fixed;
+}
+
+/* ========== LEFT AND RIGHT PANELS ================ */
+
 
 #left-menu {
     grid-column: 1;
@@ -114,6 +141,7 @@ main {
     color: white;
     opacity:1;
     margin-left:1em;
+    font-size:0.8em;
     
 }
 
@@ -126,41 +154,7 @@ main {
 }
 
 
-#map {
-    background-image: url(./image/map.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100vh;
-    background-position: right;
 
-    grid-column: 2;
-    
-    display: grid;
-    grid-template-columns: repeat(9, 1fr);
-    grid-template-rows: repeat(10, 1fr);
-    border: 5px solid rgb(132, 123, 255,40%);
-    position: sticky;
-    
-}
-
-#mobile img {
-    width: 80px;
-    height:auto;
-}
-
-nav {
-    display:flex;
-    position:sticky;
-    justify-content: center;
-    align-content: start;
-   
-    border:2px solid rgb(132, 123, 255,40%);
-    border-bottom:none;
-    border-top:none;
-    height: 10vh;
-    width: 100%;
-    position:fixed;
-}
 
 ul {
     list-style: none;
@@ -202,7 +196,15 @@ nav div {
 
 nav div h1{
     color: white;
-    font-size:1.5em;
+    font-size:1em;
     margin: 0.2em;
 }
 
+
+
+
+
+
+@media screen and (max-width:768px) and (min-width:630px) {
+   
+}
