@@ -8,8 +8,11 @@
     position: relative;
  }
 
-.viewport, #map {
-    background-image: url(../ressources/cartes/Map_4.png);
+ /* MAPS */
+
+.maps, #map-one, #map-two, #map-three, #map-four {
+    /* background-image: url(../ressources/cartes/Map_4.png); */
+    
     background-size:cover;
     background-repeat:no-repeat;
     background-position: center;
@@ -19,12 +22,14 @@
     min-width:90vh;
     /* object-fit: contain;
     object-position: center; */
- 
     
+}
+
+#map-one {
+    background-image: url(../ressources/cartes/Map_1.png);
     grid-column: 2;
 
-
-    display: grid;
+    display: none;
     grid-template-columns: repeat(30, 1fr);
     grid-template-rows: repeat(30, 1fr);
     border: 5px solid rgb(132, 123, 255,40%);
@@ -32,64 +37,157 @@
 
     image-rendering: pixelated;
     /* transform: scale(1); */
-    
 }
 
-/* #map img {
+#map-two {
     
-    height:inherit;
-    width:inherit;
-    object-fit:contain;
+    background-image: url(../ressources/cartes/Map_2.png);
 
-    position:fixed;
-    
+    grid-column: 2;
 
-    grid-column:1/span 20;
-    grid-row:1/span 20;
-   
-} */
+    display: none;
+    grid-template-columns: repeat(30, 1fr);
+    grid-template-rows: repeat(30, 1fr);
+    border: 5px solid rgb(132, 123, 255,40%);
+    position: sticky;
+
+    image-rendering: pixelated;
+    /* transform: scale(1); */
+}
+
+#map-three {
+
+    background-image: url(../ressources/cartes/Map_3.png);
+
+    grid-column: 2;
+
+    display: none;
+    grid-template-columns: repeat(30, 1fr);
+    grid-template-rows: repeat(30, 1fr);
+    border: 5px solid rgb(132, 123, 255,40%);
+    position: sticky;
+
+    image-rendering: pixelated;
+    /* transform: scale(1); */
+}
+
+#map-four {
+
+    background-image: url(../ressources/cartes/Map_4.png);
+
+    grid-column: 2;
+
+    display: none;
+    grid-template-columns: repeat(30, 1fr);
+    grid-template-rows: repeat(30, 1fr);
+    border: 5px solid rgb(132, 123, 255,40%);
+    position: sticky;
+
+    image-rendering: pixelated;
+    /* transform: scale(1); */
+}
+
+/* ENTRY AND EXIT */
+
+.entry {
+    background-color: red;
+    opacity:0.5;
+}
+
+#enter-map-1 {
+    grid-column:1;
+    grid-row:19;
+}
+
+#enter-map-2 {
+    grid-column:1;
+    grid-row:3;
+}
+
+#enter-map-3 {
+    grid-column:1;
+    grid-row:19;
+}
+
+#enter-map-4 {
+    grid-column:15;
+    grid-row:1;
+}
+
+/* exits */
+
+#exit-map-1 {
+    background-color: green;
+    opacity:0.5;
+    grid-column:30;
+    grid-row:5;
+}
+
+#exit-map-2 {
+    background-color: green;
+    opacity:0.5;
+    grid-column:30;
+    grid-row:4;
+}
+
+#exit-map-3 {
+    background-color: green;
+    opacity:0.5;
+    grid-column:20;
+    grid-row:24;
+}
+
+#exit-map-4 {
+    background-color: green;
+    opacity:0.5;
+    grid-column:30;
+    grid-row:19;
+}
+
 
 /* BORDER TREES */
 
-#top-left-border-tree {
+.top-left-border-tree {
     background-color: whitesmoke;
     opacity:0.5;
-    grid-column:1/span 13;
-    grid-row:1/span 4;
+    grid-column:1/span 12;
+    grid-row:5;
 }
 
-#top-right-border-tree {
+.top-right-border-tree {
     background-color: whitesmoke;
     opacity:0.5;
-    grid-column:18/span 10;
-    grid-row:1/span 4;
+    grid-column:18/span 15;
+    grid-row:5;
 }
 
-#left-border-tree {
+.left-border-tree {
      background-color: whitesmoke;
      opacity:0.5;
-     grid-column:1/span 5;
+     grid-column:4;
      grid-row:5/span 26;
 }
 
-#right-border-tree {
+.right-border-tree {
      background-color: whitesmoke;
      opacity:0.5;
-     grid-column:26/span 5;
+     grid-column:30;
      grid-row:1/span 30;
 }
 
-#bottom-border-tree {
+.bottom-border-tree {
      background-color: whitesmoke;
      opacity:0.5;
      grid-column:1/span 30;
-     grid-row:27/span 4;
+     grid-row:27;
 }
 
 
 /* OBSTACLES ALONE */
 
-#big-tree {
+/* MAP FOUR */
+
+.big-tree {
     background-color: white;
     opacity: 0.5;
     grid-row: 15;
@@ -99,17 +197,19 @@
 
 /* HERO */
 
-#mobile {
+.hero {
     background-color: yellow;
     display:flex;
     justify-content: center;
     align-items: center;
+    /* padding:3vh; */
 }
-#mobile img {
+.hero img {
     width: 100%;
     height:auto;
     position:relative;
     z-index:99;
+    overflow: visible;
 }
 
 

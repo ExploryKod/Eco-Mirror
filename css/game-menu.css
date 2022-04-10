@@ -76,7 +76,6 @@ main {
     transition: ease 0.8s;
 } 
 
-
 nav {
     display:flex;
     position:sticky;
