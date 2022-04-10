@@ -43,11 +43,6 @@ function LoadGame() {
         console.log("la map 1 est chargée!");
         hero.style.gridRow = 19;
         hero.style.gridColumn = 1;
-        let ligne = 19;
-        let colonne = 1;
-        let LigneColonne = [ligne,colonne];
-        return LigneColonne;
-
     } 
 }
 
@@ -56,8 +51,8 @@ function GetGridPositionHero(hero) {
     let heroGridPositionRow = getComputedStyle(hero).gridRow;
     let heroGridPositionColumn = getComputedStyle(hero).gridColumn;
     
-    let heroGridPosition = [heroGridPositionRow, heroGridPositionColumn];
-
+    let arrayHeroGridPosition = [heroGridPositionRow, heroGridPositionColumn];
+    let heroGridPosition = arrayHeroGridPosition.join("").toString();
     return heroGridPosition;
 }
 
@@ -127,10 +122,65 @@ function ObstacleGridPosition() {
     return bigTreeGridPosition;
 }
 
+function GetEntryPosition(numberStr) {
+
+    switch (numberStr) {
+        case "1":
+            var EntryRow = getComputedStyle(mapOneEntry).gridRow;
+            var EntryCol = getComputedStyle(mapOneEntry).gridColumn;
+            break;
+
+        case "2":
+            var EntryRow = getComputedStyle(mapTwoEntry).gridRow;
+            var EntryCol = getComputedStyle(mapTwoEntry).gridColumn;
+            break;
+
+        case "3":
+            var EntryRow = getComputedStyle(mapThreeEntry).gridRow;
+            var EntryCol = getComputedStyle(mapThreeEntry).gridColumn;
+            break;
+
+        case "4":
+            var EntryRow = getComputedStyle(mapFourEntry).gridRow;
+            var EntryCol = getComputedStyle(mapFourEntry).gridColumn;
+            break;
+
+        default:
+            var EntryRow = getComputedStyle(mapOneEntry).gridRow;
+            var EntryCol = getComputedStyle(mapOneEntry).gridColumn;
+            break;
+    }
+
+    let ArrayEntryPosition = [EntryRow, EntryCol];
+    let EntryStringPosition = ArrayEntryPosition.join("").toString();
+    return EntryStringPosition
+}
+
 function moveHero(event) {
 
-    hero.style.gridColumn = colonne;
-    hero.style.gridRow = ligne;
+
+    // Position du héro via Grid :string
+    h = GetGridPositionHero(hero);
+    console.log("===== Hero Grid Row-Col Position string ======")
+    console.log(h);
+
+    // Position de l'entrée via Grid : se fait via GetEntryPosition("1") pour carte 1.
+
+    if ((mapOne.style.display === "grid") && (h === GetEntryPosition("1"))){
+        hero.style.gridColumn = 1;
+        hero.style.gridRow = 19;
+        colonne = 1;
+        ligne = 19;
+
+    } else if ((mapTwo.style.display === "grid") && (h === GetEntryPosition("2"))) {
+        console.log("We now are on map 2");
+        colonne = 1;
+        ligne = 3;
+    } else {
+        hero.style.gridColumn = colonne;
+        hero.style.gridRow = ligne;
+    }
+  
 
     console.log("===== OPERATION DE MOUVEMENTS =======")
 
@@ -144,11 +194,6 @@ function moveHero(event) {
     let a = ObstaclePosition.join("").toString();
     
 
-    // Position du héro via Grid :string
-    heroGridPosition = GetGridPositionHero(hero);
-    let h = heroGridPosition.join("").toString();
-    console.log("===== Hero Grid Row-Col Position string ======")
-    console.log(h);
 
     // Position grid de l'exit de la map 1 sous forme de string.
     mapOneExitPosition = GetExitGridPosition("1");
@@ -156,22 +201,23 @@ function moveHero(event) {
     
     console.log("HEROGP: "+h+" EXITGP "+mapOneExitPosition)
 
-    if(h === mapOneExitPosition) {
-        console.log("ICI LA SORTIE");
-        alert("ici la sortie");
+    if((h === mapOneExitPosition) && (mapOne.style.display === "grid")) {
+        console.log("ICI LA SORTIE de map 1");
+        alert("ici la sortie de map 1");
         mapOne.style.display = "none";
         mapTwo.style.display = "grid";
+       
     }
     
     // Position grid de l'exit de la map 2 :string
     mapTwoExitPosition = GetExitGridPosition("2");
     console.log("HEROGP: " + h + " EXITGP " + mapTwoExitPosition)
-    
-    if (h === mapTwoExitPosition) {
+
+    if ((h === mapTwoExitPosition) && (mapTwo.style.display === "grid")) {
         console.log("ICI LA SORTIE de map 2");
         alert("ici la sortie de map 2");
         mapTwo.style.display = "none";
-        mapThree.style.display = "grid";
+        mapThree.style.display = "grid";  
     }
 
     // fleche haut
@@ -214,12 +260,11 @@ function moveHero(event) {
             } else {
                 colonne++;
             }
-
         }
 
     hero.style.gridColumn = colonne;
     hero.style.gridRow = ligne;
-    
+
     }
 
 GetGridPositionHero(hero)
@@ -229,7 +274,4 @@ ObstacleGridPosition()
 // L'évènement sur le document
 
 window.addEventListener("load", LoadGame);
-
-
-
 document.onkeyup = moveHero;
