@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/game.css">
     <link rel="stylesheet" href="css/game-menu.css">
+    <link rel="stylesheet" href="css/boitededialogue.css">
     <title>RPG Sauver la terre</title>
 </head>
 
@@ -18,11 +19,12 @@
         <img src="./ressources/images-menus/logo-game.png" alt="logo du jeu">
         <div class="line"></div>
         <button class="btn-main">SAVE</button>
+       
     </header>
 
     <main>
         <aside id="left-menu">
-            <div> 
+            <div>
                 <h2>Mes XP</h2>
                 <ul></ul>
             </div>
@@ -30,49 +32,101 @@
                 <h2>XP de la planète</h2>
                 <ul></ul>
             </div>
-            <div> 
+            <div>
                 <h2>Energie</h2>
                 <ul></ul>
             </div>
-          
+
         </aside>
 
-        <section class="viewport">
-            <section id="map">
-                <div id="top-left-border-tree" class="border-trees"></div>
-                <div id="top-right-border-tree" class="border-trees"></div>
-                <div id="right-border-tree" class="border-trees"></div>
-                <div id="left-border-tree"class="border-trees"></div>
-                <div id="bottom-border-tree" class="border-trees"></div>
+            <section class="maps">
 
-                <div id="big-tree"><img src="ressources/lieux/big-tree.png" alt="grand arbre"></div>
-                <div id="trap"></div>
+                <img src="ressources/cartes/map.png" alt="" id="image-map">
+               
+                <div id="enter-map-1" class="entry"></div>
+                <div id="exit-map-1" class="exit" ></div>
 
-                <!-- <img src="ressources/cartes/Map_2.png" alt="map"> -->
-                <section id="mobile">
-                    <img src="./ressources/personnages/hero.png" alt="le hero">
+                <div id="enter-map-2" class="entry"></div>
+                <div id="exit-map-2" class="exit"></div>
+
+                <div id="enter-map-3" class="entry"></div>
+                <div id="exit-map-3" class="exit"></div>
+
+                <div id="enter-map-4" class="entry"></div>
+                <div id="exit-map-4" class="exit"></div>
+                 
+                <div class="objects" id="object-1"><img class="object-image" src="ressources/objets/coeur.png" alt="coeur"></div>
+                <div class="objects" id="object-2"><img class="object-image" src="ressources/objets/coeur.png" alt="coeur"></div>
+                <div class="objects" id="object-3"><img class="object-image" src="ressources/objets/coeur.png" alt="coeur"></div>
+
+                <div class="pnj" id="pnj-1"><img class="pnj-image" src="ressources/personnages/gardien.png" alt="gardien"></div>
+                <div class="pnj" id="pnj-2"><img class="pnj-image" src="ressources/personnages/male-7075543_1920.png" alt="personnage"></div>
+                <div class="pnj" id="pnj-3"><img class="pnj-image" src="ressources/personnages/transhumain.png" alt="transhumain"></div>
+                
+                <div class="pnj-before" id="before-png-1"></div>
+                <div class="pnj-before" id="before-png-2"></div>
+                <div class="pnj-before" id="before-png-3"></div>
+
+                <section id="dialogue-container">
+                    
+                    <div class="open-btn">
+                        <button class="open-button" onclick="openForm()"><strong>Me parler</strong></button>
+                        <button class="close-button" onclick="closeForm()"><strong>Me quitter</strong></button>
+                    </div>
+                    <div class="login-popup">
+                        <div class="form-popup" id="popupForm">
+                            <div class="quiz-container animation-haut" id="quiz">
+                                <div class="quiz-header">
+                
+                                    <section class="conteneur bleu" style="border-bottom:#000 2px solid;">
+                                        <span class="bouton affichage" onclick="closeForm()">&times;</span>
+                                        <h2 id="title">Guide</h2>
+                                    </section>
+                                    <div id="container" class="container">
+                                        <img src="ressources/personnages/pngegg_1.png" alt="le guide">
+                                        <p id="textguide">Le guide : Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero
+                                            temporibus velit doloremque illum veniam suscipit harum, delectus eligendi incidunt iure sed
+                                            quibusdam corrupti dolores accusamus ipsa officiis rerum tenetur. Iusto.</p>
+                                    </div>
+                                </div>
+                
+                                <!-- <button id="submit">commencer le jeu</button> -->
+                                <button Class="answer1" id="answer1">answer1</button>
+                                <button Class="answer2" id="answer2">answer2</button>
+                
+                            </div>
+                        </div>
+                    </div>
+                
                 </section>
+
+                <section class="hero">
+                    <img src="./ressources/personnages/hero.png" alt="le hero" id="image-hero">
+                </section>
+                 
             </section>
-        </section>
+
+     
 
         <aside id="right-menu">
             <div>
                 <h2>Mes objets</h2>
                 <ul></ul>
             </div>
-           
+
             <div>
                 <h2>Mes cartes</h2>
             </div>
-           
+
             <div>
                 <h2>Mes artefacts</h2>
             </div>
-            
-        </aside>   
+
+        </aside>
     </main>
 
-<script src="./js/script.js"></script>
+    <script src="./js/boitededialogue.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>

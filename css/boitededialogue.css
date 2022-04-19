@@ -1,0 +1,186 @@
+/* BOITE DE DIALOGUE */
+
+#dialogue-container {
+    grid-row:1/span15;
+    grid-column:1/span15;
+    position:absolute;
+    height:100%;
+    width:100%;
+    display:none;
+}
+
+.affichage {
+    position: absolute;
+    top: 9px;
+    right: 9px;
+    cursor: pointer;
+}
+
+
+/* CSS QUIZ */
+
+.quiz-container {
+    border-radius: 20px;
+    background: #e0e0e0;
+    box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+    width: 710px;
+    height: 289px;
+    overflow: hidden;
+    position: absolute;
+    top: 13%;
+    left: 21%;
+    transform: translate(-16%, 71%);
+}
+
+.quiz-header {
+    padding: 2rem;
+}
+
+.quiz-header h2 {
+    padding: 1rem;
+    padding-left: 151px;
+    text-align: start;
+    margin: 0;
+}
+
+.quiz-container button {
+    background: #7ba9bc;
+    box-shadow: 2px 2px 4px #6990a0, -2px -2px 8px #8dc2d8;
+    color: #fff;
+    border: none;
+    display: inline-block;
+    width: 36%;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-family: inherit;
+    padding: 1.3rem;
+    text-align: center;
+}
+
+.quiz-container button:hover {
+    background: #7ba9bc;
+    box-shadow: inset 2px 2px 4px #6990a0, inset -2px -2px 8px #8dc2d8;
+}
+
+.quiz-container button:focus {
+    outline: none;
+    background: #7bbc7c;
+    box-shadow: inset 2px 2px 6px #69a069, inset -2px -2px 6px #8dd88f;
+}
+
+.open-btn {
+    height:100%;
+    width: auto;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    
+}
+
+
+/* Stylez et fixez le bouton sur la page */
+
+.open-button {
+    grid-column: 1;
+    background-color: #1c87c9;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.8;
+   
+    
+}
+
+.close-button {
+    grid-column: 2;
+    background-color: #1c87c9;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.8;
+  
+}
+
+
+/* Positionnez la forme Popup */
+
+.login-popup {
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+
+/* Masquez la forme Popup */
+
+a {
+    text-decoration: none;
+}
+
+.conteneur img {
+    width: 190px;
+    position: absolute;
+    left: -1px;
+    top: 40px;
+}
+
+.form-popup {
+    height: 100vh;
+    display: none;
+    position: fixed;
+    left: 45%;
+    top: -5%;
+    transform: translate(-45%, 5%);
+    border: 1px solid #e0e0e0;
+    z-index: 9;
+    width: 100%;
+    background: #e0e0e02b;
+    font-family: 'Poppins', sans-serif;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+
+.animation-haut {
+    position: relative;
+    animation: animerGauche 0.3s;
+}
+
+@keyframes animerGauche {
+    from {
+        top: -300px;
+        left: -200px;
+        opacity: 0
+    }
+    to {
+        top: 0px;
+        left: 0px;
+        opacity: 1
+    }
+    ;
+}
+
+.conteneur p {
+    text-align: start;
+    padding-left: 151px;
+    animation-duration: 3s;
+    animation-name: slidein;
+}
+
+@keyframes slidein {
+    from {
+        margin-left: 100%;
+        width: 300%;
+    }
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
+}

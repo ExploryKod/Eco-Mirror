@@ -40,12 +40,13 @@ img {
 }
 
 a {
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
-a, button {
+a,
+button {
     background-color: rgb(60, 101, 119, 0.6);
     box-shadow: inset 9px 9px 17px #3c6577, inset -9px -9px 17px #40758d;
     font-family: "Crimson Text";
@@ -58,7 +59,8 @@ a, button {
 }
 
 
-button:hover, a:hover {
+button:hover,
+a:hover {
     cursor: pointer;
     background-color: #b39a40;
     box-shadow: inset -9px -9px 4px #e3c24b, inset -2px -2px 28px #8a7a39;
