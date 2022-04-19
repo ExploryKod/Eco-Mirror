@@ -122,8 +122,9 @@ a {
     text-decoration: none;
 }
 
-.conteneur img {
-    width: 190px;
+.container img {
+    width: 20%;
+    height: auto;
     position: absolute;
     left: -1px;
     top: 40px;
@@ -167,7 +168,7 @@ a {
     ;
 }
 
-.conteneur p {
+.container p {
     text-align: start;
     padding-left: 151px;
     animation-duration: 3s;

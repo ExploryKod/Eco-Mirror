@@ -1,18 +1,18 @@
-// Fichier séparé de github
+
 // Fixer les entrées par map et non en dehors.
 
 let hero = document.querySelector(".hero");
 let heroImage = document.querySelector(".hero img");
 let mapImage = document.querySelector("#image-map");
 let dialogueContainer = document.querySelector("#dialogue-container");
-console.log("URL de la map est: "+mapImage.src)
+console.log("URL de la map est: " + mapImage.src)
 // Access to the map grid
 let map = document.querySelector(".maps");
 
 
 // URL of the hero different position when moving
 heroImageURL = {
-    fromSky: '../ressources/hero/hero-face.png', 
+    fromSky: '../ressources/hero/hero-face.png',
     right: '../ressources/hero/hero-right.png',
     left: '../ressources/hero/hero-left.png',
     up: '../ressources/hero/hero-back.png',
@@ -47,6 +47,10 @@ let pnj01 = document.querySelector("#pnj-1");
 let pnj02 = document.querySelector("#pnj-2");
 let pnj03 = document.querySelector("#pnj-3");
 
+let object01 = document.querySelector("#object-1");
+let object02 = document.querySelector("#object-2");
+let object03 = document.querySelector("#object-3");
+
 let ligne = 1;
 let colonne = 1;
 
@@ -68,13 +72,13 @@ function LoadGame() {
         mapOneExit.style.display = "grid";
         ligne = 1;
         colonne = 1;
-        console.log("la map est chargée!"); 
+        console.log("la map est chargée!");
         hero.style.gridRow = 9;
         hero.style.gridColumn = 1;
         setObjectPosition("1");
         setPnjPosition("1");
         document.addEventListener('keyup', moveHeroMap01);
-        
+
     }
 }
 
@@ -160,12 +164,6 @@ function GetExitGridPosition(numberStr) {
 
 function setObjectPosition(mapNumber) {
 
-    alert("fonction setobjet appelée")
-
-    let object01 = document.querySelector("#object-1");
-    let object02 = document.querySelector("#object-2");
-    let object03 = document.querySelector("#object-3");
-
     switch (mapNumber) {
 
         case "1":
@@ -213,7 +211,7 @@ function setObjectPosition(mapNumber) {
 }
 
 function setPnjPosition(mapNumber) {
-   
+
     switch (mapNumber) {
 
         case "1":
@@ -223,8 +221,8 @@ function setPnjPosition(mapNumber) {
             pnj02.style.gridColumn = 6;
             pnj03.style.gridRow = 3;
             pnj03.style.gridColumn = 8;
-            pnjPositionMap = [pnj01,pnj02,pnj03];
-            return pnjPositionMap; 
+            pnjPositionMap = [pnj01, pnj02, pnj03];
+            return pnjPositionMap;
             break;
 
         case "2":
@@ -235,7 +233,7 @@ function setPnjPosition(mapNumber) {
             pnj03.style.gridRow = 6;
             pnj03.style.gridColumn = 6;
             pnjPositionMap = [pnj01, pnj02, pnj03];
-            return pnjPositionMap; 
+            return pnjPositionMap;
             break;
 
         case "3":
@@ -246,7 +244,7 @@ function setPnjPosition(mapNumber) {
             pnj03.style.gridRow = 12;
             pnj03.style.gridColumn = 4;
             pnjPositionMap = [pnj01, pnj02, pnj03];
-            return pnjPositionMap; 
+            return pnjPositionMap;
             break;
 
         case "4":
@@ -257,7 +255,7 @@ function setPnjPosition(mapNumber) {
             pnj03.style.gridRow = 8;
             pnj03.style.gridColumn = 8;
             pnjPositionMap = [pnj01, pnj02, pnj03];
-            return pnjPositionMap; 
+            return pnjPositionMap;
             break;
 
         default:
@@ -281,7 +279,7 @@ function getPnjPosition(mapNumber) {
                 pnjTwoY: pnjMap[1].getBoundingClientRect().y,
                 pnjThreeX: pnjMap[2].getBoundingClientRect().x,
                 pnjThreeY: pnjMap[2].getBoundingClientRect().y
-                
+
             };
             return pnjCoordinates;
 
@@ -297,7 +295,7 @@ function getPnjPosition(mapNumber) {
 
             };
             return pnjCoordinates;
-        
+
         case "3":
             pnjMap = setPnjPosition("3");
             pnjCoordinates = {
@@ -310,7 +308,7 @@ function getPnjPosition(mapNumber) {
 
             };
             return pnjCoordinates;
-        
+
         case "4":
             pnjMap = setPnjPosition("4");
             pnjCoordinates = {
@@ -366,8 +364,8 @@ function changeMap() {
         document.removeEventListener('keyup', moveHeroMap01, false);
         document.removeEventListener('keyup', moveHeroMap01, true);
         document.addEventListener('keyup', moveHeroMap02);
- 
-        
+
+
 
     } else if (heroPosition === mapTwoExitPosition) {
         console.log("ICI LA SORTIE de map 2");
@@ -387,7 +385,7 @@ function changeMap() {
         document.removeEventListener('keyup', moveHeroMap02, false);
         document.removeEventListener('keyup', moveHeroMap02, true);
         document.addEventListener('keyup', moveHeroMap03);
-       
+
 
     } else if (heroPosition === mapThreeExitPosition) {
         console.log("ICI LA SORTIE de map 3");
@@ -407,7 +405,7 @@ function changeMap() {
         document.removeEventListener('keyup', moveHeroMap03, false);
         document.removeEventListener('keyup', moveHeroMap03, true);
         document.addEventListener('keyup', moveHeroMap04);
-        
+
 
     } else if (heroPosition === mapFourExitPosition) {
         alert("fin du jeu");
@@ -423,24 +421,24 @@ function changeMap() {
     // Once I enter the new map : 
 
     if (heroPosition === GetEntryPosition("1")) {
-      
+
         hero.style.gridColumn = 1;
         hero.style.gridRow = 9;
         colonne = 1;
         // Cette ligne doit resté à 19 sinon le hero est mis en Row = 1 car ligne = 1 
         ligne = 9;
-        
-     
+
+
 
     } else if (heroPosition === GetEntryPosition("2")) {
-        
+
         colonne = 1;
         ligne = 2;
         hero.style.gridColumn = 1;
         hero.style.gridRow = 2;
         console.log("We now are on map 2 entry");
 
-    } else if (heroPosition === GetEntryPosition("3")) { 
+    } else if (heroPosition === GetEntryPosition("3")) {
         colonne = 1;
         ligne = 13;
         hero.style.gridColumn = 1;
@@ -462,15 +460,15 @@ function changeMap() {
 // Fonctions principales de mouvement
 
 function moveHeroMap01(event) {
-    
+
     // Enter/Exit from map to map :
     changeMap();
 
     let touche = event.key;
-   
+
     // console.log("============ PNJ MANAGEMENT =============")
-  
-    
+
+
     console.log("===== HERO MOVEMENTS =======")
     console.log("--- touche pressée: ---------")
     console.log(touche)
@@ -479,51 +477,57 @@ function moveHeroMap01(event) {
 
 
     obstaclePurpleTrees = [
-        "r1c1", "r1c2", "r1c3", "r1c4", "r1c5", "r1c6", "r1c7", "r1c8", "r1c9", "r1c10", "r1c11", "r1c12", "r1c13", "r1c14","r1c15",
+        "r1c1", "r1c2", "r1c3", "r1c4", "r1c5", "r1c6", "r1c7", "r1c8", "r1c9", "r1c10", "r1c11", "r1c12", "r1c13", "r1c14", "r1c15",
         "r14c1", "r14c2", "r14c3", "r14c4", "r14c5", "r14c6", "r14c7", "r14c10", "r14c11", "r14c12", "r14c13", "r14c14", "r14c15",
         "r15c1", "r15c2", "r15c3", "r15c4", "r15c5", "r15c6", "r15c7", "r15c10", "r15c11", "r15c12", "r15c13", "r15c14", "r15c15",
-        "r13c1","r13c2","r13c14","r13c15","r12c1","r12c2","r12c14","r12c15","r11c1","r11c2","r11c14","r11c15","r10c14","r11c15",
-        "r9c14","r9c15","r8c14","r8c15",
-        "r8c1","r7c1","r6c1","r5c1","r4c1","r3c1","r2c1"
+        "r13c1", "r13c2", "r13c14", "r13c15", "r12c1", "r12c2", "r12c14", "r12c15", "r11c1", "r11c2", "r11c14", "r11c15", "r10c14", "r11c15",
+        "r9c14", "r9c15", "r8c14", "r8c15",
+        "r8c1", "r7c1", "r6c1", "r5c1", "r4c1", "r3c1", "r2c1"
     ];
 
     obstacleDeadTree = [
-        "r3c4","r3c10","r3c7","r3c11",
-        "r6c2","r6c5",
+        "r3c4", "r3c10", "r3c7", "r3c11",
+        "r6c2", "r6c5",
         "r8c4",
         "r6c15",
-        "r10c10","r10c11",
-        "r11c3","r11c13",
+        "r10c10", "r10c11",
+        "r11c3", "r11c13",
     ];
 
     obstacle = obstaclePurpleTrees.concat(obstacleDeadTree);
- 
 
-    pnjMeetArray = ["r3c3","r3c6","r3c8"];
+
+    pnjMeetArray = ["r3c3", "r3c6", "r3c8"];
 
     // fleche haut
     if (touche == "ArrowUp") {
         if (ligne > 1) {
-           
+
             if ((!obstacle.includes(`r${ligne - 1}c${colonne}`))) {
                 ligne--;
                 console.log(ligne.toString())
                 heroImage.src = heroImageURL.up;
 
                 if (pnjMeetArray.includes(`r${ligne}c${colonne}`)) {
-                    dialogueContainer.style.display = "block"; 
-                    mapImage.style.opacity = 0.5;
+                    dialogueContainer.style.display = "block";
+                    mapImage.style.opacity = 0.2;
+                    pnj01.style.opacity = 0.2;
+                    pnj02.style.opacity = 0.2;
+                    pnj03.style.opacity = 0.2;
+                    object01.style.opacity = 0.2;
+                    object02.style.opacity = 0.2;
+                    object03.style.opacity = 0.2;
 
                     if (dialogueContainer.style.display == "block") {
                         ligne++;
-                    }  
+                    }
                 }
 
-            } 
-        } 
-        
+            }
+        }
+
     }
-    
+
     // fleche bas
     else if (touche == "ArrowDown") {
         if (ligne < 15) {
@@ -535,14 +539,20 @@ function moveHeroMap01(event) {
 
                 if (pnjMeetArray.includes(`r${ligne}c${colonne}`)) {
                     dialogueContainer.style.display = "block";
-                    mapImage.style.opacity = 0.5;
+                    mapImage.style.opacity = 0.2;
+                    pnj01.style.opacity = 0.2;
+                    pnj02.style.opacity = 0.2;
+                    pnj03.style.opacity = 0.2;
+                    object01.style.opacity = 0.2;
+                    object02.style.opacity = 0.2;
+                    object03.style.opacity = 0.2;
 
                     if (dialogueContainer.style.display == "block") {
                         ligne--;
-                    } 
+                    }
                 }
-            } 
-        } 
+            }
+        }
     }
 
     // fleche gauche
@@ -556,37 +566,49 @@ function moveHeroMap01(event) {
 
                 if (pnjMeetArray.includes(`r${ligne}c${colonne}`)) {
                     dialogueContainer.style.display = "block";
-                    mapImage.style.opacity = 0.5;
+                    mapImage.style.opacity = 0.2;
+                    pnj01.style.opacity = 0.2;
+                    pnj02.style.opacity = 0.2;
+                    pnj03.style.opacity = 0.2;
+                    object01.style.opacity = 0.2;
+                    object02.style.opacity = 0.2;
+                    object03.style.opacity = 0.2;
 
                     if (dialogueContainer.style.display == "block") {
                         colonne++;
-                    } 
+                    }
                 }
-            } 
+            }
+        }
     }
-}
 
     // fleche droite
     else if (touche == "ArrowRight") {
         if (colonne < 15) {
 
-            if ((!obstacle.includes(`r${ligne}c${colonne + 1}`)))  {
+            if ((!obstacle.includes(`r${ligne}c${colonne + 1}`))) {
                 colonne++;
                 console.log(ligne.toString())
                 heroImage.src = heroImageURL.right;
 
                 if (pnjMeetArray.includes(`r${ligne}c${colonne}`)) {
                     dialogueContainer.style.display = "block";
-                    mapImage.style.opacity = 0.5;
+                    mapImage.style.opacity = 0.2;
+                    pnj01.style.opacity = 0.2;
+                    pnj02.style.opacity = 0.2;
+                    pnj03.style.opacity = 0.2;
+                    object01.style.opacity = 0.2;
+                    object02.style.opacity = 0.2;
+                    object03.style.opacity = 0.2;
 
                     if (dialogueContainer.style.display == "block") {
                         colonne--;
-                    } 
+                    }
                 }
-            } 
-    }
+            }
+        }
 
-}
+    }
 
     hero.style.gridColumn = colonne;
     hero.style.gridRow = ligne;
@@ -865,6 +887,6 @@ window.addEventListener("load", LoadGame);
 
 
 
-    
+
 
 

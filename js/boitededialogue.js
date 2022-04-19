@@ -1,15 +1,18 @@
 
 const buttonOpen = document.querySelector(".open-button");
 const buttonClose = document.querySelector(".close-button");
+const characterHero = document.querySelector(".hero");
 const dialogueContainerMessage = document.querySelector("#dialogue-container");
 const mapImageBackground = document.querySelector("#image-map");
 // Fonction de Farmata
 function openForm() {
+    characterHero.style.display = "none";
     document.getElementById("popupForm").style.display = "block";
 }
 
 function closeForm() {
     document.getElementById("popupForm").style.display = "none";
+    characterHero.style.display = "flex";
 }
 
 function closeDialogueContainer() {
@@ -18,7 +21,7 @@ function closeDialogueContainer() {
     mapImageBackground.style.opacity = 1;
 }
 
-buttonClose.addEventListener("click", closeDialogueContainer); 
+buttonClose.addEventListener("click", closeDialogueContainer);
 
 // Mes Fonctions interactions dialogue RPG
 
