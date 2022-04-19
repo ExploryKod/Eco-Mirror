@@ -28,8 +28,8 @@
     overflow: hidden;
     position: absolute;
     top: 13%;
-    left: 21%;
-    transform: translate(-16%, 71%);
+    left: 50%;
+    transform: translate(-50%, 71%);
 }
 
 .quiz-header {
