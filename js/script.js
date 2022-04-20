@@ -12,24 +12,26 @@ let map = document.querySelector(".maps");
 
 // URL of the hero different position when moving
 heroImageURL = {
-    fromSky: '../ressources/hero/hero-face.png',
-    right: '../ressources/hero/hero-right.png',
-    left: '../ressources/hero/hero-left.png',
-    up: '../ressources/hero/hero-back.png',
-    down: '../ressources/hero/hero-face.png'
+    fromSky: 'ressources/hero/hero-face.png',
+    right: 'ressources/hero/hero-right.png',
+    left: 'ressources/hero/hero-left.png',
+    up: 'ressources/hero/hero-back.png',
+    down: 'ressources/hero/hero-face.png'
 }
 
 heroImage.src = heroImageURL.fromSky;
-console.log("le selector devient: " + heroImage.src)
 
 // URL of images 
-let mapOneURL = '../ressources/cartes/Map_1.png';
-let mapTwoURL = '../ressources/cartes/Map_2.png';
-let mapThreeURL = '../ressources/cartes/Map_3.png';
-let mapFourURL = '../ressources/cartes/Map_4.png';
-let endGameURL = '../ressources/cartes/EarthPhoto.jpeg';
+let mapShipURL = 'ressources/maps/map_1_ship.png';
+let mapSeaURL = 'ressources/maps/map_2bis_sea.png';
+let mapCrashURL = 'ressources/maps/map_2_crash.png';
+let mapBeforeCampURL = 'ressources/maps/map_3bis_before_camp.png';
+let mapCampURL = 'ressources/maps/map_4_camp.png';
+let mapBeforeFinalURL = 'ressources/maps/map_3_before_final.png';
+let mapFinalURL = 'ressources/maps/map_final.png';
+let endGameURL = 'ressources/maps/EarthPhoto.jpeg';
 
-let obstacles = [];
+
 
 // Entry points html elements
 let mapOneEntry = document.querySelector("#enter-map-1");
@@ -66,7 +68,7 @@ function LoadGame() {
 
     // Si map One est bien chargé on positionne le héro à l'emplacement de l'entrée
     if (mapDisplayInfo === "grid") {
-        mapImage.src = mapOneURL;
+        mapImage.src = mapFinalURL;
         mapOneEntry.style.display = "grid";
         // Exit : On pourra l'afficher que s'il trouve un objet : 
         mapOneExit.style.display = "grid";
@@ -92,7 +94,7 @@ function GetGridPositionHero(hero) {
     return heroGridPosition;
 }
 
-function GetEntryPosition(StrNumber) {
+function GetEntryGridPosition(StrNumber) {
 
     switch (StrNumber) {
         case "1":
@@ -266,66 +268,6 @@ function setPnjPosition(mapNumber) {
     }
 }
 
-function getPnjPosition(mapNumber) {
-
-    let pnjMap = "";
-
-    switch (mapNumber) {
-        case "1":
-            pnjCoordinates = {
-                pnjOneX: pnjMap[0].getBoundingClientRect().x,
-                pnjOneY: pnjMap[0].getBoundingClientRect().y,
-                pnjTwoX: pnjMap[1].getBoundingClientRect().x,
-                pnjTwoY: pnjMap[1].getBoundingClientRect().y,
-                pnjThreeX: pnjMap[2].getBoundingClientRect().x,
-                pnjThreeY: pnjMap[2].getBoundingClientRect().y
-
-            };
-            return pnjCoordinates;
-
-        case "2":
-            pnjMap = setPnjPosition("2");
-            pnjCoordinates = {
-                pnjOneX: pnjMap[0].getBoundingClientRect().x,
-                pnjOneY: pnjMap[0].getBoundingClientRect().y,
-                pnjTwoX: pnjMap[1].getBoundingClientRect().x,
-                pnjTwoY: pnjMap[1].getBoundingClientRect().y,
-                pnjThreeX: pnjMap[2].getBoundingClientRect().x,
-                pnjThreeY: pnjMap[2].getBoundingClientRect().y
-
-            };
-            return pnjCoordinates;
-
-        case "3":
-            pnjMap = setPnjPosition("3");
-            pnjCoordinates = {
-                pnjOneX: pnjMap[0].getBoundingClientRect().x,
-                pnjOneY: pnjMap[0].getBoundingClientRect().y,
-                pnjTwoX: pnjMap[1].getBoundingClientRect().x,
-                pnjTwoY: pnjMap[1].getBoundingClientRect().y,
-                pnjThreeX: pnjMap[2].getBoundingClientRect().x,
-                pnjThreeY: pnjMap[2].getBoundingClientRect().y
-
-            };
-            return pnjCoordinates;
-
-        case "4":
-            pnjMap = setPnjPosition("4");
-            pnjCoordinates = {
-                pnjOneX: pnjMap[0].getBoundingClientRect().x,
-                pnjOneY: pnjMap[0].getBoundingClientRect().y,
-                pnjTwoX: pnjMap[1].getBoundingClientRect().x,
-                pnjTwoY: pnjMap[1].getBoundingClientRect().y,
-                pnjThreeX: pnjMap[2].getBoundingClientRect().x,
-                pnjThreeY: pnjMap[2].getBoundingClientRect().y
-
-            };
-            return pnjCoordinates;
-    }
-
-}
-
-
 function changeMap() {
 
     heroPosition = GetGridPositionHero(hero);
@@ -420,17 +362,14 @@ function changeMap() {
 
     // Once I enter the new map : 
 
-    if (heroPosition === GetEntryPosition("1")) {
+    if (heroPosition === GetEntryGridPosition("1")) {
 
         hero.style.gridColumn = 1;
         hero.style.gridRow = 9;
         colonne = 1;
-        // Cette ligne doit resté à 19 sinon le hero est mis en Row = 1 car ligne = 1 
         ligne = 9;
 
-
-
-    } else if (heroPosition === GetEntryPosition("2")) {
+    } else if (heroPosition === GetEntryGridPosition("2")) {
 
         colonne = 1;
         ligne = 2;
@@ -438,13 +377,13 @@ function changeMap() {
         hero.style.gridRow = 2;
         console.log("We now are on map 2 entry");
 
-    } else if (heroPosition === GetEntryPosition("3")) {
+    } else if (heroPosition === GetEntryGridPosition("3")) {
         colonne = 1;
         ligne = 13;
         hero.style.gridColumn = 1;
         hero.style.gridRow = 13;
 
-    } else if (heroPosition === GetEntryPosition("4")) {
+    } else if (heroPosition === GetEntryGridPosition("4")) {
         colonne = 8;
         ligne = 1;
         hero.style.gridColumn = 8;
@@ -498,6 +437,7 @@ function moveHeroMap01(event) {
 
 
     pnjMeetArray = ["r3c3", "r3c6", "r3c8"];
+    objectFoundArray = ["r3c2","r4c3","r2c7"];
 
     // fleche haut
     if (touche == "ArrowUp") {
@@ -612,7 +552,7 @@ function moveHeroMap01(event) {
 
     hero.style.gridColumn = colonne;
     hero.style.gridRow = ligne;
-    console.log("MAP ONE EST DECLENCHÉ")
+    console.log("IT IS MAP ONE")
 
 }
 
@@ -622,18 +562,6 @@ function moveHeroMap02(event) {
     changeMap();
 
     let touche = event.key;
-
-
-    // Position du héro via Grid :string
-    heroPosition = GetGridPositionHero(hero);
-    console.log("===== Hero Grid Row-Col Position string ======")
-    console.log(heroPosition);
-    // Position du héro selon le viewport :float
-    heroPositionX = hero.getBoundingClientRect().x;
-    heroPositionY = hero.getBoundingClientRect().y;
-    console.log("===== Hero VIEWPORT Position ======")
-    console.log("X: " + heroPositionX + " Y: " + heroPositionY);
-
 
     // console.log("============ PNJ MANAGEMENT =============")
 
@@ -700,7 +628,7 @@ function moveHeroMap02(event) {
 
     hero.style.gridColumn = colonne;
     hero.style.gridRow = ligne;
-    console.log("MAP 2 EST DECLENCHÉ")
+    console.log("IT IS MAP TWO")
 }
 
 // ================== MOVEMENTS FOR THE THIRD MAP 
@@ -711,18 +639,6 @@ function moveHeroMap03(event) {
     changeMap();
 
     let touche = event.key;
-
-
-    // Position du héro via Grid :string
-    heroPosition = GetGridPositionHero(hero);
-    console.log("===== Hero Grid Row-Col Position string ======")
-    console.log(heroPosition);
-    // Position du héro selon le viewport :float
-    heroPositionX = hero.getBoundingClientRect().x;
-    heroPositionY = hero.getBoundingClientRect().y;
-    console.log("===== Hero VIEWPORT Position ======")
-    console.log("X: " + heroPositionX + " Y: " + heroPositionY);
-
 
     // console.log("============ PNJ MANAGEMENT =============")
 
@@ -789,7 +705,7 @@ function moveHeroMap03(event) {
 
     hero.style.gridColumn = colonne;
     hero.style.gridRow = ligne;
-    console.log("MAP 3 EST DECLENCHÉ")
+    console.log("IT IS MAP 3")
 }
 
 
@@ -799,18 +715,6 @@ function moveHeroMap04(event) {
     changeMap();
 
     let touche = event.key;
-
-
-    // Position du héro via Grid :string
-    heroPosition = GetGridPositionHero(hero);
-    console.log("===== Hero Grid Row-Col Position string ======")
-    console.log(heroPosition);
-    // Position du héro selon le viewport :float
-    heroPositionX = hero.getBoundingClientRect().x;
-    heroPositionY = hero.getBoundingClientRect().y;
-    console.log("===== Hero VIEWPORT Position ======")
-    console.log("X: " + heroPositionX + " Y: " + heroPositionY);
-
 
     // console.log("============ PNJ MANAGEMENT =============")
 
@@ -876,13 +780,11 @@ function moveHeroMap04(event) {
 
     hero.style.gridColumn = colonne;
     hero.style.gridRow = ligne;
-    console.log("MAP 4 EST DECLENCHÉ")
+    console.log("IT IS MAP 4")
 }
 
-GetGridPositionHero(hero)
 
 // L'évènement sur le document
-
 window.addEventListener("load", LoadGame);
 
 
