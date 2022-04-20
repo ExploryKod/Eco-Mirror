@@ -23,7 +23,6 @@ heroImage.src = heroImageURL.fromSky;
 
 // URL of images 
 let mapShipURL = 'ressources/maps/map_1_ship.png';
-let mapSeaURL = 'ressources/maps/map_2bis_sea.png';
 let mapCrashURL = 'ressources/maps/map_2_crash.png';
 let mapBeforeCampURL = 'ressources/maps/map_3bis_before_camp.png';
 let mapCampURL = 'ressources/maps/map_4_camp.png';
@@ -31,24 +30,32 @@ let mapBeforeFinalURL = 'ressources/maps/map_3_before_final.png';
 let mapFinalURL = 'ressources/maps/map_final.png';
 let endGameURL = 'ressources/maps/EarthPhoto.jpeg';
 
+let mapSeaURL = 'ressources/maps/map_2bis_sea.png';
 
+// Entry points from html elements
+let mapShipEntry = document.querySelector("#enter-map-ship");
+let mapCrashEntry = document.querySelector("#enter-map-crash");
+let mapBeforeCampEntry = document.querySelector("#enter-map-before-camp");
+let mapCampEntry = document.querySelector("#enter-map-camp");
+let mapBeforeFinalEntry = document.querySelector("#enter-map-before-final");
+let mapFinalEntry = document.querySelector("#enter-map-final");
+let mapFromCampEntry = document.querySelector("#enter-map-from-camp");
 
-// Entry points html elements
-let mapOneEntry = document.querySelector("#enter-map-1");
-let mapTwoEntry = document.querySelector("#enter-map-2");
-let mapThreeEntry = document.querySelector("#enter-map-3");
-let mapFourEntry = document.querySelector("#enter-map-4");
+// Exit points from html elements
+let mapShipExit = document.querySelector("#exit-map-ship");
+let mapCrashExit = document.querySelector("#exit-map-crash");
+let mapCrashToCampExit = document.querySelector("#exit-map-to-camp");
+let mapBeforeCampExit = document.querySelector("#exit-map-before-camp");
+let mapCampExit = document.querySelector("#exit-map-camp");
+let mapBeforeFinalExit = document.querySelector("#exit-map-before-final");
+let mapFinalExit = document.querySelector("#exit-map-final");
 
-// Exit points html elements
-let mapOneExit = document.querySelector("#exit-map-1");
-let mapTwoExit = document.querySelector("#exit-map-2");
-let mapThreeExit = document.querySelector("#exit-map-3");
-let mapFourExit = document.querySelector("#exit-map-4");
-
+// PNJ positions
 let pnj01 = document.querySelector("#pnj-1");
 let pnj02 = document.querySelector("#pnj-2");
 let pnj03 = document.querySelector("#pnj-3");
 
+// Objects positions
 let object01 = document.querySelector("#object-1");
 let object02 = document.querySelector("#object-2");
 let object03 = document.querySelector("#object-3");
@@ -58,31 +65,22 @@ let colonne = 1;
 
 function LoadGame() {
 
-    // On pourra choisir de charger d'abord une carte global ici
-    console.log("=== OPERATIONS DE CHARGEMENT =======")
+    mapImage.src = mapShipURL;
+    mapShipEntry.style.display = "grid";
+    mapShipExit.style.display = "grid";
+    ligne = 1;
+    colonne = 1;
+   
+    hero.style.gridRow = 9;
+    hero.style.gridColumn = 1;
+    setObjectPosition("1");
+    setPnjPosition("1");
 
-    // Afficher MAP comme carte de jeu
-    map.style.display = "grid";
-    mapDisplayInfo = getComputedStyle(map).display;
-    console.log("Map1 display est ok: " + mapDisplayInfo);
-
-    // Si map One est bien chargé on positionne le héro à l'emplacement de l'entrée
-    if (mapDisplayInfo === "grid") {
-        mapImage.src = mapFinalURL;
-        mapOneEntry.style.display = "grid";
-        // Exit : On pourra l'afficher que s'il trouve un objet : 
-        mapOneExit.style.display = "grid";
-        ligne = 1;
-        colonne = 1;
-        console.log("la map est chargée!");
-        hero.style.gridRow = 9;
-        hero.style.gridColumn = 1;
-        setObjectPosition("1");
-        setPnjPosition("1");
-        document.addEventListener('keyup', moveHeroMap01);
+    console.log("la map est chargée!");
+    document.addEventListener('keyup', moveHeroMap01);
 
     }
-}
+
 
 function GetGridPositionHero(hero) {
 
@@ -94,32 +92,47 @@ function GetGridPositionHero(hero) {
     return heroGridPosition;
 }
 
-function GetEntryGridPosition(StrNumber) {
+function GetEntryGridPosition(mapName) {
 
-    switch (StrNumber) {
-        case "1":
-            var EntryRow = getComputedStyle(mapOneEntry).gridRow;
-            var EntryCol = getComputedStyle(mapOneEntry).gridColumn;
+    switch (mapName) {
+        case "ship":
+            var EntryRow = getComputedStyle(mapShipEntry).gridRow;
+            var EntryCol = getComputedStyle(mapShipEntry).gridColumn;
             break;
 
-        case "2":
-            var EntryRow = getComputedStyle(mapTwoEntry).gridRow;
-            var EntryCol = getComputedStyle(mapTwoEntry).gridColumn;
+        case "crash":
+            var EntryRow = getComputedStyle(mapCrashEntry).gridRow;
+            var EntryCol = getComputedStyle(mapCrashEntry).gridColumn;
             break;
 
-        case "3":
-            var EntryRow = getComputedStyle(mapThreeEntry).gridRow;
-            var EntryCol = getComputedStyle(mapThreeEntry).gridColumn;
+        case "beforeFinal":
+            var EntryRow = getComputedStyle(mapBeforeFinalEntry).gridRow;
+            var EntryCol = getComputedStyle(mapBeforeFinalEntry).gridColumn;
             break;
 
-        case "4":
-            var EntryRow = getComputedStyle(mapFourEntry).gridRow;
-            var EntryCol = getComputedStyle(mapFourEntry).gridColumn;
+        case "beforeCamp":
+            var EntryRow = getComputedStyle(mapBeforeCampEntry).gridRow;
+            var EntryCol = getComputedStyle(mapBeforeCampEntry).gridColumn;
+            break;
+
+        case "fromCamp":
+            var EntryRow = getComputedStyle(mapFromCampEntry).gridRow;
+            var EntryCol = getComputedStyle(mapFromCampEntry).gridColumn;
+            break;
+        
+        case "camp":
+            var EntryRow = getComputedStyle(mapCampEntry).gridRow;
+            var EntryCol = getComputedStyle(mapCampEntry).gridColumn;
+            break;
+
+        case "final":
+            var EntryRow = getComputedStyle(mapFinalEntry).gridRow;
+            var EntryCol = getComputedStyle(mapFinalEntry).gridColumn;
             break;
 
         default:
-            var EntryRow = getComputedStyle(mapOneEntry).gridRow;
-            var EntryCol = getComputedStyle(mapOneEntry).gridColumn;
+            var EntryRow = getComputedStyle(mapCrashEntry).gridRow;
+            var EntryCol = getComputedStyle(mapCrashEntry).gridColumn;
             break;
     }
 
@@ -130,32 +143,47 @@ function GetEntryGridPosition(StrNumber) {
 }
 
 
-function GetExitGridPosition(numberStr) {
+function GetExitGridPosition(mapName) {
 
-    switch (numberStr) {
-        case "1":
-            var ExitRow = getComputedStyle(mapOneExit).gridRow;
-            var ExitCol = getComputedStyle(mapOneExit).gridColumn;
+    switch (mapName) {
+        case "ship":
+            var ExitRow = getComputedStyle(mapShipExit).gridRow;
+            var ExitCol = getComputedStyle(mapShipExit).gridColumn;
             break;
 
-        case "2":
-            var ExitRow = getComputedStyle(mapTwoExit).gridRow;
-            var ExitCol = getComputedStyle(mapTwoExit).gridColumn;
+        case "crash":
+            var ExitRow = getComputedStyle(mapCrashExit).gridRow;
+            var ExitCol = getComputedStyle(mapCrashExit).gridColumn;
             break;
 
-        case "3":
-            var ExitRow = getComputedStyle(mapThreeExit).gridRow;
-            var ExitCol = getComputedStyle(mapThreeExit).gridColumn;
+        case "toCamp":
+            var ExitRow = getComputedStyle(mapCrashToCampExit).gridRow;
+            var ExitCol = getComputedStyle(mapCrashToCampExit).gridColumn;
             break;
 
-        case "4":
-            var ExitRow = getComputedStyle(mapFourExit).gridRow;
-            var ExitCol = getComputedStyle(mapFourExit).gridColumn;
+        case "beforeFinal":
+            var ExitRow = getComputedStyle(mapBeforeFinalExit).gridRow;
+            var ExitCol = getComputedStyle(mapBeforeFinalExit).gridColumn;
+            break;
+
+        case "beforeCamp":
+            var ExitRow = getComputedStyle(mapBeforeCampExit).gridRow;
+            var ExitCol = getComputedStyle(mapBeforeCampExit).gridColumn;
+            break;
+        
+        case "camp":
+            var ExitRow = getComputedStyle(mapCampExit).gridRow;
+            var ExitCol = getComputedStyle(mapCampExit).gridColumn;
+            break;
+
+        case "final":
+            var ExitRow = getComputedStyle(mapFinalExit).gridRow;
+            var ExitCol = getComputedStyle(mapFinalExit).gridColumn;
             break;
 
         default:
-            var ExitRow = getComputedStyle(mapOneExit).gridRow;
-            var ExitCol = getComputedStyle(mapOneExit).gridColumn;
+            var ExitRow = getComputedStyle(mapCrashExit).gridRow;
+            var ExitCol = getComputedStyle(mapCrashExit).gridColumn;
             break;
     }
 
