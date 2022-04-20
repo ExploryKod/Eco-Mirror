@@ -1,14 +1,14 @@
 
 // Fixer les entrées par map et non en dehors.
 
-let hero = document.querySelector(".hero");
-let heroImage = document.querySelector(".hero img");
+let map = document.querySelector(".maps");
 let mapImage = document.querySelector("#image-map");
+
 let dialogueContainer = document.querySelector("#dialogue-container");
 console.log("URL de la map est: " + mapImage.src)
-// Access to the map grid
-let map = document.querySelector(".maps");
 
+let hero = document.querySelector(".hero");
+let heroImage = document.querySelector(".hero img");
 
 // URL of the hero different position when moving
 heroImageURL = {
@@ -65,19 +65,19 @@ let colonne = 1;
 
 function LoadGame() {
 
+    map.style.display = "grid";
     mapImage.src = mapShipURL;
     mapShipEntry.style.display = "grid";
     mapShipExit.style.display = "grid";
-    ligne = 1;
-    colonne = 1;
+    ligne = 10;
+    colonne = 8;
    
-    hero.style.gridRow = 9;
-    hero.style.gridColumn = 1;
-    setObjectPosition("1");
-    setPnjPosition("1");
+    hero.style.gridRow = 10;
+    hero.style.gridColumn = 8;
 
     console.log("la map est chargée!");
-    document.addEventListener('keyup', moveHeroMap01);
+    console.log("url de la map chargée:"+mapImage.src)
+    document.addEventListener('keyup', moveHeroMapShip);
 
     }
 
@@ -231,6 +231,15 @@ function setObjectPosition(mapNumber) {
             obstacle03.style.gridRow = 8;
             obstacle03.style.gridColumn = 8;
             break;
+        
+        case "5":
+            obstacle01.style.gridRow = 1;
+            obstacle01.style.gridColumn = 1;
+            obstacle02.style.gridRow = 3;
+            obstacle02.style.gridColumn = 3;
+            obstacle03.style.gridRow = 8;
+            obstacle03.style.gridColumn = 8;
+            break;
 
         default:
             object01.style.display = "none";
@@ -287,6 +296,17 @@ function setPnjPosition(mapNumber) {
             pnjPositionMap = [pnj01, pnj02, pnj03];
             return pnjPositionMap;
             break;
+        
+        case "5":
+            pnj01.style.gridRow = 1;
+            pnj01.style.gridColumn = 1;
+            pnj02.style.gridRow = 3;
+            pnj02.style.gridColumn = 3;
+            pnj03.style.gridRow = 8;
+            pnj03.style.gridColumn = 8;
+            pnjPositionMap = [pnj01, pnj02, pnj03];
+            return pnjPositionMap;
+            break;
 
         default:
             pnj01.style.display = "none";
@@ -299,119 +319,188 @@ function setPnjPosition(mapNumber) {
 function changeMap() {
 
     heroPosition = GetGridPositionHero(hero);
-    heroPositionX = hero.getBoundingClientRect().x;
-    heroPositionY = hero.getBoundingClientRect().y;
+    
+    if (heroPosition === GetExitGridPosition("ship")) {
+        console.log("ICI LA SORTIE de map ship");
+        
+        ligne = 8;
+        colonne = 8;
+        hero.style.gridRow = 8;
+        hero.style.gridColumn = 8;
 
-    // Position grid de l'exit de la map 1 sous forme de string.
-    mapOneExitPosition = GetExitGridPosition("1");
+        mapImage.src = mapCrashURL;
 
-    // Position grid de l'exit de la map 2 :string
-    mapTwoExitPosition = GetExitGridPosition("2");
+        mapShipExit.style.display = "none";
+        mapShipEntry.style.display = "none";
+        mapCrashExit.style.display = "grid";
+        mapCrashEntry.style.display = "grid";
 
-    // Position grid de l'exit de la map 2 :string
-    mapThreeExitPosition = GetExitGridPosition("3");
-
-    // Position grid de l'exit de la map 2 :string
-    mapFourExitPosition = GetExitGridPosition("4");
-
-    // Once I am on the exit point, it happens:
-
-    if (heroPosition === mapOneExitPosition) {
-        console.log("ICI LA SORTIE de map 1");
-        alert("ici la sortie de map 1");
-        // Ici laisser ligne = 3 car sinon le hero repart de ligne = 1 qui se confond avec Gridrow=1
-        ligne = 2;
-        colonne = 1;
-        hero.style.gridRow = 2;
-        hero.style.gridColumn = 1;
-        mapImage.src = mapTwoURL;
-        mapOneExit.style.display = "none";
-        mapOneEntry.style.display = "none";
-        mapTwoExit.style.display = "grid";
-        mapTwoEntry.style.display = "grid";
         setObjectPosition("2");
         setPnjPosition("2");
-        document.removeEventListener('keyup', moveHeroMap01, false);
-        document.removeEventListener('keyup', moveHeroMap01, true);
-        document.addEventListener('keyup', moveHeroMap02);
+
+        document.removeEventListener('keyup', moveHeroMapShip, false);
+        document.removeEventListener('keyup', moveHeroMapShip, true);
+        document.addEventListener('keyup', moveHeroMapCrash);
 
 
 
-    } else if (heroPosition === mapTwoExitPosition) {
-        console.log("ICI LA SORTIE de map 2");
-        alert("ici la sortie de map 2");
-        // Ici laisser ligne = 19 car sinon le hero repart de ligne = 1 qui se confond avec Gridrow=1
-        ligne = 13;
+    } else if (heroPosition === GetExitGridPosition("crash")) {
+        console.log("ICI LA SORTIE de map crash");
+        
+        ligne = 9;
         colonne = 1;
-        hero.style.gridRow = 13;
+        hero.style.gridRow = 9;
         hero.style.gridColumn = 1;
-        mapImage.src = mapThreeURL;
-        mapTwoExit.style.display = "none";
-        mapTwoEntry.style.display = "none";
-        mapThreeExit.style.display = "grid";
-        mapThreeEntry.style.display = "grid";
-        setObjectPosition("3");
-        setPnjPosition("3");
-        document.removeEventListener('keyup', moveHeroMap02, false);
-        document.removeEventListener('keyup', moveHeroMap02, true);
-        document.addEventListener('keyup', moveHeroMap03);
+        mapImage.src = mapBeforeFinalURL;
+
+        mapCrashExit.style.display = "none";
+        mapCrashEntry.style.display = "none";
+        mapBeforeFinalExit.style.display = "grid";
+        mapBeforeFinalEntry.style.display = "grid";
+       
+        document.removeEventListener('keyup', moveHeroMapCrash, false);
+        document.removeEventListener('keyup', moveHeroMapCrash, true);
+        document.addEventListener('keyup', moveHeroMapBeforeFinal);
 
 
-    } else if (heroPosition === mapThreeExitPosition) {
-        console.log("ICI LA SORTIE de map 3");
-        alert("ici la sortie de map 3");
-        // Ici laisser ligne = X car sinon le hero repart de ligne = 1 qui se confond avec Gridrow=1
+    } else if (heroPosition === GetExitGridPosition("toCamp")) {
+        console.log("ICI LA SORTIE de map crash");
+       
         ligne = 1;
         colonne = 8;
         hero.style.gridRow = 1;
         hero.style.gridColumn = 8;
-        mapImage.src = mapFourURL;
-        mapThreeExit.style.display = "none";
-        mapThreeEntry.style.display = "none";
-        mapFourExit.style.display = "grid";
-        mapFourEntry.style.display = "grid";
-        setObjectPosition("4");
-        setPnjPosition("4");
-        document.removeEventListener('keyup', moveHeroMap03, false);
-        document.removeEventListener('keyup', moveHeroMap03, true);
-        document.addEventListener('keyup', moveHeroMap04);
+
+        mapImage.src = mapBeforeCampURL;
+        mapBeforeFinalExit.style.display = "none";
+        mapBeforeFinalEntry.style.display = "none";
+        mapFinalExit.style.display = "grid";
+        mapFinalEntry.style.display = "grid";
+
+        document.removeEventListener('keyup', moveHeroMapCrash, false);
+        document.removeEventListener('keyup', moveHeroMapCrash, true);
+        document.addEventListener('keyup', moveHeroMapBeforeCamp);
 
 
-    } else if (heroPosition === mapFourExitPosition) {
+    } else if (heroPosition === GetExitGridPosition("beforeCamp")) {
+        console.log("ICI LA SORTIE de map before camp");
+      
+        ligne = 1;
+        colonne = 9;
+        hero.style.gridRow = 1;
+        hero.style.gridColumn = 9;
+
+        mapImage.src = mapCampURL;
+        mapCrashExit.style.display = "none";
+        mapCrashEntry.style.display = "none";
+        mapCrashToCampExit.style.display = "grid";
+        mapCrashToCampEntry.style.display = "grid";
+
+        document.removeEventListener('keyup', moveHeroMapBeforeCamp, false);
+        document.removeEventListener('keyup', moveHeroMapBeforeCamp, true);
+        document.addEventListener('keyup', moveHeroMapCamp);
+
+    } else if (heroPosition === GetExitGridPosition("camp")) {
+        console.log("ICI LA SORTIE de map camp");
+       
+        ligne = 1;
+        colonne = 8;
+        hero.style.gridRow = 1;
+        hero.style.gridColumn = 8;
+        mapImage.src = mapBeforeCampURL;
+
+        mapCrashToCampExit.style.display = "none";
+        mapCrashToCampEntry.style.display = "none";
+        mapCampExit.style.display = "grid";
+        mapCampEntry.style.display = "grid";
+        
+        document.removeEventListener('keyup', moveHeroMapCamp, false);
+        document.removeEventListener('keyup', moveHeroMapCamp, true);
+        document.addEventListener('keyup', moveHeroMapBeforeCamp);
+
+    } else if (heroPosition === GetExitGridPosition("toCrash")) {
+        console.log("ICI LA SORTIE de map before camp");
+
+        ligne = 15;
+        colonne = 11;
+        hero.style.gridRow = 15;
+        hero.style.gridColumn = 11;
+
+        mapImage.src = mapCrashURL;
+        mapCrashExit.style.display = "none";
+        mapCrashEntry.style.display = "none";
+        mapCrashToCampExit.style.display = "grid";
+        mapCrashToCampEntry.style.display = "grid";
+
+        document.removeEventListener('keyup', moveHeroMapBeforeCamp, false);
+        document.removeEventListener('keyup', moveHeroMapBeforeCamp, true);
+        document.addEventListener('keyup', moveHeroMapCrash);
+
+    } else if (heroPosition === GetExitGridPosition("beforeFinal")) {
+        console.log("ICI LA SORTIE de map beforeFinal");
+
+        ligne = 1;
+        colonne = 8;
+        hero.style.gridRow = 1;
+        hero.style.gridColumn = 8;
+        mapImage.src = mapFinalURL;
+
+        mapCrashToCampExit.style.display = "none";
+        mapCrashToCampEntry.style.display = "none";
+        mapCampExit.style.display = "grid";
+        mapCampEntry.style.display = "grid";
+        
+        document.removeEventListener('keyup', moveHeroMapBeforeFinal, false);
+        document.removeEventListener('keyup', moveHeroMapBeforeFinal, true);
+        document.addEventListener('keyup', moveHeroMapFinal);
+    
+    
+    } else if (heroPosition === GetExitGridPosition("final")) {
         alert("fin du jeu");
         mapFourExit.style.display = "none";
         mapFourEntry.style.display = "none";
         hero.style.display = "none";
-        setObjectPosition("8");
-        setPnjPosition("7");
+    
         mapImage.src = endGameURL;
 
     }
 
     // Once I enter the new map : 
 
-    if (heroPosition === GetEntryGridPosition("1")) {
+    if (heroPosition === GetEntryGridPosition("crash")) {
 
-        hero.style.gridColumn = 1;
-        hero.style.gridRow = 9;
+        hero.style.gridColumn = 8;
+        hero.style.gridRow = 8;
+        colonne = 8;
+        ligne = 8;
+
+    } else if (heroPosition === GetEntryGridPosition("beforeFinal")) {
+
         colonne = 1;
         ligne = 9;
-
-    } else if (heroPosition === GetEntryGridPosition("2")) {
-
-        colonne = 1;
-        ligne = 2;
         hero.style.gridColumn = 1;
-        hero.style.gridRow = 2;
-        console.log("We now are on map 2 entry");
+        hero.style.gridRow = 9;
+        
 
-    } else if (heroPosition === GetEntryGridPosition("3")) {
+    } else if (heroPosition === GetEntryGridPosition("final")) {
+        colonne = 8;
+        ligne = 1;
+        hero.style.gridColumn = 8;
+        hero.style.gridRow = 1;
+
+    } else if (heroPosition === GetEntryGridPosition("beforeCamp")) {
+        colonne = 8;
+        ligne = 1;
+        hero.style.gridColumn = 8;
+        hero.style.gridRow = 1;
+
+    } else if (heroPosition === GetEntryGridPosition("camp")) {
         colonne = 1;
-        ligne = 13;
-        hero.style.gridColumn = 1;
-        hero.style.gridRow = 13;
+        ligne = 9;
+        hero.style.gridColumn = 8;
+        hero.style.gridRow = 1;
 
-    } else if (heroPosition === GetEntryGridPosition("4")) {
+    } else if (heroPosition === GetEntryGridPosition("fromCamp")) {
         colonne = 8;
         ligne = 1;
         hero.style.gridColumn = 8;
@@ -426,7 +515,145 @@ function changeMap() {
 
 // Fonctions principales de mouvement
 
-function moveHeroMap01(event) {
+
+function moveHeroMapShip(event) {
+
+    // Enter/Exit from map to map :
+    changeMap();
+
+    let touche = event.key;
+
+    // console.log("============ PNJ MANAGEMENT =============")
+
+
+    console.log("===== HERO MOVEMENTS =======")
+    console.log("--- touche pressée: ---------")
+    console.log(touche)
+    console.log("==== MAP URL =======")
+    console.log(mapImage.src)
+
+    obstacle = ["",""];
+    pnjMeetArray = ["",""];
+    // fleche haut
+    if (touche == "ArrowUp") {
+        if (ligne > 1) {
+
+            if ((!obstacle.includes(`r${ligne - 1}c${colonne}`))) {
+                ligne--;
+                console.log(ligne.toString())
+                heroImage.src = heroImageURL.up;
+
+                if (pnjMeetArray.includes(`r${ligne}c${colonne}`)) {
+                    dialogueContainer.style.display = "block";
+                    mapImage.style.opacity = 0.2;
+                    pnj01.style.opacity = 0.2;
+                    pnj02.style.opacity = 0.2;
+                    pnj03.style.opacity = 0.2;
+                    object01.style.opacity = 0.2;
+                    object02.style.opacity = 0.2;
+                    object03.style.opacity = 0.2;
+
+                    if (dialogueContainer.style.display == "block") {
+                        ligne++;
+                    }
+                }
+
+            }
+        }
+
+    }
+
+    // fleche bas
+    else if (touche == "ArrowDown") {
+        if (ligne < 15) {
+
+            if ((!obstacle.includes(`r${ligne + 1}c${colonne}`))) {
+                ligne++;
+                console.log(ligne.toString())
+                heroImage.src = heroImageURL.down;
+
+                if (pnjMeetArray.includes(`r${ligne}c${colonne}`)) {
+                    dialogueContainer.style.display = "block";
+                    mapImage.style.opacity = 0.2;
+                    pnj01.style.opacity = 0.2;
+                    pnj02.style.opacity = 0.2;
+                    pnj03.style.opacity = 0.2;
+                    object01.style.opacity = 0.2;
+                    object02.style.opacity = 0.2;
+                    object03.style.opacity = 0.2;
+
+                    if (dialogueContainer.style.display == "block") {
+                        ligne--;
+                    }
+                }
+            }
+        }
+    }
+
+    // fleche gauche
+    else if (touche == "ArrowLeft") {
+        if (colonne > 1) {
+
+            if ((!obstacle.includes(`r${ligne}c${colonne - 1}`))) {
+                colonne--;
+                console.log(ligne.toString())
+                heroImage.src = heroImageURL.left;
+
+                if (pnjMeetArray.includes(`r${ligne}c${colonne}`)) {
+                    dialogueContainer.style.display = "block";
+                    mapImage.style.opacity = 0.2;
+                    pnj01.style.opacity = 0.2;
+                    pnj02.style.opacity = 0.2;
+                    pnj03.style.opacity = 0.2;
+                    object01.style.opacity = 0.2;
+                    object02.style.opacity = 0.2;
+                    object03.style.opacity = 0.2;
+
+                    if (dialogueContainer.style.display == "block") {
+                        colonne++;
+                    }
+                }
+            }
+        }
+    }
+
+    // fleche droite
+    else if (touche == "ArrowRight") {
+        if (colonne < 15) {
+
+            if ((!obstacle.includes(`r${ligne}c${colonne + 1}`))) {
+                colonne++;
+                console.log(ligne.toString())
+                heroImage.src = heroImageURL.right;
+
+                if (pnjMeetArray.includes(`r${ligne}c${colonne}`)) {
+                    dialogueContainer.style.display = "block";
+                    mapImage.style.opacity = 0.2;
+                    pnj01.style.opacity = 0.2;
+                    pnj02.style.opacity = 0.2;
+                    pnj03.style.opacity = 0.2;
+                    object01.style.opacity = 0.2;
+                    object02.style.opacity = 0.2;
+                    object03.style.opacity = 0.2;
+
+                    if (dialogueContainer.style.display == "block") {
+                        colonne--;
+                    }
+                }
+            }
+        }
+
+    }
+
+    hero.style.gridColumn = colonne;
+    hero.style.gridRow = ligne;
+    console.log("You are on the ship")
+
+}
+
+
+
+function moveHeroMapCrash(event) {
 
     // Enter/Exit from map to map :
     changeMap();
@@ -580,11 +807,11 @@ function moveHeroMap01(event) {
 
     hero.style.gridColumn = colonne;
     hero.style.gridRow = ligne;
-    console.log("IT IS MAP ONE")
+    console.log("You are on the crash map")
 
 }
 
-function moveHeroMap02(event) {
+function moveHeroMapBeforeCamp(event) {
 
     // Enter/Exit from map to map :
     changeMap();
@@ -656,12 +883,162 @@ function moveHeroMap02(event) {
 
     hero.style.gridColumn = colonne;
     hero.style.gridRow = ligne;
-    console.log("IT IS MAP TWO")
+    console.log("You are on the map that is before the camp")
 }
 
-// ================== MOVEMENTS FOR THE THIRD MAP 
 
-function moveHeroMap03(event) {
+function moveHeroMapCamp(event) {
+
+    // Enter/Exit from map to map :
+    changeMap();
+
+    let touche = event.key;
+
+    // console.log("============ PNJ MANAGEMENT =============")
+
+
+    console.log("===== HERO MOVEMENTS =======")
+    console.log("--- touche pressée: ---------")
+    console.log(touche)
+    console.log("==== MAP URL =======")
+    console.log(mapImage.src)
+
+
+    obstacle = ["r3c4"];
+
+    // fleche haut
+    if (touche == "ArrowUp") {
+        if (ligne > 1) {
+
+            if ((!obstacle.includes(`r${ligne - 1}c${colonne}`))) {
+                ligne--;
+                console.log(ligne.toString())
+                heroImage.src = heroImageURL.up;
+            }
+        }
+
+    }
+
+    // fleche bas
+    else if (touche == "ArrowDown") {
+        if (ligne < 15) {
+
+            if ((!obstacle.includes(`r${ligne + 1}c${colonne}`))) {
+                ligne++;
+                console.log(ligne.toString())
+                heroImage.src = heroImageURL.down;
+            }
+
+        }
+    }
+
+    // fleche gauche
+    else if (touche == "ArrowLeft") {
+        if (colonne > 1) {
+
+            if ((!obstacle.includes(`r${ligne}c${colonne - 1}`))) {
+                colonne--;
+                console.log(ligne.toString())
+                heroImage.src = heroImageURL.left;
+            }
+        }
+    }
+
+    // fleche droite
+    else if (touche == "ArrowRight") {
+        if (colonne < 15) {
+
+            if ((!obstacle.includes(`r${ligne}c${colonne + 1}`))) {
+                colonne++;
+                console.log(ligne.toString())
+                heroImage.src = heroImageURL.right;
+            }
+        }
+
+    }
+
+    hero.style.gridColumn = colonne;
+    hero.style.gridRow = ligne;
+    console.log("Be careful, you are in \"transhuman\" camp, could be dangerous...")
+}
+
+
+function moveHeroMapBeforeFinal(event) {
+
+    // Enter/Exit from map to map :
+    changeMap();
+
+    let touche = event.key;
+
+    // console.log("============ PNJ MANAGEMENT =============")
+
+
+    console.log("===== HERO MOVEMENTS =======")
+    console.log("--- touche pressée: ---------")
+    console.log(touche)
+    console.log("==== MAP URL =======")
+    console.log(mapImage.src)
+
+    obstacle = ["r4c4"];
+
+    // fleche haut
+    if (touche == "ArrowUp") {
+        if (ligne > 1) {
+
+            if ((!obstacle.includes(`r${ligne - 1}c${colonne}`))) {
+                ligne--;
+                console.log(ligne.toString())
+                heroImage.src = heroImageURL.up;
+            }
+        }
+
+    }
+
+    // fleche bas
+    else if (touche == "ArrowDown") {
+        if (ligne < 15) {
+
+            if ((!obstacle.includes(`r${ligne + 1}c${colonne}`))) {
+                ligne++;
+                console.log(ligne.toString())
+                heroImage.src = heroImageURL.down;
+            }
+
+        }
+    }
+
+    // fleche gauche
+    else if (touche == "ArrowLeft") {
+        if (colonne > 1) {
+
+            if ((!obstacle.includes(`r${ligne}c${colonne - 1}`))) {
+                colonne--;
+                console.log(ligne.toString())
+                heroImage.src = heroImageURL.left;
+            }
+        }
+    }
+
+    // fleche droite
+    else if (touche == "ArrowRight") {
+        if (colonne < 15) {
+
+            if ((!obstacle.includes(`r${ligne}c${colonne + 1}`))) {
+                colonne++;
+                console.log(ligne.toString())
+                heroImage.src = heroImageURL.right;
+            }
+        }
+
+    }
+
+    hero.style.gridColumn = colonne;
+    hero.style.gridRow = ligne;
+    console.log("IT IS MAP 4")
+}
+
+
+function moveHeroMapFinal(event) {
 
     // Enter/Exit from map to map :
     changeMap();
@@ -737,79 +1114,8 @@ function moveHeroMap03(event) {
 }
 
 
-function moveHeroMap04(event) {
-
-    // Enter/Exit from map to map :
-    changeMap();
-
-    let touche = event.key;
-
-    // console.log("============ PNJ MANAGEMENT =============")
 
 
-    console.log("===== HERO MOVEMENTS =======")
-    console.log("--- touche pressée: ---------")
-    console.log(touche)
-    console.log("==== MAP URL =======")
-    console.log(mapImage.src)
-
-    obstacle = ["r4c4"];
-
-    // fleche haut
-    if (touche == "ArrowUp") {
-        if (ligne > 1) {
-
-            if ((!obstacle.includes(`r${ligne - 1}c${colonne}`))) {
-                ligne--;
-                console.log(ligne.toString())
-                heroImage.src = heroImageURL.up;
-            }
-        }
-
-    }
-
-    // fleche bas
-    else if (touche == "ArrowDown") {
-        if (ligne < 15) {
-
-            if ((!obstacle.includes(`r${ligne + 1}c${colonne}`))) {
-                ligne++;
-                console.log(ligne.toString())
-                heroImage.src = heroImageURL.down;
-            }
-
-        }
-    }
-
-    // fleche gauche
-    else if (touche == "ArrowLeft") {
-        if (colonne > 1) {
-
-            if ((!obstacle.includes(`r${ligne}c${colonne - 1}`))) {
-                colonne--;
-                console.log(ligne.toString())
-                heroImage.src = heroImageURL.left;
-            }
-        }
-    }
-
-    // fleche droite
-    else if (touche == "ArrowRight") {
-        if (colonne < 15) {
-
-            if ((!obstacle.includes(`r${ligne}c${colonne + 1}`))) {
-                colonne++;
-                console.log(ligne.toString())
-                heroImage.src = heroImageURL.right;
-            }
-        }
-
-    }
-
-    hero.style.gridColumn = colonne;
-    hero.style.gridRow = ligne;
-    console.log("IT IS MAP 4")
-}
 
 
 // L'évènement sur le document

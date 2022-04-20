@@ -10,7 +10,7 @@
     display: none;
     grid-template-columns: repeat(15, 1fr);
     grid-template-rows: repeat(15, 1fr);
-    border: 5px solid rgb(132, 123, 255, 40%);
+    border: none;
     position: sticky;
     image-rendering: pixelated;
     /* transform: scale(1); */
@@ -28,35 +28,48 @@
 
 /* ENTRY AND EXIT */
 
+/* Entries */
+
 .entry {
     background-color: red;
     opacity: 0.5;
 }
 
-#enter-map-1 {
-    grid-column: 1;
+#enter-map-ship {
+    grid-column: 15;
     grid-row: 9;
     display:none;
 }
 
-#enter-map-2 {
-    grid-column: 1;
-    grid-row: 2;
+#enter-map-crash {
+    grid-column: 8;
+    grid-row: 8;
     display:none;
 }
 
-#enter-map-3 {
+#enter-map-before-final {
     grid-column: 1;
-    grid-row: 13;
+    grid-row: 9;
     display:none;
 }
+/* col : 7 et 8 */
+#enter-map-before-camp {
+    grid-column: 8;
+    grid-row: 1;
+    display: none;
+}
+/* 9 ou 10 row  - exit / enter close*/
+#enter-map-camp {
+    grid-column: 1;
+    grid-row: 9;
+    display: none;
+}
 
-#enter-map-4 {
+#enter-map-final {
     grid-column: 8;
     grid-row: 1;
     display:none;
 }
-
 
 /* exits */
 
@@ -64,73 +77,49 @@
     background-color: green;
     opacity: 0.5;
 }
+/* Problem : la porte fait 8 et 9 col- classe pour 2? */
+#exit-map-ship {
+    grid-column: 8;
+    grid-row: 1;
+    display:none;
+}
 
-#exit-map-1 {
+/* 3 et 4 pour row - ici c vers final */
+#exit-map-crash {
     grid-column: 15;
     grid-row: 4;
     display:none;
 }
 
-#exit-map-2 {
-    grid-column: 11;
+#exit-map-to-camp {
+    grid-column: 8;
     grid-row: 15;
     display:none;
 }
 
-#exit-map-3 {
-    grid-column: 15;
-    grid-row: 10;
+#exit-map-before-final {
+    grid-column: 10;
+    grid-row: 15;
     display:none;
 }
 
-#exit-map-4 {
+/* 9 et 10 row */
+#exit-map-before-camp {
     grid-column: 15;
     grid-row: 9;
-    display:none;
+    display: none;
 }
 
-
-/* OBSTACLES */
-
-#obstacle-1 {
-    background: blue;
-    grid-row: 0;
-    grid-column:0;
-
+#exit-map-camp {
+    grid-column: 1;
+    grid-row: 10;
+    display: none;
 }
 
-#obstacle-2 {
-    background: green;
-    grid-row: 0;
-    grid-column: 0;
-
-}
-
-#obstacle-3 {
-    background: yellow;
-    grid-row: 0;
-    grid-column: 0;
-}
-
-#obstacle-4 {
-    background: purple;
-    grid-row: 0;
-    grid-column: 0;
-
-}
-
-#obstacle-5 {
-    background: pink;
-    grid-row: 0;
-    grid-column: 0;
-
-}
-
-#obstacle-6 {
-    background: chocolate;
-    grid-row: 0;
-    grid-column: 0;
-
+#exit-map-final {
+    grid-column: 15;
+    grid-row: 9;
+    display: none;
 }
 
 /* Objets */

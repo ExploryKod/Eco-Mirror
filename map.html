@@ -16,7 +16,7 @@
     <header>
         <a href="menu.html"><button class="btn-main">MENU</button></a>
         <div class="line"></div>
-        <img src="./ressources/images-menus/logo-game.png" alt="logo du jeu">
+        <img src="./ressources/images-menus/EcoMirrorLogo.png" alt="logo du jeu">
         <div class="line"></div>
         <button class="btn-main">SAVE</button>
        
@@ -32,29 +32,35 @@
                 <h2>XP de la planète</h2>
                 <ul></ul>
             </div>
-            <div>
-                <h2>Energie</h2>
-                <ul></ul>
-            </div>
-
+           
         </aside>
 
             <section class="maps">
 
-                <img src="ressources/cartes/map.png" alt="" id="image-map">
-               
-                <div id="enter-map-1" class="entry"></div>
-                <div id="exit-map-1" class="exit" ></div>
+                <img src='./ressources/maps/map_final.png' alt="la carte chargée" id="image-map">
 
-                <div id="enter-map-2" class="entry"></div>
-                <div id="exit-map-2" class="exit"></div>
+               <!-- Entries and Exits of each map -->
+                <div id="enter-map-ship" class="entry"></div>
+                <div id="exit-map-ship" class="exit" ></div>
 
-                <div id="enter-map-3" class="entry"></div>
-                <div id="exit-map-3" class="exit"></div>
+                <div id="enter-map-crash" class="entry"></div>
+                <div id="exit-map-crash" class="exit"></div>
+                <div id="exit-map-to-camp" class="exit"></div>
 
-                <div id="enter-map-4" class="entry"></div>
-                <div id="exit-map-4" class="exit"></div>
-                 
+                <div id="enter-map-before-final" class="entry"></div>
+                <div id="exit-map-before-final" class="exit"></div>
+
+                <div id="enter-map-before-camp" class="entry"></div>
+                <div id="enter-map-from-camp" class="entry"></div>
+                <div id="exit-map-before-camp" class="exit"></div>
+
+                <div id="enter-map-camp" class="entry"></div>
+                <div id="exit-map-camp" class="exit"></div>
+
+                <div id="enter-map-final" class="entry"></div>
+                <div id="exit-map-final" class="exit"></div>
+
+                 <!--Objects and pnj from each maps  -->
                 <div class="objects" id="object-1"><img class="object-image" src="ressources/objets/coeur.png" alt="coeur"></div>
                 <div class="objects" id="object-2"><img class="object-image" src="ressources/objets/coeur.png" alt="coeur"></div>
                 <div class="objects" id="object-3"><img class="object-image" src="ressources/objets/coeur.png" alt="coeur"></div>
@@ -63,10 +69,7 @@
                 <div class="pnj" id="pnj-2"><img class="pnj-image" src="ressources/personnages/male-7075543_1920.png" alt="personnage"></div>
                 <div class="pnj" id="pnj-3"><img class="pnj-image" src="ressources/personnages/transhumain.png" alt="transhumain"></div>
                 
-                <div class="pnj-before" id="before-png-1"></div>
-                <div class="pnj-before" id="before-png-2"></div>
-                <div class="pnj-before" id="before-png-3"></div>
-
+                <!-- Dialogue pop up when you meet a pnj -->
                 <section id="dialogue-container">
                     
                     <div class="open-btn">
@@ -104,22 +107,16 @@
                     <img src="./ressources/personnages/hero.png" alt="le hero" id="image-hero">
                 </section>
                  
-            </section>
-
-     
+            </section>     
 
         <aside id="right-menu">
             <div>
-                <h2>Mes objets</h2>
+                <h2>Mes objets vitaux</h2>
                 <ul></ul>
             </div>
-
             <div>
-                <h2>Mes cartes</h2>
-            </div>
-
-            <div>
-                <h2>Mes artefacts</h2>
+                <h2>Mes artefacts écolo</h2>
+                <ul></ul>
             </div>
 
         </aside>
