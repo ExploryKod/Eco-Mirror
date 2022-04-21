@@ -58,6 +58,12 @@ function answer1() {
         document.getElementById('answer2').innerText = "'OK?'" //Changer notre réponse1.2
         button1.onclick = answer1_1;
         button2.onclick = answer1_2;
+    } else {
+        document.getElementById('textguide').innerText = "'Moi le transhumain'" // Changer le texte1 du guide
+        document.getElementById('answer1').innerText = "'OK!?'" //Changer notre réponse1.1
+        document.getElementById('answer2').innerText = "'OK?'" //Changer notre réponse1.2
+        button1.onclick = answer1_1;
+        button2.onclick = answer1_2;
     }
    
 }

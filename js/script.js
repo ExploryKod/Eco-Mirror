@@ -103,7 +103,8 @@ function newMap(mapPlace) {
             
             mapImage.src = mapBeforeFinalURL;
             dialogueContainer.style.display = "none";
-        
+            shuttleImage.style.display = "none";
+
             document.removeEventListener('keyup', moveHeroMapCrash, false);
             document.removeEventListener('keyup', moveHeroMapCrash, true);
             document.addEventListener('keyup', moveHeroMapBeforeFinal);
@@ -118,7 +119,8 @@ function newMap(mapPlace) {
 
             mapImage.src = mapBeforeCampURL;
             dialogueContainer.style.display = "none";
-          
+            shuttleImage.style.display = "none";
+
             document.removeEventListener('keyup', moveHeroMapCrash, false);
             document.removeEventListener('keyup', moveHeroMapCrash, true);
             document.addEventListener('keyup', moveHeroMapBeforeCamp);
@@ -132,6 +134,7 @@ function newMap(mapPlace) {
             hero.style.gridColumn = 8;
             mapImage.src = mapFinalURL;
             dialogueContainer.style.display = "none";
+            shuttleImage.style.display = "none";
 
             document.removeEventListener('keyup', moveHeroMapBeforeFinal, false);
             document.removeEventListener('keyup', moveHeroMapBeforeFinal, true);
@@ -147,6 +150,7 @@ function newMap(mapPlace) {
 
             mapImage.src = mapCampURL;
             dialogueContainer.style.display = "none";
+            shuttleImage.style.display = "none";
             
             document.removeEventListener('keyup', moveHeroMapBeforeCamp, false);
             document.removeEventListener('keyup', moveHeroMapBeforeCamp, true);
@@ -163,6 +167,7 @@ function newMap(mapPlace) {
 
             mapImage.src = mapBeforeCampURL;
             dialogueContainer.style.display = "none";
+            shuttleImage.style.display = "none";
         
             document.removeEventListener('keyup', moveHeroMapCamp, false);
             document.removeEventListener('keyup', moveHeroMapCamp, true);
@@ -177,7 +182,7 @@ function newMap(mapPlace) {
 
             mapImage.src = mapCrashURL;
             dialogueContainer.style.display = "none";
-
+            
             document.removeEventListener('keyup', moveHeroMapBeforeCamp_2, false);
             document.removeEventListener('keyup', moveHeroMapBeforeCamp_2, true);
             document.addEventListener('keyup', moveHeroMapCrash_2);
@@ -187,6 +192,8 @@ function newMap(mapPlace) {
             alert("Vous voyez le vaisseau au loin")
             mapImage.src = ShipImage; 
             dialogueContainer.style.display = "none";
+            shuttleImage.style.display = "none";
+
             document.removeEventListener('keyup', moveHeroMapFinal, false);
             document.removeEventListener('keyup', moveHeroMapFinal, true);
             document.addEventListener('keyup', moveHeroMapEnd);
@@ -200,7 +207,7 @@ function newMap(mapPlace) {
 }
 
 
-// ======= HERO MOVEMENTS 
+// ======= HERO MOVEMENTS ================
 
 function moveHeroMapShip(event) {
 
@@ -209,6 +216,7 @@ function moveHeroMapShip(event) {
 
     let touche = event.key;
     dialogueContainer.style.display = "none";
+    shuttleImage.style.display = "none";
 
     // console.log("============ PNJ MANAGEMENT =============")
    
@@ -255,21 +263,6 @@ function moveHeroMapShip(event) {
                 ligne++;
                 console.log(ligne.toString())
                 heroImage.src = heroImageURL.down;
-
-                if (pnjMeetArray.includes(`r${ligne}c${colonne}`)) {
-                    dialogueContainer.style.display = "block";
-                    mapImage.style.opacity = 0.2;
-                    pnj01.style.opacity = 0.2;
-                    pnj02.style.opacity = 0.2;
-                    pnj03.style.opacity = 0.2;
-                    object01.style.opacity = 0.2;
-                    object02.style.opacity = 0.2;
-                    object03.style.opacity = 0.2;
-
-                    if (dialogueContainer.style.display == "block") {
-                        ligne--;
-                    }
-                }
             }
         }
     }
@@ -282,21 +275,6 @@ function moveHeroMapShip(event) {
                 colonne--;
                 console.log(ligne.toString())
                 heroImage.src = heroImageURL.left;
-
-                if (pnjMeetArray.includes(`r${ligne}c${colonne}`)) {
-                    dialogueContainer.style.display = "block";
-                    mapImage.style.opacity = 0.2;
-                    pnj01.style.opacity = 0.2;
-                    pnj02.style.opacity = 0.2;
-                    pnj03.style.opacity = 0.2;
-                    object01.style.opacity = 0.2;
-                    object02.style.opacity = 0.2;
-                    object03.style.opacity = 0.2;
-
-                    if (dialogueContainer.style.display == "block") {
-                        colonne++;
-                    }
-                }
             }
         }
     }
@@ -309,21 +287,6 @@ function moveHeroMapShip(event) {
                 colonne++;
                 console.log(ligne.toString())
                 heroImage.src = heroImageURL.right;
-
-                if (pnjMeetArray.includes(`r${ligne}c${colonne}`)) {
-                    dialogueContainer.style.display = "block";
-                    mapImage.style.opacity = 0.2;
-                    pnj01.style.opacity = 0.2;
-                    pnj02.style.opacity = 0.2;
-                    pnj03.style.opacity = 0.2;
-                    object01.style.opacity = 0.2;
-                    object02.style.opacity = 0.2;
-                    object03.style.opacity = 0.2;
-
-                    if (dialogueContainer.style.display == "block") {
-                        colonne--;
-                    }
-                }
             }
         }
 
@@ -335,10 +298,12 @@ function moveHeroMapShip(event) {
 
 }
 
+
 function moveHeroMapCrash(event) {
 
     let touche = event.key;
-
+ 
+   
     if (touche == "Enter") {
         mapImage.src = mapCrashURL;
         hero.style.display = "flex";
@@ -549,7 +514,10 @@ function moveHeroMapCrash_2(event) {
     console.log(touche)
     console.log("==== MAP URL =======")
     console.log(mapImage.src)
-
+    
+    shuttleImage.style.display = "block";
+    shuttleImage.style.gridRow = "10 / span 2";
+    shuttleImage.style.gridColumn = "6 / span 2";
 
     obstaclePurpleTrees = [
         "r1c1", "r1c2", "r1c3", "r1c4", "r1c5", "r1c6", "r1c7", "r1c8", "r1c9", "r1c10", "r1c11", "r1c12", "r1c13", "r1c14", "r1c15",
@@ -716,6 +684,9 @@ function moveHeroMapBeforeCamp(event) {
     let touche = event.key;
     shuttleImage.style.display = "none";
 
+    pnj01.style.display = "none";
+    pnj02.style.display = "none";
+
     // console.log("============ PNJ MANAGEMENT =============")
 
 
@@ -805,6 +776,9 @@ function moveHeroMapBeforeCamp_2(event) {
 
     let touche = event.key;
 
+    shuttleImage.style.display = "none";
+    pnj01.style.display = "none";
+    pnj02.style.display = "none";
     // console.log("============ PNJ MANAGEMENT =============")
 
 
@@ -893,6 +867,9 @@ function moveHeroMapCamp(event) {
     // changeMap();
 
     let touche = event.key;
+    shuttleImage.style.display = "none";
+    pnj01.style.display = "none";
+    pnj02.style.display = "none";
 
     // console.log("============ PNJ MANAGEMENT =============")
 
@@ -982,6 +959,8 @@ function moveHeroMapBeforeFinal(event) {
 
     let touche = event.key;
     shuttleImage.style.display = "none";
+    pnj01.style.display = "none";
+    pnj02.style.display = "none";
 
     // console.log("============ PNJ MANAGEMENT =============")
 
@@ -1066,6 +1045,9 @@ function moveHeroMapBeforeFinal(event) {
 function moveHeroMapFinal(event) {
 
     let touche = event.key;
+    shuttleImage.style.display = "none";
+    pnj01.style.display = "none";
+    pnj02.style.display = "none";
 
     // console.log("============ PNJ MANAGEMENT =============")
 
@@ -1153,6 +1135,9 @@ function moveHeroMapFinal(event) {
 function moveHeroMapEnd(event) {
 
     let touche = event.key;
+    shuttleImage.style.display = "none";
+    pnj01.style.display = "none";
+    pnj02.style.display = "none";
 
     // console.log("============ PNJ MANAGEMENT =============")
 

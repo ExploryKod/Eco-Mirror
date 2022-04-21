@@ -3,6 +3,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     height: 120vh;
+    font-family: Helvetica,sans-serif;
 }
 
 #logo {

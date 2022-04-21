@@ -1,0 +1,101 @@
+.form-popup3 {
+    height: 100vh;
+    display: none;
+    position: fixed;
+    left: 45%;
+    top: -5%;
+    transform: translate(-45%, 5%);
+    border: 1px solid #e0e0e0;
+    z-index: 9;
+    width: 100%;
+    background: #4d6780;
+    font-family: 'Poppins', sans-serif;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+
+.button3 {
+    display: none;
+}
+
+.Pierre,
+.Feuille,
+.Ciseau {
+    height: 150px;
+    width: 150px;
+}
+
+.form-popup3 button {
+    font-size: 100px;
+    border-radius: 20px;
+    background: #4d6780;
+    box-shadow: 20px 20px 60px #41586d, -20px -20px 60px #597693;
+    border: none;
+    margin-left: 27px;
+    margin-top: 27px;
+}
+
+.form-popup3 button:hover {
+    background: #4d6780;
+    box-shadow: inset 20px 20px 60px #41586d, inset -20px -20px 60px #597693;
+}
+
+.form-popup3 button p {
+    display: none;
+}
+
+.form-popup3 .resultat {
+    display: inline;
+    font-style: italic;
+    font-size: 16px;
+    color: white;
+}
+
+.elPFC {
+    color: #e0e0e0;
+    padding-top: 31px;
+}
+
+.winPFC em {
+    color: #58a06d;
+    font-weight: 500;
+}
+
+.form-popup3 h1 {
+    color: white;
+    align-items: center;
+    font-size: 20px;
+}
+
+button.btnSavePFC {
+    margin: 0 auto;
+    border-radius: 5px;
+    background: #4d6780;
+    box-shadow: 20px 20px 60px #41586d, -20px -20px 60px #597693;
+    width: 86px;
+    font-weight: 700;
+    font-size: 15px;
+    height: 37px;
+    text-align: center;
+    color: azure;
+    border: none;
+    margin-left: 15px;
+    margin-top: 45px;
+}
+
+button.btnSavePFC:hover {
+    background: #67bc80;
+    box-shadow: inset 20px 20px 60px #58a06d, inset -20px -20px 60px #76d893
+}
+
+.resultat_PFC {
+    color: #e0e0e0;
+    font-size: 14px;
+}
+
+.resultat_PFC p {
+    font-size: 19px;
+}

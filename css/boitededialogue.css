@@ -32,17 +32,20 @@
     display: none;
 }
 
-.affichage {
+.affichage-dial {
     position: absolute;
     top: 9px;
     right: 9px;
     cursor: pointer;
 }
 
+.blue-container {
+    border-bottom:#000 2px solid;
+}
 
 /* CSS QUIZ */
 
-.quiz-container {
+.quiz-container-dial {
     border-radius: 20px;
     background: #e0e0e0;
     box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
@@ -55,18 +58,18 @@
     transform: translate(-50%, 71%);
 }
 
-.quiz-header {
+.header-dial {
     padding: 2rem;
 }
 
-.quiz-header h2 {
+.header-dial h2 {
     padding: 1rem;
     padding-left: 151px;
     text-align: start;
     margin: 0;
 }
 
-.quiz-container button {
+.container-dial button {
     background: #7ba9bc;
     box-shadow: 2px 2px 4px #6990a0, -2px -2px 8px #8dc2d8;
     color: #fff;
@@ -80,18 +83,18 @@
     text-align: center;
 }
 
-.quiz-container button:hover {
+.container-dial button:hover {
     background: #7ba9bc;
     box-shadow: inset 2px 2px 4px #6990a0, inset -2px -2px 8px #8dc2d8;
 }
 
-.quiz-container button:focus {
+.container-dial button:focus {
     outline: none;
     background: #7bbc7c;
     box-shadow: inset 2px 2px 6px #69a069, inset -2px -2px 6px #8dd88f;
 }
 
-.open-btn {
+.open-btn-dial {
     height:100%;
     width: auto;
     display:grid;
@@ -104,7 +107,7 @@
 
 /* Stylez et fixez le bouton sur la page */
 
-.open-button {
+.open-button-dial {
     grid-column: 1;
     background-color: #1c87c9;
     color: white;
@@ -117,7 +120,7 @@
     
 }
 
-.close-button {
+.close-button-dial {
     grid-column: 2;
     background-color: #1c87c9;
     color: white;
@@ -132,7 +135,7 @@
 
 /* Positionnez la forme Popup */
 
-.login-popup {
+.login-popup-dial {
     position: relative;
     text-align: center;
     width: 100%;
@@ -145,7 +148,7 @@ a {
     text-decoration: none;
 }
 
-.container img {
+.container-dial img {
     width: 20%;
     height: auto;
     position: absolute;
@@ -153,7 +156,7 @@ a {
     top: 40px;
 }
 
-.form-popup {
+.form-popup-dial {
     height: 100vh;
     display: none;
     position: fixed;
@@ -191,7 +194,7 @@ a {
     ;
 }
 
-.container p {
+.container-dial p {
     text-align: start;
     padding-left: 151px;
     animation-duration: 3s;
