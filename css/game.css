@@ -36,21 +36,14 @@
 #object-1 {
     grid-row:1;
     grid-column:1;
-    display:block;
+    display:none;
 }
 
 #object-2 {
     grid-row: 1;
     grid-column: 1;
-    display:block;
+    display:none;
 }
-
-#object-3 {
-    grid-row: 1;
-    grid-column: 1;
-    display:block;
-}
-
 
 /* PNG */
 
@@ -62,21 +55,14 @@
 #pnj-1 {
     grid-row:1;
     grid-column:1;
-    display:block;
+    display:none;
 }
 
 #pnj-2 {
     grid-row: 1;
     grid-column: 1;
-    display:block;
+    display:none;
 }
-
-#pnj-3 {
-    grid-row: 1;
-    grid-column: 1;
-    display:block;
-}
-
 
 /* HERO */
 

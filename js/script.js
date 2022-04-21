@@ -1,6 +1,9 @@
 
+
 let map = document.querySelector(".maps");
 let mapImage = document.querySelector("#image-map");
+let introText = document.querySelector(".intro-text");
+
 
 // Challenges on the map and dialogue with pnj
 let dialogueContainer = document.querySelector("#dialogue-container");
@@ -44,7 +47,7 @@ let ligne = 1;
 let colonne = 1;
 
 function LoadGame() {
-
+    
     map.style.display = "grid";
     mapImage.src = mapShipURL;
     heroImage.src = heroImageURL.fromSky;
@@ -166,7 +169,12 @@ function newMap(mapPlace) {
         case "toShip":
             alert("Vous voyez le vaisseau au loin")
             mapImage.src = ShipImage; 
-            break;   
+            break;
+        
+        case "game-over":
+            document.location.href="../game_over.html"; 
+            break;
+
     }
 }
 
