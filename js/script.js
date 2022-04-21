@@ -6,7 +6,10 @@ let introText = document.querySelector(".intro-text");
 
 
 // Challenges on the map and dialogue with pnj
-let dialogueContainer = document.querySelector("#dialogue-container");
+let dialogueContainerGuide = document.querySelector("#dialogue-container-guide");
+let dialogueContainerGuard = document.querySelector("#dialogue-container-guard");
+let dialogueContainerTranshuman = document.querySelector("#dialogue-container-transhuman");
+
 console.log("URL de la map est: " + mapImage.src)
 
 // hero : container and image.
@@ -22,6 +25,9 @@ heroImageURL = {
     down: 'ressources/hero/hero-face.png'
 }
 
+// Shuttle that crashed on first map in the foreign world
+let shuttleImage = document.querySelector('#shuttle');
+
 // URL of images 
 let mapShipURL = 'ressources/maps/map_1_ship.png';
 let mapCrashURL = 'ressources/maps/map_2_crash.png';
@@ -30,24 +36,28 @@ let mapCampURL = 'ressources/maps/map_4_camp.png';
 let mapBeforeFinalURL = 'ressources/maps/map_3_before_final.png';
 let mapFinalURL = 'ressources/maps/map_final.png';
 let endGameURL = 'ressources/maps/EarthPhoto.jpeg';
-let ShipImage = 'ressources/images-menus/ShipIsDown.png';
-let FallingShipImage = 'ressources/images-menus/ShipIsFalling.png';
+let ShipImage = 'ressources/static-images/ShipIsDown.png';
+let FallingShipImage = 'ressources/static-images/ShipIsFalling.png';
 
-// PNJ positions
+// PNJ positions and images
 let pnj01 = document.querySelector("#pnj-1");
 let pnj02 = document.querySelector("#pnj-2");
-let pnj03 = document.querySelector("#pnj-3");
+let pnj01Image = document.querySelector("#pnj-image-1")
+let pnj02Image = document.querySelector("#pnj-image-2")
+
+let pnjGuardURL = 'ressources/pnj/guard.png'; 
+let pnjGuideURL = 'ressources/pnj/mentor.png';
+let pnjTranshumanURL = 'ressources/pnj/transhuman.png';
 
 // Objects positions
 let object01 = document.querySelector("#object-1");
 let object02 = document.querySelector("#object-2");
-let object03 = document.querySelector("#object-3");
 
 let ligne = 1;
 let colonne = 1;
 
 function LoadGame() {
-    
+
     map.style.display = "grid";
     mapImage.src = mapShipURL;
     heroImage.src = heroImageURL.fromSky;
@@ -74,7 +84,7 @@ function newMap(mapPlace) {
             colonne = 8;
             hero.style.gridRow = 8;
             hero.style.gridColumn = 8;
-
+            
             mapImage.src = FallingShipImage;
             hero.style.display = "none";
 
@@ -190,7 +200,7 @@ function moveHeroMapShip(event) {
     
 
     // console.log("============ PNJ MANAGEMENT =============")
-
+   
 
     console.log("===== HERO MOVEMENTS =======")
     console.log("--- touche pressée: ---------")
@@ -200,6 +210,7 @@ function moveHeroMapShip(event) {
     let exit = ["r1c8"]
     obstacle = ["",""];
     pnjMeetArray = ["",""];
+
     // fleche haut
     if (touche == "ArrowUp") {
         if (ligne > 1) {
@@ -322,18 +333,29 @@ function moveHeroMapShip(event) {
 
 }
 
-
-
 function moveHeroMapCrash(event) {
 
     let touche = event.key;
 
-    let whichPad = event.code;
-    console.log(whichPad);
-
     if (touche == "Enter") {
         mapImage.src = mapCrashURL;
         hero.style.display = "flex";
+
+        pnj01.style.display = "block";
+        pnj01Image.src = pnjGuardURL;
+        pnj01.style.gridRow = 4;
+        pnj01.style.gridColumn = 14;
+
+        pnj02.style.display = "block";
+        pnj02Image.src = pnjGuideURL;
+        pnj02.style.gridRow = 9;
+        pnj02.style.gridColumn = 9;
+
+        shuttleImage.style.display = "block";
+        shuttleImage.style.gridRow = "10 / span 2";
+        shuttleImage.style.gridColumn = "6 / span 2";
+        
+        
     }
 
     console.log("===== HERO MOVEMENTS =======")
@@ -364,9 +386,10 @@ function moveHeroMapCrash(event) {
     obstacle = obstaclePurpleTrees.concat(obstacleDeadTree);
 
 
-    pnjMeetArray = ["r3c3", "r3c6", "r3c8"];
+    let pnjGuide = ["r9c9"];
+    let pnjGuard = ["r4c14"];
     objectFoundArray = ["r3c2","r4c3","r2c7"];
-    exitToFinal = ["r4c15","r3c15"]; 
+    
     exitToCamp = ["r15c8"];
 
     // fleche haut
@@ -378,17 +401,29 @@ function moveHeroMapCrash(event) {
                 console.log(ligne.toString())
                 heroImage.src = heroImageURL.up;
 
-                if (pnjMeetArray.includes(`r${ligne}c${colonne}`)) {
-                    dialogueContainer.style.display = "block";
+                if (pnjGuide.includes(`r${ligne}c${colonne}`)) {
+                    dialogueContainerGuide.style.display = "block";
                     mapImage.style.opacity = 0.2;
                     pnj01.style.opacity = 0.2;
                     pnj02.style.opacity = 0.2;
-                    pnj03.style.opacity = 0.2;
                     object01.style.opacity = 0.2;
                     object02.style.opacity = 0.2;
-                    object03.style.opacity = 0.2;
+                    
 
-                    if (dialogueContainer.style.display == "block") {
+                    if (dialogueContainerGuide.style.display == "block") {
+                        ligne++;
+                    }
+
+                } else if (pnjGuard.includes(`r${ligne}c${colonne}`)) {
+                    dialogueContainerGuard.style.display = "block";
+                    mapImage.style.opacity = 0.2;
+                    pnj01.style.opacity = 0.2;
+                    pnj02.style.opacity = 0.2;
+                    object01.style.opacity = 0.2;
+                    object02.style.opacity = 0.2;
+
+
+                    if (dialogueContainerGuide.style.display == "block") {
                         ligne++;
                     }
                 }
@@ -407,7 +442,7 @@ function moveHeroMapCrash(event) {
                 heroImage.src = heroImageURL.down;
 
                 if (pnjMeetArray.includes(`r${ligne}c${colonne}`)) {
-                    dialogueContainer.style.display = "block";
+                    dialogueContainerGuide.style.display = "block";
                     mapImage.style.opacity = 0.2;
                     pnj01.style.opacity = 0.2;
                     pnj02.style.opacity = 0.2;
@@ -439,7 +474,7 @@ function moveHeroMapCrash(event) {
                 heroImage.src = heroImageURL.left;
 
                 if (pnjMeetArray.includes(`r${ligne}c${colonne}`)) {
-                    dialogueContainer.style.display = "block";
+                    dialogueContainerGuide.style.display = "block";
                     mapImage.style.opacity = 0.2;
                     pnj01.style.opacity = 0.2;
                     pnj02.style.opacity = 0.2;
@@ -466,7 +501,7 @@ function moveHeroMapCrash(event) {
                 heroImage.src = heroImageURL.right;
 
                 if (pnjMeetArray.includes(`r${ligne}c${colonne}`)) {
-                    dialogueContainer.style.display = "block";
+                    dialogueContainerGuide.style.display = "block";
                     mapImage.style.opacity = 0.2;
                     pnj01.style.opacity = 0.2;
                     pnj02.style.opacity = 0.2;
@@ -478,11 +513,6 @@ function moveHeroMapCrash(event) {
                     if (dialogueContainer.style.display == "block") {
                         colonne--;
                     }
-                }
-
-                if (exitToFinal.includes(`r${ligne}c${colonne}`)) {
-                    alert("Vous allez vers votre vaisseau mais avez-vous l'objet ?");
-                    newMap("exitToFinal");
                 }
             }
 
@@ -550,7 +580,7 @@ function moveHeroMapCrash_2(event) {
                 heroImage.src = heroImageURL.up;
 
                 if (pnjMeetArray.includes(`r${ligne}c${colonne}`)) {
-                    dialogueContainer.style.display = "block";
+                    dialogueContainerGuide.style.display = "block";
                     mapImage.style.opacity = 0.2;
                     pnj01.style.opacity = 0.2;
                     pnj02.style.opacity = 0.2;
@@ -559,10 +589,10 @@ function moveHeroMapCrash_2(event) {
                     object02.style.opacity = 0.2;
                     object03.style.opacity = 0.2;
 
-                    if (dialogueContainer.style.display == "block") {
+                    if (dialogueContainerGuide.style.display == "block") {
                         ligne++;
                     }
-                }
+                } 
             }
         }
 
@@ -675,6 +705,7 @@ function moveHeroMapBeforeCamp(event) {
     // changeMap();
 
     let touche = event.key;
+    shuttleImage.style.display = "none";
 
     // console.log("============ PNJ MANAGEMENT =============")
 
@@ -920,6 +951,7 @@ function moveHeroMapBeforeFinal(event) {
     // changeMap();
 
     let touche = event.key;
+    shuttleImage.style.display = "none";
 
     // console.log("============ PNJ MANAGEMENT =============")
 

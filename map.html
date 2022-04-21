@@ -17,7 +17,7 @@
     <header>
         <a href="menu.html"><button class="btn-main">MENU</button></a>
         <div class="line"></div>
-        <img src="./ressources/images-menus/EcoMirrorLogo.png" alt="logo du jeu">
+        <img src="./ressources/static-images/EcoMirrorLogo.png" alt="logo du jeu">
         <div class="line"></div>
         <button class="btn-main">SAVE</button>
        
@@ -38,18 +38,19 @@
 
             <section class="maps">
 
-                <img src='./ressources/maps/map_final.png' alt="la carte chargée" id="image-map">
+                <img src='' alt="la carte chargée" id="image-map">
 
-            
+                <img id="shuttle" src="ressources/objects/vessel.png" alt="shuttle">
+
                  <!--Objects and pnj from each maps  -->
                 <div class="objects" id="object-1"><img class="object-image" src="" alt="nourriture première"></div>
                 <div class="objects" id="object-2"><img class="object-image" src="" alt="nourriture seconde"></div>
                 
-                <div class="pnj" id="pnj-1"><img class="pnj-image" src="" alt="personnage premier"></div>
-                <div class="pnj" id="pnj-2"><img class="pnj-image" src="" alt="personnage second"></div>
+                <div class="pnj" id="pnj-1"><img class="pnj-image" id="pnj-image-1" src="" alt="personnage premier"></div>
+                <div class="pnj" id="pnj-2"><img class="pnj-image" src="" id="pnj-image-2" alt="personnage second"></div>
                 
-                <!-- Dialogue pop up when you meet a pnj -->
-                <section id="dialogue-container">
+                <!-- Dialogue pop up when you meet the mentor -->
+                <section id="dialogue-container-guide">
                     
                     <div class="open-btn">
                         <button class="open-button" onclick="openForm()"><strong>Me parler</strong></button>
@@ -65,16 +66,16 @@
                                         <h2 id="title">Guide</h2>
                                     </section>
                                     <div id="container" class="container">
-                                        <img src="ressources/personnages/pngegg_1.png" alt="le guide">
-                                        <p id="textguide">Le guide : Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero
-                                            temporibus velit doloremque illum veniam suscipit harum, delectus eligendi incidunt iure sed
-                                            quibusdam corrupti dolores accusamus ipsa officiis rerum tenetur. Iusto.</p>
+                                        <img src="ressources/pnj/mentor.png" alt="le guide">
+                                        <p id="textguide">'Salutation Humanoïde, Je suis le Guide. Bienvenue sur cette Planète.
+                                        Pour survivre ici tu vas devoir: chercher les objets que tu as besoin pour repartir sur la Terre.
+                                        Tu vas aussi devoir gagner aux minijeux pour passer à d'autres étapes dans ton aventure.</p>
                                     </div>
                                 </div>
                 
                                 <!-- <button id="submit">commencer le jeu</button> -->
-                                <button Class="answer1" id="answer1">answer1</button>
-                                <button Class="answer2" id="answer2">answer2</button>
+                                <button Class="answer1" id="answer1">Enchanté ! Avez-vous des objets utiles pour survivre ?</button>
+                                <button Class="answer2" id="answer2">Enchanté ! Quels défis m'attendent ici?</button>
                 
                             </div>
                         </div>
@@ -82,8 +83,69 @@
                 
                 </section>
 
+                <section id="dialogue-container-guard">
+                
+                    <div class="open-btn">
+                        <button class="open-button" onclick="openForm()"><strong>Me parler</strong></button>
+                        <button class="close-button" onclick="closeForm()"><strong>Me quitter</strong></button>
+                    </div>
+                    <div class="login-popup">
+                        <div class="form-popup" id="popupForm">
+                            <div class="quiz-container animation-haut" id="quiz">
+                                <div class="quiz-header">
+                
+                                    <section class="conteneur bleu" style="border-bottom:#000 2px solid;">
+                                        <span class="bouton affichage" onclick="closeForm()">&times;</span>
+                                        <h2 id="title">Guide</h2>
+                                    </section>
+                                    <div id="container" class="container">
+                                        <img src="ressources/pnj/guard.png" alt="le guide">
+                                        <p id="textguide">Salutation Humanoïde, je suis un gardien</p>
+                                    </div>
+                                </div>
+                
+                                <!-- <button id="submit">commencer le jeu</button> -->
+                                <button Class="answer1" id="answer1">Enchanté ! Avez-vous des objets utiles pour survivre ?</button>
+                                <button Class="answer2" id="answer2">Enchanté ! Quels défis m'attendent ici?</button>
+                
+                            </div>
+                        </div>
+                    </div>
+                
+                </section>
+
+                <section id="dialogue-container-transhuman">
+                
+                    <div class="open-btn">
+                        <button class="open-button" onclick="openForm()"><strong>Me parler</strong></button>
+                        <button class="close-button" onclick="closeForm()"><strong>Me quitter</strong></button>
+                    </div>
+                    <div class="login-popup">
+                        <div class="form-popup" id="popupForm">
+                            <div class="quiz-container animation-haut" id="quiz">
+                                <div class="quiz-header">
+                
+                                    <section class="conteneur bleu" style="border-bottom:#000 2px solid;">
+                                        <span class="bouton affichage" onclick="closeForm()">&times;</span>
+                                        <h2 id="title">Guide</h2>
+                                    </section>
+                                    <div id="container" class="container">
+                                        <img src="ressources/pnj/transhuman.png" alt="le guide">
+                                        <p id="textguide">'Salutation Humanoïde, Je suis un transhuman.</p>
+                                    </div>
+                                </div>
+                
+                                <!-- <button id="submit">commencer le jeu</button> -->
+                                <button Class="answer1" id="answer1">Enchanté ! Avez-vous des objets utiles pour survivre ?</button>
+                                <button Class="answer2" id="answer2">Enchanté ! Quels défis m'attendent ici?</button>
+                
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 <section class="hero">
-                    <img src="./ressources/personnages/hero.png" alt="le hero" id="image-hero">
+                    <img src="" alt="le hero" id="image-hero">
                 </section>
                  
             </section>     
@@ -101,7 +163,7 @@
         </aside>
     </main>
 
-    <script src="./js/boitededialogue.js"></script>
+    <script src="./js/dialogue.js"></script>
     <script src="./js/script.js"></script>
 </body>
 

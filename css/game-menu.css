@@ -11,7 +11,7 @@ body {
     grid-template-rows: 10vh 90vh;
     height: 100vh;
 
-    background-image: url(../ressources/images-menus/map-background.jpeg);
+    background-image: url(../ressources/static-images/map-background.jpeg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: right;

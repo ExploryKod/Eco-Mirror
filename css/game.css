@@ -26,6 +26,16 @@
     opacity:1;
 }
 
+/* Shuttle */
+
+#shuttle {
+    width:100%;
+    height:auto;
+    grid-row:10;
+    grid-column:7;
+    display:none;
+}
+
 /* Objets */
 
 .object-image {
