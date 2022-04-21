@@ -36,8 +36,8 @@
 }
 
 #enter-map-ship {
-    grid-column: 15;
-    grid-row: 9;
+    grid-column: 8;
+    grid-row: 10;
     display:none;
 }
 
