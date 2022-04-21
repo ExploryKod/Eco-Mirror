@@ -4,14 +4,6 @@ let map = document.querySelector(".maps");
 let mapImage = document.querySelector("#image-map");
 let introText = document.querySelector(".intro-text");
 
-
-// Challenges on the map and dialogue with pnj
-let dialogueContainerGuide = document.querySelector("#dialogue-container-guide");
-let dialogueContainerGuard = document.querySelector("#dialogue-container-guard");
-let dialogueContainerTranshuman = document.querySelector("#dialogue-container-transhuman");
-
-console.log("URL de la map est: " + mapImage.src)
-
 // hero : container and image.
 let hero = document.querySelector(".hero");
 let heroImage = document.querySelector(".hero img");
@@ -53,12 +45,19 @@ let pnjTranshumanURL = 'ressources/pnj/transhuman.png';
 let object01 = document.querySelector("#object-1");
 let object02 = document.querySelector("#object-2");
 
+// CSS grid: lines and columns
 let ligne = 1;
 let colonne = 1;
+
+// Dialogue and challenges containers 
+dialogueContainer = document.querySelector(".message-container");
+
+// ============= FONCTIONS ================
 
 function LoadGame() {
 
     map.style.display = "grid";
+    dialogueContainer.style.display = "none";
     mapImage.src = mapShipURL;
     heroImage.src = heroImageURL.fromSky;
     ligne = 10;
@@ -86,7 +85,9 @@ function newMap(mapPlace) {
             hero.style.gridColumn = 8;
             
             mapImage.src = FallingShipImage;
+            dialogueContainer.style.display = "none";
             hero.style.display = "none";
+           
 
             document.removeEventListener('keyup', moveHeroMapShip, false);
             document.removeEventListener('keyup', moveHeroMapShip, true);
@@ -99,8 +100,9 @@ function newMap(mapPlace) {
             colonne = 1;
             hero.style.gridRow = 8;
             hero.style.gridColumn = 1;
-
+            
             mapImage.src = mapBeforeFinalURL;
+            dialogueContainer.style.display = "none";
         
             document.removeEventListener('keyup', moveHeroMapCrash, false);
             document.removeEventListener('keyup', moveHeroMapCrash, true);
@@ -115,6 +117,7 @@ function newMap(mapPlace) {
             hero.style.gridColumn = 8;
 
             mapImage.src = mapBeforeCampURL;
+            dialogueContainer.style.display = "none";
           
             document.removeEventListener('keyup', moveHeroMapCrash, false);
             document.removeEventListener('keyup', moveHeroMapCrash, true);
@@ -128,6 +131,7 @@ function newMap(mapPlace) {
             hero.style.gridRow = 1;
             hero.style.gridColumn = 8;
             mapImage.src = mapFinalURL;
+            dialogueContainer.style.display = "none";
 
             document.removeEventListener('keyup', moveHeroMapBeforeFinal, false);
             document.removeEventListener('keyup', moveHeroMapBeforeFinal, true);
@@ -142,6 +146,7 @@ function newMap(mapPlace) {
             hero.style.gridColumn = 1;
 
             mapImage.src = mapCampURL;
+            dialogueContainer.style.display = "none";
             
             document.removeEventListener('keyup', moveHeroMapBeforeCamp, false);
             document.removeEventListener('keyup', moveHeroMapBeforeCamp, true);
@@ -157,6 +162,7 @@ function newMap(mapPlace) {
             hero.style.gridColumn = 15;
 
             mapImage.src = mapBeforeCampURL;
+            dialogueContainer.style.display = "none";
         
             document.removeEventListener('keyup', moveHeroMapCamp, false);
             document.removeEventListener('keyup', moveHeroMapCamp, true);
@@ -170,6 +176,7 @@ function newMap(mapPlace) {
             hero.style.gridColumn = 8;
 
             mapImage.src = mapCrashURL;
+            dialogueContainer.style.display = "none";
 
             document.removeEventListener('keyup', moveHeroMapBeforeCamp_2, false);
             document.removeEventListener('keyup', moveHeroMapBeforeCamp_2, true);
@@ -179,6 +186,10 @@ function newMap(mapPlace) {
         case "toShip":
             alert("Vous voyez le vaisseau au loin")
             mapImage.src = ShipImage; 
+            dialogueContainer.style.display = "none";
+            document.removeEventListener('keyup', moveHeroMapFinal, false);
+            document.removeEventListener('keyup', moveHeroMapFinal, true);
+            document.addEventListener('keyup', moveHeroMapEnd);
             break;
         
         case "game-over":
@@ -197,7 +208,7 @@ function moveHeroMapShip(event) {
 
 
     let touche = event.key;
-    
+    dialogueContainer.style.display = "none";
 
     // console.log("============ PNJ MANAGEMENT =============")
    
@@ -207,8 +218,15 @@ function moveHeroMapShip(event) {
     console.log(touche)
     console.log("==== MAP URL =======")
     console.log(mapImage.src)
-    let exit = ["r1c8"]
-    obstacle = ["",""];
+    let exit = ["r1c8","r1c9"]
+    
+    obstacle = [
+        "r1c5", "r1c6", "r1c7", "r1c10", "r1c11", "r2c12", "r3c12", "r4c12", "r5c13", "r6c13", "r7c13", "r8c13", "r9c13", "r10c13",
+        "r2c10", "r9c2", "r9c3", "r9c4", "r9c5", "r9c6", "r9c7", "r9c9", "r9c10", "r9c11", "r9c12", "r10c3", "r10c4", "r10c5", "r10c6", "r10c10", "r10c11", "r10c12",
+        "r2c4", "r3c3", "r4c3", "r5c3", "r6c3", "r7c3", "r8c3", "r12c3", "r12c4", "r13c3", "r14c3", "r14c5", "r15c5", "r14c6", "r15c6", "r13c8", "r14c8",
+        "r15c8", "r14c10", "r15c10", "r14c11", "r15c11", "r12c12", "r12c13", "r4c8", "r5c8", "r4c9", "r5c9", "r4c4", "r7c12", "r8c12"
+    ];
+
     pnjMeetArray = ["",""];
 
     // fleche haut
@@ -220,33 +238,17 @@ function moveHeroMapShip(event) {
                 console.log(ligne.toString())
                 heroImage.src = heroImageURL.up;
 
-                if (pnjMeetArray.includes(`r${ligne}c${colonne}`)) {
-                    dialogueContainer.style.display = "block";
-                    mapImage.style.opacity = 0.2;
-                    pnj01.style.opacity = 0.2;
-                    pnj02.style.opacity = 0.2;
-                    pnj03.style.opacity = 0.2;
-                    object01.style.opacity = 0.2;
-                    object02.style.opacity = 0.2;
-                    object03.style.opacity = 0.2;
-
-                    if (dialogueContainer.style.display == "block") {
-                        ligne++;
-                    }
                 }
 
                 if(exit.includes(`r${ligne}c${colonne}`)){
-                    alert("exit here")
                     newMap("exitShip");
                 }
 
             }
         }
 
-    }
-
     // fleche bas
-    else if (touche == "ArrowDown") {
+    if (touche == "ArrowDown") {
         if (ligne < 15) {
 
             if ((!obstacle.includes(`r${ligne + 1}c${colonne}`))) {
@@ -274,7 +276,7 @@ function moveHeroMapShip(event) {
 
     // fleche gauche
     else if (touche == "ArrowLeft") {
-        if (colonne > 1) {
+        if (colonne > 3) {
 
             if ((!obstacle.includes(`r${ligne}c${colonne - 1}`))) {
                 colonne--;
@@ -301,7 +303,7 @@ function moveHeroMapShip(event) {
 
     // fleche droite
     else if (touche == "ArrowRight") {
-        if (colonne < 15) {
+        if (colonne < 13) {
 
             if ((!obstacle.includes(`r${ligne}c${colonne + 1}`))) {
                 colonne++;
@@ -383,7 +385,9 @@ function moveHeroMapCrash(event) {
         "r11c3", "r11c13",
     ];
 
-    obstacle = obstaclePurpleTrees.concat(obstacleDeadTree);
+    house = ["r6c8","r6c9","r5c9","r5c8"];
+
+    obstacle = obstaclePurpleTrees.concat(obstacleDeadTree,house);
 
 
     let pnjGuide = ["r9c9"];
@@ -402,7 +406,8 @@ function moveHeroMapCrash(event) {
                 heroImage.src = heroImageURL.up;
 
                 if (pnjGuide.includes(`r${ligne}c${colonne}`)) {
-                    dialogueContainerGuide.style.display = "block";
+                    
+                    dialogueContainer.style.display = "block";
                     mapImage.style.opacity = 0.2;
                     pnj01.style.opacity = 0.2;
                     pnj02.style.opacity = 0.2;
@@ -410,11 +415,13 @@ function moveHeroMapCrash(event) {
                     object02.style.opacity = 0.2;
                     
 
-                    if (dialogueContainerGuide.style.display == "block") {
+                    if (dialogueContainer.style.display == "block") {
                         ligne++;
                     }
 
                 } else if (pnjGuard.includes(`r${ligne}c${colonne}`)) {
+                    dialogueContainer.setAttribute('id','dialogue-container-guard');
+                    const dialogueContainerGuard = document.querySelector("#dialogue-container-guard");
                     dialogueContainerGuard.style.display = "block";
                     mapImage.style.opacity = 0.2;
                     pnj01.style.opacity = 0.2;
@@ -423,7 +430,7 @@ function moveHeroMapCrash(event) {
                     object02.style.opacity = 0.2;
 
 
-                    if (dialogueContainerGuide.style.display == "block") {
+                    if (dialogueContainerGuard.style.display == "block") {
                         ligne++;
                     }
                 }
@@ -442,7 +449,7 @@ function moveHeroMapCrash(event) {
                 heroImage.src = heroImageURL.down;
 
                 if (pnjMeetArray.includes(`r${ligne}c${colonne}`)) {
-                    dialogueContainerGuide.style.display = "block";
+                    dialogueContainer.style.display = "block";
                     mapImage.style.opacity = 0.2;
                     pnj01.style.opacity = 0.2;
                     pnj02.style.opacity = 0.2;
@@ -474,7 +481,7 @@ function moveHeroMapCrash(event) {
                 heroImage.src = heroImageURL.left;
 
                 if (pnjMeetArray.includes(`r${ligne}c${colonne}`)) {
-                    dialogueContainerGuide.style.display = "block";
+                    dialogueContainer.style.display = "block";
                     mapImage.style.opacity = 0.2;
                     pnj01.style.opacity = 0.2;
                     pnj02.style.opacity = 0.2;
@@ -501,7 +508,7 @@ function moveHeroMapCrash(event) {
                 heroImage.src = heroImageURL.right;
 
                 if (pnjMeetArray.includes(`r${ligne}c${colonne}`)) {
-                    dialogueContainerGuide.style.display = "block";
+                    dialogueContainer.style.display = "block";
                     mapImage.style.opacity = 0.2;
                     pnj01.style.opacity = 0.2;
                     pnj02.style.opacity = 0.2;
@@ -562,7 +569,9 @@ function moveHeroMapCrash_2(event) {
         "r11c3", "r11c13",
     ];
 
-    obstacle = obstaclePurpleTrees.concat(obstacleDeadTree);
+    house = ["r6c8", "r6c9", "r5c9", "r5c8"];
+
+    obstacle = obstaclePurpleTrees.concat(obstacleDeadTree,house);
 
 
     pnjMeetArray = ["r3c3", "r3c6", "r3c8"];
@@ -580,7 +589,7 @@ function moveHeroMapCrash_2(event) {
                 heroImage.src = heroImageURL.up;
 
                 if (pnjMeetArray.includes(`r${ligne}c${colonne}`)) {
-                    dialogueContainerGuide.style.display = "block";
+                    dialogueContainer.style.display = "block";
                     mapImage.style.opacity = 0.2;
                     pnj01.style.opacity = 0.2;
                     pnj02.style.opacity = 0.2;
@@ -589,7 +598,7 @@ function moveHeroMapCrash_2(event) {
                     object02.style.opacity = 0.2;
                     object03.style.opacity = 0.2;
 
-                    if (dialogueContainerGuide.style.display == "block") {
+                    if (dialogueContainer.style.display == "block") {
                         ligne++;
                     }
                 } 
@@ -717,7 +726,15 @@ function moveHeroMapBeforeCamp(event) {
     console.log(mapImage.src)
 
 
-    obstacle = ["r2c4"];
+    obstacle = [
+        "r2c2", "r2c3", "r2c4", "r2c5", "r2c6", "r2c9", "r2c10", "r2c11", "r2c12", "r2c13", "r2c14", "r3c2", "r4c2", "r5c2", "r6c2", "r7c2",
+        "r8c2", "r9c2", "r10c2", "r11c2", "r12c2", "r13c2", "r3c4", "r4c4", "r5c4", "r5c3", "r14c3", "r14c4", "r14c5", "r14c6", "r14c7", "r14c8",
+        "r14c9", "r14c10", "r14c11", "r14c12", "r14c13", "r14c14", "r13c15", "r7c15", "r6c15", "r5c15", "r4c15", "r3c15", "r4c14", "r5c14", "r9c7",
+        "r8c7", "r11c13"
+    ];
+
+
+
     exitToCamp = ["r8c15","r9c15","r10c15","r11c15"];
 
     // fleche haut
@@ -798,7 +815,14 @@ function moveHeroMapBeforeCamp_2(event) {
     console.log(mapImage.src)
 
 
-    obstacle = ["r2c4"];
+    obstacle = [
+        "r2c2", "r2c3", "r2c4", "r2c5", "r2c6", "r2c9", "r2c10", "r2c11", "r2c12", "r2c13", "r2c14", "r3c2", "r4c2", "r5c2", "r6c2", "r7c2",
+        "r8c2", "r9c2", "r10c2", "r11c2", "r12c2", "r13c2", "r3c4", "r4c4", "r5c4", "r5c3", "r14c3", "r14c4", "r14c5", "r14c6", "r14c7", "r14c8",
+        "r14c9", "r14c10", "r14c11", "r14c12", "r14c13", "r14c14", "r13c15", "r7c15", "r6c15", "r5c15", "r4c15", "r3c15", "r4c14", "r5c14", "r9c7",
+        "r8c7", "r11c13"
+    ];
+
+
     exitToCrash = ["r1c7", "r1c8"];
 
     // fleche haut
@@ -880,7 +904,13 @@ function moveHeroMapCamp(event) {
     console.log(mapImage.src)
 
 
-    obstacle = [];
+    obstacle = [
+        "r8c1", "r11c1", "r3c2", "r4c2", "r5c2", "r6c2", "r7c2", "r12c2", "r13c2", "r2c3", "r2c4", "r2c5", "r2c6", "r2c7", "r2c8", "r2c9",
+        "r2c10", "r2c11", "r2c12", "r2c13", "r2c14", "r13c3", "r14c6", "r14c7", "r14c8", "r14c9", "r14c10", "r14c11", "r14c12", "r14c13",
+        "r14c14", "r4c4", "r10c4", "r12c4", "r13c5", "r5c6", "r5c7", "r7c8", "r12c8", "r9c10", "r11c10", "r12c10", "r6c11", "r12c11", "r6c12",
+        "r4c13", "r9c13", "r11c13", "r12c13", "r3c15", "r4c15", "r5c15", "r6c15", "r7c15", "r8c15", "r9c15", "r10c15", "r11c15", "r12c15", "r13c15"
+    ];
+
     exit = ["r9c1","r10c1"];
 
     // fleche haut
@@ -962,7 +992,15 @@ function moveHeroMapBeforeFinal(event) {
     console.log("==== MAP URL =======")
     console.log(mapImage.src)
 
-    obstacle = [];
+    obstacle = [
+        "r3c1", "r4c1", "r5c1", "r6c1", "r7c1", "r12c1", "r3c2", "r4c2", "r7c2", "r12c2", "r5c3", "r6c3", "r7c3", "r12c3", "r12c4",
+        "r3c5", "r12c5", "r3c6", "r12c6", "r13c6", "r14c6", "r15c6", "r2c7", "r8c7", "r9c7", "r2c8", "r2c9", "r2c10", "r2c11", "r2c12", "r2c13",
+        "r12c9", "r13c9", "r5c12", "r6c12", "r3c14", "r4c14", "r5c14", "r6c14", "r7c14", "r8c14", "r9c14", "r10c14", "r11c14", "r12c14", "r13c14",
+        "r14c14", "r15c14", "r16c14"
+    ];
+
+
+
     exit = ["r15c7","r15c8","r15c9","r15c10","r15c11","r15c12","r15c13"]
 
     // fleche haut
@@ -1027,9 +1065,6 @@ function moveHeroMapBeforeFinal(event) {
 
 function moveHeroMapFinal(event) {
 
-    // Enter/Exit from map to map :
-    // changeMap();
-
     let touche = event.key;
 
     // console.log("============ PNJ MANAGEMENT =============")
@@ -1042,7 +1077,15 @@ function moveHeroMapFinal(event) {
     console.log(mapImage.src)
 
 
-    obstacle = ["r3c4"];
+    obstacle = [
+        "r1c5", "r2c5", "r3c5", "r10c5", "r13c5", 
+        "r11c4", "r12c4", 
+        "r4c7", "r5c7", 
+        "r6c6", "r7c7", "r8c7", "r9c2", "r10c6", "r14c6", "r15c7", "r15c8", "r14c9", "r13c10",
+        "r9c11", "r10c11", "r11c11", "r12c11", "r7c11", "r7c10", "r7c9", "r7c8", "r7c7", "r7c7", "r7c6", "r7c5", "r7c4", "r6c12", "r5c12",
+        "r9c12", "r9c13", "r9c14", "r1c11", "r2c11", "r3c11", "r4c11"
+    ];
+
     exitToShip = ["r14c7","r14c8"];
 
     // fleche haut
@@ -1078,6 +1121,83 @@ function moveHeroMapFinal(event) {
     // fleche gauche
     else if (touche == "ArrowLeft") {
         if (colonne > 1) {
+
+            if ((!obstacle.includes(`r${ligne}c${colonne - 1}`))) {
+                colonne--;
+                console.log(ligne.toString())
+                heroImage.src = heroImageURL.left;
+            }
+        }
+    }
+
+    // fleche droite
+    else if (touche == "ArrowRight") {
+        if (colonne < 15) {
+
+            if ((!obstacle.includes(`r${ligne}c${colonne + 1}`))) {
+                colonne++;
+                console.log(ligne.toString())
+                heroImage.src = heroImageURL.right;
+            }
+        }
+
+    }
+
+    hero.style.gridColumn = colonne;
+    hero.style.gridRow = ligne;
+    console.log("IT IS MAP 3")
+}
+
+
+
+function moveHeroMapEnd(event) {
+
+    let touche = event.key;
+
+    // console.log("============ PNJ MANAGEMENT =============")
+
+
+    console.log("===== HERO MOVEMENTS =======")
+    console.log("--- touche pressée: ---------")
+    console.log(touche)
+    console.log("==== MAP URL =======")
+    console.log(mapImage.src)
+
+    exitToShip = ["r14c7", "r14c8"];
+
+    // fleche haut
+    if (touche == "ArrowUp") {
+        if (ligne > 9) {
+
+            if ((!obstacle.includes(`r${ligne - 1}c${colonne}`))) {
+                ligne--;
+                console.log(ligne.toString())
+                heroImage.src = heroImageURL.up;
+            }
+        }
+
+    }
+
+    // fleche bas
+    else if (touche == "ArrowDown") {
+        if (ligne < 15) {
+
+            if ((!obstacle.includes(`r${ligne + 1}c${colonne}`))) {
+                ligne++;
+                console.log(ligne.toString())
+                heroImage.src = heroImageURL.down;
+
+                if (exitToShip.includes(`r${ligne + 1}c${colonne}`)) {
+                    newMap("toShip");
+                }
+            }
+
+        }
+    }
+
+    // fleche gauche
+    else if (touche == "ArrowLeft") {
+        if (colonne > 5) {
 
             if ((!obstacle.includes(`r${ligne}c${colonne - 1}`))) {
                 colonne--;

@@ -1,18 +1,16 @@
 /* BOITE DE DIALOGUE */
 
-#dialogue-container-guide {
+.dialogue-container {
     grid-row:1/span15;
     grid-column:1/span15;
-    position:absolute;
     height:100%;
     width:100%;
     display:none;
 }
 
-#dialogue-container-transhuman {
-    grid-row: 1/span15;
-    grid-column: 1/span15;
-    position: absolute;
+#dialogue-container-guide {
+    grid-row: 1/ span15;
+    grid-column: 1/ span15;
     height: 100%;
     width: 100%;
     display: none;
@@ -21,7 +19,14 @@
 #dialogue-container-guard {
     grid-row: 1/span15;
     grid-column: 1/span15;
-    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: none;
+}
+
+#dialogue-container-transhuman {
+    grid-row: 1/span15;
+    grid-column: 1/span15;
     height: 100%;
     width: 100%;
     display: none;
