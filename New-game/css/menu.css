@@ -1,0 +1,71 @@
+body {
+    background-image: url("../ressources/static-images/menu-background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 120vh;
+    font-family: Helvetica, sans-serif;
+}
+
+#logo {
+    width: 94px;
+    position: absolute;
+    top: -1px;
+}
+
+.content {
+    display: grid;
+    justify-content: center;
+    padding: 108px 0 0 0;
+}
+
+form {
+    width: 350px;
+    height: 400px;
+    background-color: rgb(60, 101, 119, 0.6);
+    box-shadow: inset 9px 9px 17px #3c6577, inset -9px -9px 17px #112731;
+    display: grid;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+h1 {
+    color: rgb(250, 245, 245);
+    font-family: "Crimson Text";
+}
+
+img {
+    position: absolute;
+    width: 250px;
+    left: 23px;
+    top: 34px;
+}
+
+a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a,
+button {
+    background-color: rgb(60, 101, 119, 0.6);
+    box-shadow: inset 9px 9px 17px #3c6577, inset -9px -9px 17px #40758d;
+    font-family: "Crimson Text";
+    color: aliceblue;
+    height: 41px;
+    font-size: 20px;
+    border-radius: 5px;
+    border: none;
+    text-decoration: none;
+}
+
+
+button:hover,
+a:hover {
+    cursor: pointer;
+    background-color: #b39a40;
+    box-shadow: inset -9px -9px 4px #e3c24b, inset -2px -2px 28px #8a7a39;
+    color: black;
+    height: 8.2vh;
+    transition: ease 0.3s;
+}

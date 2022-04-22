@@ -1,0 +1,307 @@
+@keyframes animation1 {
+
+    0% {
+        background: #D62623;
+    }
+
+    50% {
+        background: #EE3430;
+    }
+
+    100% {
+        background: #FB3733;
+
+    }
+}
+
+@keyframes animation1 {
+
+    0% {
+        background: #D62623;
+    }
+
+    50% {
+        background: #EE3430;
+    }
+
+    100% {
+        background: #FB3733;
+    }
+}
+
+@keyframes animation1 {
+
+    0% {
+        background: #D62623;
+    }
+
+    50% {
+        background: #EE3430;
+    }
+
+    100% {
+        background: #FB3733;
+    }
+}
+
+body {
+
+    background: #B0E0E6;
+}
+
+main {
+
+    width: 750px;
+    height: 580px;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 40px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    animation-name: animation1;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+
+    animation-name: animation1;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+
+    animation-name: animation1;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+
+.gameover {
+
+    width: 750px;
+    height: auto;
+    padding-top: 60px;
+    background: none;
+}
+
+.gameover p {
+
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 160px;
+    font-family: 'Black Ops One', cursive;
+    line-height: 120px;
+    text-align: center;
+    text-shadow: 5px 5px #000000;
+    color: #ffffff;
+}
+
+.continue {
+
+    width: 750px;
+    height: auto;
+    padding-top: 40px;
+}
+
+.continue p {
+
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: corbel;
+    color: #ffffff;
+    text-shadow: 2.5px 2.5px #000000;
+}
+
+.explain p {
+    color:#ffffff;
+    font-size: 1.5em;
+}
+
+
+.to-menu {
+    background-color: #ffff;
+    border-radius: 9px;
+    padding: 1em;
+}
+
+.to-menu a:hover {
+    color: rgb(219, 20, 20);
+}
+
+.to-menu a {
+    background-color: #ffff;
+    text-decoration: none;
+    color: #000000;
+    font-weight: 700;
+}
+
+@keyframes animation2 {
+
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes animation2 {
+
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes animation2 {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.1);
+    }
+}
+
+
+.oui a:hover {
+
+    animation-name: animation2;
+    animation-duration: 0.8s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+
+    animation-name: animation2;
+    animation-duration: 0.8s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+
+    animation-name: animation2;
+    animation-duration: 0.8s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+
+
+.non a {
+
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: corbel;
+    color: #ffffff;
+    text-decoration: none;
+    text-shadow: 1.5px 1.5px #FB3733;
+    padding: 25px 100px 25px 100px;
+    border-radius: 20px;
+    background: blue;
+    float: left;
+}
+
+@keyframes animation3 {
+
+    0% {
+        transform: translate(-5px, 0px);
+    }
+
+    25% {
+        transform: translate(-2.5px, 0px);
+    }
+
+    50% {
+        transform: translate(0px, 0px);
+    }
+
+    75% {
+        transform: translate(2.5px, 0px);
+    }
+
+    100% {
+        transform: translate(5px, 0px);
+    }
+}
+
+@keyframes animation3 {
+
+    0% {
+        transform: translate(-5px, 0px);
+    }
+
+    25% {
+        transform: translate(-2.5px, 0px);
+    }
+
+    50% {
+        transform: translate(0px, 0px);
+    }
+
+    75% {
+        transform: translate(2.5px, 0px);
+    }
+
+    100% {
+        transform: translate(5px, 0px);
+    }
+}
+
+@keyframes animation3 {
+
+    0% {
+        transform: translate(-5px, 0px);
+    }
+
+    25% {
+        transform: translate(-2.5px, 0px);
+    }
+
+    50% {
+        transform: translate(0px, 0px);
+    }
+
+    75% {
+        transform: translate(2.5px, 0px);
+    }
+
+    100% {
+        transform: translate(5px, 0px);
+    }
+}
+
+
+.non a:hover {
+
+    animation-name: animation3;
+    animation-duration: 0.15s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+
+    animation-name: animation3;
+    animation-duration: 0.15s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+
+    animation-name: animation3;
+    animation-duration: 0.15s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}

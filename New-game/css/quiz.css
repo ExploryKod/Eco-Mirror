@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Roboto, Helvetica, sans-serif;
+}
+
+.affichage {
+    position: absolute;
+    top: -5px;
+    right: 9px;
+    font-size: 33px;
+    color: crimson;
+    cursor: pointer;
+}
+
+
+/* Fixez le bouton sur le côté gauche de la page the button on the left side of the page */
+
+.open-btn-jeu {
+    position:absolute;
+    top:50%;
+    right:50%;
+}
+
+
+/* Stylez et fixez le bouton sur la page */
+
+.open-button-quizz {
+    background-color: #1c87c9;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+}
+
+.button2 {
+    display: none;
+}
+
+
+/* Positionnez la forme Popup */
+
+.login-popup-quizz {
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+
+/* Masquez la forme Popup */
+
+a {
+    text-decoration: none;
+}
+
+.form-popup-quizz {
+    height: 100vh;
+    display: none;
+    position: fixed;
+    left: 45%;
+    top: -5%;
+    transform: translate(-45%, 5%);
+    border: 1px solid #e0e0e0;
+    z-index: 9;
+    width: 100%;
+    background: #4d6780;
+    font-family: 'Poppins', sans-serif;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+
+
+/* Styles pour le conteneur de la forme */
+
+.form-container {
+    max-width: 300px;
+    padding: 20px;
+    background-color: #fff;
+}
+
+
+/* Largeur complète pour les champs de saisie */
+
+.form-container input[type="text"],
+.form-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #eee;
+}
+
+
+/* Quand les entrées sont concentrées, faites quelque chose */
+
+.form-container input[type="text"]:focus,
+.form-container input[type="password"]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+
+/* Stylez le bouton de connexion */
+
+.form-container .btn {
+    background-color: #8ebf42;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+
+/* Stylez le bouton pour annuler */
+
+
+/* Planez les effets pour les boutons */
+
+.form-container .btn:hover,
+.open-button:hover {
+    opacity: 1;
+}
+
+
+/* CSS QUIZ */
+
+.elcontent {
+    top: 36px;
+    position: absolute;
+    left: 440px;
+}
+
+.elcontent img {
+    width: 193px;
+}
+
+.cartedigi img {
+    width: 6em;
+}
+
+.cartedigi {
+    text-align: center;
+}
+
+.quiz-container-quizz {
+    border-radius: 20px;
+    background: #4d6780;
+    box-shadow: 20px 20px 60px #41586d, -20px -20px 60px #597693;
+    width: 600px;
+    overflow: hidden;
+    position: absolute;
+    top: 13%;
+    left: 21%;
+    transform: translate(17%, 5%);
+}
+
+.quiz-container-quizz:hover {
+    background: linear-gradient(145deg, #455d73, #526e89);
+    box-shadow: 20px 20px 60px #41586d, -20px -20px 60px #597693;
+}
+
+.quiz-header-quizz {
+    padding: 2rem;
+}
+
+.quiz-header-quizz a {
+    text-decoration: none;
+    color: #ffff;
+}
+
+.quiz-header-quizz h2 {
+    padding: 1rem;
+    text-align: start;
+    margin: 0;
+    color: #ffff;
+}
+
+.quiz-header-quizz em {
+    color: #69a069;
+}
+
+.quiz-header-quizz h3 {
+    padding: 1rem;
+    text-align: center;
+    margin: 0;
+    color: #ffff;
+}
+
+.quiz-header-quizz ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.quiz-header-quizz ul li {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    text-align: start;
+    color: #ffff;
+}
+
+.quiz-header-quizz ul li label {
+    cursor: pointer;
+}
+
+.quiz-container-quizz button {
+    background: #4d6780;
+    box-shadow: inset 20px 20px 60px #41586d, inset -20px -20px 60px #597693;
+    color: #fff;
+    border: none;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-family: inherit;
+    padding: 1.3rem;
+}
+
+.quiz-container-quizz button:hover {
+    background: #7ba9bc;
+    box-shadow: inset 2px 2px 4px #6990a0, inset -2px -2px 8px #8dc2d8;
+}
+
+.quiz-container-quizz button:focus {
+    outline: none;
+    background: #7bbc7c;
+    box-shadow: inset 2px 2px 6px #69a069, inset -2px -2px 6px #8dd88f;
+}
+
+
+/* -------------------------- */
+
+
+/* Fixer le bouton sur le côté gauche de la page */
+
+.open-btn-jeu {
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+/* Stylez et fixez le bouton sur la page */
+
+.open-button-quizz {
+    background-color: #1c87c9;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+}
+
+
+/* Positionnez la forme Popup */
+
+.login-popup-quizz {
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+
+/* Masquez la forme Popup */
+
+.form-popup-quizz {
+    display: none;
+    position: fixed;
+    transform: translate(-45%, 5%);
+    border: 2px solid #666;
+    z-index: 9;
+}
+
+#inventory #contentInventory {
+    width: 19%;
+}
