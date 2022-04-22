@@ -1026,7 +1026,7 @@ function moveHeroMapCamp(event) {
 
                 if (exit.includes(`r${ligne}c${colonne}`)) {
 
-                    if (score == 15) {
+                    if (score > 14) {
                         newMap("returnToBeforeCamp");
                     } else {
                         console.log("play again");

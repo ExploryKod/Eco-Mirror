@@ -11,7 +11,7 @@ const buttons = document.querySelectorAll("button");
 
 // fonction des boutons
 for (let i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener("click", function() {
+    buttons[i].addEventListener("click", function () {
         const moi = buttons[i].name;
         const robot = buttons[Math.floor(Math.random() * buttons.length)].name;
         let resultat_PFC = "";
