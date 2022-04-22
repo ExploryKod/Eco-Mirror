@@ -1,6 +1,6 @@
 
-const buttonOpen = document.querySelector(".open-button");
-const buttonClose = document.querySelector(".close-button");
+const buttonOpen = document.querySelector(".open-button-dial");
+const buttonClose = document.querySelector(".close-button-dial");
 const characterHero = document.querySelector(".hero");
 
 const messageContainer = document.querySelector(".message-container");
@@ -17,13 +17,13 @@ const pnjTwo = document.querySelector("#pnj-2");
 const objectOne = document.querySelector("#object-1");
 const objectTwo = document.querySelector("#object-2");
 
-function openForm() {
+function openFormDial() {
     characterHero.style.display = "none";
-    document.getElementById("popupForm").style.display = "block";
+    document.getElementById("popupForm-dial").style.display = "block";
 }
 
-function closeForm() {
-    document.getElementById("popupForm").style.display = "none";
+function closeFormDial() {
+    document.getElementById("popupForm-dial").style.display = "none";
     characterHero.style.display = "flex";
 }
 
@@ -38,7 +38,7 @@ function closeDialogueContainer() {
 
 }
 
-buttonClose.addEventListener("click", closeDialogueContainer);
+
 
 // ========== Answers ============ 
 
@@ -46,29 +46,14 @@ buttonClose.addEventListener("click", closeDialogueContainer);
 // First answer
 function answer1() {
 
-    if (messageContainer.id == 'dialogue-container') {
         document.getElementById('textguide').innerText = "'Les objets sont dispersés un peu partout sur notre planète. A toi de te déplacer pour les trouvez.'" // Changer le texte1 du guide
         document.getElementById('answer1').innerText = "'OK! Quels sont les objets disponible?'" //Changer notre réponse1.1
         document.getElementById('answer2').innerText = "'OK! Quelle direction me conseillerais - tu ?'" //Changer notre réponse1.2
         button1.onclick = answer1_1;
         button2.onclick = answer1_2;
-    } else if (messageContainer.id == 'dialogue-container-guard') {
-        document.getElementById('textguide').innerText = "'Moi le garde'" // Changer le texte1 du guide
-        document.getElementById('answer1').innerText = "'OK!?'" //Changer notre réponse1.1
-        document.getElementById('answer2').innerText = "'OK?'" //Changer notre réponse1.2
-        button1.onclick = answer1_1;
-        button2.onclick = answer1_2;
-    } else {
-        document.getElementById('textguide').innerText = "'Moi le transhumain'" // Changer le texte1 du guide
-        document.getElementById('answer1').innerText = "'OK!?'" //Changer notre réponse1.1
-        document.getElementById('answer2').innerText = "'OK?'" //Changer notre réponse1.2
-        button1.onclick = answer1_1;
-        button2.onclick = answer1_2;
-    }
-   
 }
 
-button1.onclick = answer1;
+
 
 // answer 1.1
 function answer1_1() {
@@ -88,8 +73,6 @@ function answer2() {
     boutton2.onclick = answer2_2;
 }
 
-button2.onclick = answer2;
-
 // answer 2.1
 function answer2_1() {
     document.getElementById('textguide').innerText = "'Ces jeux te permettront de voyager ou bien d'obtenir des objets pour sauver ton monde ou toi-même.'"// Changer le texte2.1 du guide
@@ -99,3 +82,8 @@ function answer2_1() {
 function answer2_2() {
     document.getElementById('textguide').innerText = "'Eh bien ce monde est pleins de dangers...'"// Changer le texte2.2 du guide
 }
+
+buttonOpen.addEventListener("click", openFormDial);
+buttonClose.addEventListener("click", closeDialogueContainer);
+button2.onclick = answer2;
+button1.onclick = answer1;

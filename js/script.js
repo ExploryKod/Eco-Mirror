@@ -1127,7 +1127,7 @@ function moveHeroMapFinal(event) {
 
     hero.style.gridColumn = colonne;
     hero.style.gridRow = ligne;
-    console.log("IT IS MAP 3")
+    console.log("IT IS MAP final")
 }
 
 
@@ -1207,11 +1207,8 @@ function moveHeroMapEnd(event) {
 
     hero.style.gridColumn = colonne;
     hero.style.gridRow = ligne;
-    console.log("IT IS MAP 3")
+    console.log("IT IS MAP end")
 }
-
-
-
 
 
 

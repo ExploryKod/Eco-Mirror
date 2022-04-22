@@ -45,21 +45,31 @@
 
 /* CSS QUIZ */
 
-.quiz-container-dial {
+
+/* Outer container */
+.container-dial {
     border-radius: 20px;
     background: #e0e0e0;
     box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
-    width: 710px;
-    height: 289px;
+    width: 80%;
+    height: auto;
     overflow: hidden;
     position: absolute;
     top: 13%;
     left: 50%;
     transform: translate(-50%, 71%);
+
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1em;
+    grid-template-rows: 1fr 1fr 1fr 1em;
 }
 
+/* child of outer container */
 .header-dial {
-    padding: 2rem;
+    grid-row: 1 / span 2;
+    grid-column: 1 / span 4;
+    padding: 1rem;
+
 }
 
 .header-dial h2 {
@@ -67,6 +77,23 @@
     padding-left: 151px;
     text-align: start;
     margin: 0;
+}
+
+/* button to answer - child of outer container dial */
+
+.container-dial #answer1 {
+    width:80%;
+    height:90%;
+    grid-row:3;
+    grid-column:2;
+    
+}
+
+.container-dial #answer2 {
+    width:80%;
+    height:90%;
+    grid-row:3;
+    grid-column:3;
 }
 
 .container-dial button {
@@ -80,7 +107,7 @@
     font-size: 1.1rem;
     font-family: inherit;
     padding: 1.3rem;
-    text-align: center;
+    text-align: center;  
 }
 
 .container-dial button:hover {
@@ -148,7 +175,7 @@ a {
     text-decoration: none;
 }
 
-.container-dial img {
+.inner-container-dial img {
     width: 20%;
     height: auto;
     position: absolute;
@@ -194,7 +221,7 @@ a {
     ;
 }
 
-.container-dial p {
+.inner-container-dial p {
     text-align: start;
     padding-left: 151px;
     animation-duration: 3s;
