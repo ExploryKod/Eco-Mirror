@@ -141,7 +141,7 @@ function newMap(mapPlace) {
             break;
 
         case "exitToFinal":
-
+            alert("exittofinal from crash")
             ligne = 8;
             colonne = 1;
             hero.style.gridRow = 8;
@@ -219,6 +219,12 @@ function newMap(mapPlace) {
             // hero lose life due to lack of oxygene in the world
             heroLifeBar.value -= 30;
             console.log("Life value " + heroLifeBar.value);
+
+            imgObject01 = document.querySelector("#object-1 img");
+            imgObject01.src = "./ressources/objects/goodfood.png";
+            object01.style.gridRow = 8;
+            object01.style.gridColumn = 8;
+            object01.style.display = "block";
 
             document.removeEventListener('keyup', moveHeroMapBeforeCamp, false);
             document.removeEventListener('keyup', moveHeroMapBeforeCamp, true);
@@ -496,7 +502,6 @@ function moveHeroMapCrash(event) {
                     pnj03.style.opacity = 0.2;
                     object01.style.opacity = 0.2;
                     object02.style.opacity = 0.2;
-                    object03.style.opacity = 0.2;
 
                     if (dialogueContainer.style.display == "block") {
                         ligne--;
@@ -541,7 +546,6 @@ function moveHeroMapCrash(event) {
                     pnj03.style.opacity = 0.2;
                     object01.style.opacity = 0.2;
                     object02.style.opacity = 0.2;
-                    object03.style.opacity = 0.2;
 
                     if (dialogueContainer.style.display == "block") {
                         colonne++;
@@ -581,7 +585,7 @@ function moveHeroMapCrash(event) {
                     pnj03.style.opacity = 0.2;
                     object01.style.opacity = 0.2;
                     object02.style.opacity = 0.2;
-                    object03.style.opacity = 0.2;
+           
 
                     if (dialogueContainer.style.display == "block") {
                         colonne--;
@@ -674,8 +678,7 @@ function moveHeroMapCrash_2(event) {
                     pnj03.style.opacity = 0.2;
                     object01.style.opacity = 0.2;
                     object02.style.opacity = 0.2;
-                    object03.style.opacity = 0.2;
-
+        
                     if (dialogueContainer.style.display == "block") {
                         ligne++;
                     }
@@ -702,7 +705,7 @@ function moveHeroMapCrash_2(event) {
                     pnj03.style.opacity = 0.2;
                     object01.style.opacity = 0.2;
                     object02.style.opacity = 0.2;
-                    object03.style.opacity = 0.2;
+           
 
                     if (dialogueContainer.style.display == "block") {
                         ligne--;
@@ -734,7 +737,6 @@ function moveHeroMapCrash_2(event) {
                     pnj03.style.opacity = 0.2;
                     object01.style.opacity = 0.2;
                     object02.style.opacity = 0.2;
-                    object03.style.opacity = 0.2;
 
                     if (dialogueContainer.style.display == "block") {
                         colonne++;
@@ -761,7 +763,7 @@ function moveHeroMapCrash_2(event) {
                     pnj03.style.opacity = 0.2;
                     object01.style.opacity = 0.2;
                     object02.style.opacity = 0.2;
-                    object03.style.opacity = 0.2;
+             
 
                     if (dialogueContainer.style.display == "block") {
                         colonne--;
@@ -979,6 +981,7 @@ function moveHeroMapCamp(event) {
     pnj01.style.gridColumn = 10;
 
     pnj02.style.display = "none";
+    
 
     // console.log("============ PNJ MANAGEMENT =============")
 
