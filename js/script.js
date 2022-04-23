@@ -1,77 +1,16 @@
 
 
-// Games variables
-let currentQuiz = 0;
-let correctAnswer = 0;
-let score = 0;
-let clic = 1;
-
-let inventory = [];
-let itemInventory = [];
-
-// Maps variables
-let map = document.querySelector(".maps");
-let mapImage = document.querySelector("#image-map");
-let introText = document.querySelector(".intro-text");
-
-// hero : container and image.
-let hero = document.querySelector(".hero");
-let heroImage = document.querySelector(".hero img");
-
-// URL of the hero different positions when moving
-heroImageURL = {
-    fromSky: 'ressources/hero/hero-face.png',
-    right: 'ressources/hero/hero-right.png',
-    left: 'ressources/hero/hero-left.png',
-    up: 'ressources/hero/hero-back.png',
-    down: 'ressources/hero/hero-face.png'
-}
-
-// Crash elements : explaining and image of the shuttle on the second map
-let shuttleImage = document.querySelector('#shuttle');
-let crashText = document.querySelector("#crash-explain");
-
-// Life bar of the hero: the bar itself.
-let heroLifeBar = document.querySelector("#myXp"); 
-
-// URL of images 
-let mapShipURL = 'ressources/maps/map_1_ship.png';
-let mapCrashURL = 'ressources/maps/map_2_crash.png';
-let mapBeforeCampURL = 'ressources/maps/map_3bis_before_camp.png';
-let mapCampURL = 'ressources/maps/map_4_camp.png';
-let mapBeforeFinalURL = 'ressources/maps/map_3_before_final.png';
-let mapFinalURL = 'ressources/maps/map_final.png';
-let endGameURL = 'ressources/maps/EarthPhoto.jpeg';
-let ShipImage = 'ressources/static-images/ShipIsDown.png';
-let FallingShipImage = 'ressources/static-images/ShipIsFalling.png';
-
-// PNJ positions and images
-let pnj01 = document.querySelector("#pnj-1");
-let pnj02 = document.querySelector("#pnj-2");
-let pnj01Image = document.querySelector("#pnj-image-1")
-let pnj02Image = document.querySelector("#pnj-image-2")
-
-let pnjGuardURL = 'ressources/pnj/guard.png';
-let pnjGuideURL = 'ressources/pnj/mentor.png';
-let pnjTranshumanURL = 'ressources/pnj/transhuman.png';
-
-// Objects positions
-let object01 = document.querySelector("#object-1");
-let object02 = document.querySelector("#object-2");
-
-// CSS grid: lines and columns
-let ligne = 1;
-let colonne = 1;
-
-// Dialogue and challenges containers 
-dialogueContainer = document.querySelector(".message-container");
-dialogueContainerGuardian = document.querySelector(".message-container-guard");
-playGames = document.querySelector(".open-btn-jeu");
-
 // ============= FONCTIONS ================
 
-// On load, we display spaceship map : 
+// function to decide that you lose if HeroLifeBar = 0
+function KillHero() {
 
+    if (heroLifeBar.value == 0) {
+        document.location.href = "../game-over.html";
+    }
+}
+
+// On load, we display spaceship map : 
 function LoadGame() {
     
     // We display the map container itself:
@@ -81,30 +20,23 @@ function LoadGame() {
     dialogueContainer.style.display = "none";
     dialogueContainerGuardian.style.display = "none";
     playGames.style.display = "none";
+    shuttleImage.style.display = "none";
 
+    // We load the map and the hero image
     mapImage.src = mapShipURL;
     heroImage.src = heroImageURL.fromSky;
 
+    // We position the hero 
     ligne = 10;
     colonne = 8;
     hero.style.gridRow = 10;
     hero.style.gridColumn = 8;
 
-    
-
     console.log("la map est chargée!");
     console.log("url de la map chargée:" + mapImage.src)
+
     document.addEventListener('keyup', moveHeroMapShip);
 
-}
-
-// function to deciding that you lose if HeroLifeBar = 0
-
-function KillHero() {
-
-    if (heroLifeBar.value == 0) {
-        document.location.href = "../game-over.html";
-    }
 }
 
 // ========== After loading, every maps are displayed with this function:
@@ -141,7 +73,7 @@ function newMap(mapPlace) {
             break;
 
         case "exitToFinal":
-            alert("exittofinal from crash")
+          
             ligne = 8;
             colonne = 1;
             hero.style.gridRow = 8;
@@ -151,6 +83,10 @@ function newMap(mapPlace) {
             dialogueContainer.style.display = "none";
             dialogueContainerGuardian.style.display = "none";
             shuttleImage.style.display = "none";
+            pnj01.style.display = "none";
+            pnj02.style.display = "none";
+            object01.style.display = "none";
+            object02.style.display = "none";
 
              // hero lose life due to lack of oxygene in the world
             heroLifeBar.value -= 10;
@@ -169,9 +105,15 @@ function newMap(mapPlace) {
             hero.style.gridColumn = 8;
 
             mapImage.src = mapBeforeCampURL;
+
             dialogueContainer.style.display = "none";
             dialogueContainerGuardian.style.display = "none";
             shuttleImage.style.display = "none";
+            playGames.style.display = "none";
+            pnj01.style.display = "none";
+            pnj02.style.display = "none";
+            object01.style.display = "none";
+            object02.style.display = "none";
 
              // hero lose life due to lack of oxygene in the world
             heroLifeBar.value -= 10;
@@ -190,12 +132,17 @@ function newMap(mapPlace) {
             hero.style.gridColumn = 8;
             mapImage.src = mapFinalURL;
 
+            // Hiding every items that aren't on the map we display
             dialogueContainer.style.display = "none";
             dialogueContainerGuardian.style.display = "none";
             shuttleImage.style.display = "none";
             playGames.style.display = "none";
+            pnj01.style.display = "none";
+            pnj02.style.display = "none";
+            object01.style.display = "none";
+            object02.style.display = "none";
 
-            // hero lose life due to lack of oxygene in the world
+            // hero lose life due to lack of pure air in the world
             heroLifeBar.value -= 20;
             console.log("Life value " + heroLifeBar.value);
 
@@ -206,20 +153,33 @@ function newMap(mapPlace) {
 
         case "exitBeforeCamp":
             
+            // We position the hero on the camp map 
             ligne = 10;
             colonne = 1;
             hero.style.gridRow = 10;
             hero.style.gridColumn = 1;
 
+            // We display camp map image
             mapImage.src = mapCampURL;
+
+            // We need to hide these items on the camp map:
             dialogueContainer.style.display = "none";
             dialogueContainerGuardian.style.display = "none";
             shuttleImage.style.display = "none";
+            pnj02.style.display = "none";
+        
 
-            // hero lose life due to lack of oxygene in the world
+            // Position and display the transhuman pnj
+            pnj01.style.display = "block";
+            pnj01Image.src = pnjTranshumanURL;
+            pnj01.style.gridRow = 5;
+            pnj01.style.gridColumn = 10;
+
+            // hero lose life due to lack of pur air in the world
             heroLifeBar.value -= 30;
             console.log("Life value " + heroLifeBar.value);
 
+            // We display and position the object to regain life (good food):
             imgObject01 = document.querySelector("#object-1 img");
             imgObject01.src = "./ressources/objects/goodfood.png";
             object01.style.gridRow = 8;
@@ -275,10 +235,15 @@ function newMap(mapPlace) {
         case "toShip":
        
             mapImage.src = ShipImage;
+
             dialogueContainer.style.display = "none";
             dialogueContainerGuardian.style.display = "none";
             shuttleImage.style.display = "none";
             playGames.style.display = "none";
+            pnj01.style.display = "none";
+            pnj02.style.display = "none";
+            object01.style.display = "none";
+            object02.style.display ="none";
 
             heroLifeBar.value -= 10;
             console.log("Life value " + heroLifeBar.value);
@@ -296,9 +261,6 @@ function newMap(mapPlace) {
 function moveHeroMapShip(event) {
 
     let touche = event.key;
-    dialogueContainer.style.display = "none";
-    dialogueContainerGuardian.style.display = "none";
-    shuttleImage.style.display = "none";
 
     KillHero()
 
@@ -404,7 +366,6 @@ function moveHeroMapCrash(event) {
         shuttleImage.style.gridColumn = "6 / span 2";
 
         crashText.style.display = "none";
-
 
     }
 
@@ -791,11 +752,7 @@ function moveHeroMapCrash_2(event) {
 function moveHeroMapBeforeCamp(event) {
 
     let touche = event.key;
-    shuttleImage.style.display = "none";
-
-    pnj01.style.display = "none";
-    pnj02.style.display = "none";
-
+  
     KillHero()
 
     console.log("===== HERO MOVEMENTS =======")
@@ -969,19 +926,10 @@ function moveHeroMapBeforeCamp_2(event) {
 function moveHeroMapCamp(event) {
 
     let touche = event.key;
-
-    shuttleImage.style.display = "none";
     mapImage.style.opacity = 1;
 
+
     KillHero()
-
-    pnj01.style.display = "block";
-    pnj01Image.src = pnjTranshumanURL;
-    pnj01.style.gridRow = 5;
-    pnj01.style.gridColumn = 10;
-
-    pnj02.style.display = "none";
-    
 
     // console.log("============ PNJ MANAGEMENT =============")
 
@@ -1061,6 +1009,7 @@ function moveHeroMapCamp(event) {
                         newMap("returnToBeforeCamp");
                     } else {
                         console.log("play again");
+                        newMap("exitBeforeCamp");
                         mapImage.style.opacity = 0.5;
                         playGames.style.display = "block";
                         
@@ -1102,10 +1051,7 @@ function moveHeroMapCamp(event) {
 function moveHeroMapBeforeFinal(event) {
 
     let touche = event.key;
-    shuttleImage.style.display = "none";
-    pnj01.style.display = "none";
-    pnj02.style.display = "none";
-
+ 
     KillHero()
 
     console.log("===== HERO MOVEMENTS =======")
@@ -1188,9 +1134,6 @@ function moveHeroMapBeforeFinal(event) {
 function moveHeroMapFinal(event) {
 
     let touche = event.key;
-    shuttleImage.style.display = "none";
-    pnj01.style.display = "none";
-    pnj02.style.display = "none";
 
     KillHero()
 
@@ -1271,23 +1214,19 @@ function moveHeroMapFinal(event) {
 
     hero.style.gridColumn = colonne;
     hero.style.gridRow = ligne;
-    console.log("IT IS MAP FINAL BEFORE THE ENDING MAP WITH SHIP")
+    console.log("This is the map where we can access the ship map")
 }
 
 
 function moveHeroMapEnd(event) {
 
     let touche = event.key;
-    shuttleImage.style.display = "none";
-    pnj01.style.display = "none";
-    pnj02.style.display = "none";
+   
+
 
     KillHero()
 
-    dialogueContainer.style.display = "none";
-    dialogueContainerGuardian.style.display = "none";
-    shuttleImage.style.display = "none";
-    playGames.style.display = "none";
+
 
     console.log("===== HERO MOVEMENTS =======")
     console.log("--- touche pressée: ---------")
@@ -1366,247 +1305,11 @@ function moveHeroMapEnd(event) {
 
     hero.style.gridColumn = colonne;
     hero.style.gridRow = ligne;
-    console.log("IT IS MAP end")
+    console.log("It is the last map")
 }
 
 
-// ==================== Games in tranhuman camp
 
-
-const contentInventory = document.getElementById("contentInventory");
-
-const quizQuestion = [{
-    question: "Quel est la part de gaz à effet de serre auquel contribue la pollution numérique?",
-    a: "15%",
-    b: "1%",
-    c: "4%",
-    d: "8%",
-    correct: "c",
-},
-{
-    question: "Dans les outils suivant, quels sont ceux qui peuvent être utilisé pour réduire votre pollution numérique?",
-    a: "Cleannetwork",
-    b: "Cleanfox",
-    c: "La corbeille dans votre boîte e-mail",
-    d: "Greenanalyser",
-    correct: "b",
-},
-{
-    question: "Qui contribue le plus à la pollution numérique parmis les acteurs suivants :",
-    a: "Les fabricants du hardware",
-    b: "Les développeurs web",
-    c: "Vous, en tant qu'utilisateur peu scrupuleux consommateur de streaming.",
-    d: "Votre chat quand vous le laissez jouer à L.O.L sans surveillance",
-    correct: "a",
-},
-
-];
-
-const quiz = document.getElementById('quiz-quizz')
-
-const answerEls = document.querySelectorAll('.answer-quizz')
-const questionEl = document.getElementById('question-quizz')
-const a_text = document.getElementById('a_text-quizz')
-const b_text = document.getElementById('b_text-quizz')
-const c_text = document.getElementById('c_text-quizz')
-const d_text = document.getElementById('d_text-quizz')
-const submitBtn = document.getElementById('submit-quizz')
-
-/* Function start game quiz */
-function openFormQuiz() {
-    document.getElementById("popupForm-quizz").style.display = "block";
-
-}
-/* END */
-
-const btnplay = document.querySelector(".open-button-quizz");
-btnplay.addEventListener("click", loadQuiz);
-
-
-function loadQuiz() {
-
-    deselectAnswers()
-
-    const currentQuizQuestion = quizQuestion[currentQuiz]
-
-    questionEl.innerText = currentQuizQuestion.question
-    a_text.innerText = currentQuizQuestion.a
-    b_text.innerText = currentQuizQuestion.b
-    c_text.innerText = currentQuizQuestion.c
-    d_text.innerText = currentQuizQuestion.d
-}
-
-function deselectAnswers() {
-    answerEls.forEach(answerEl => answerEl.checked = false)
-}
-
-function getSelected() {
-    let answer
-    answerEls.forEach(answerEl => {
-        if (answerEl.checked) {
-            answer = answerEl.id
-        }
-    })
-    return answer
-}
-
-submitBtn.addEventListener('click', () => {
-    const answer = getSelected()
-    if (answer) {
-        if (answer === quizQuestion[currentQuiz].correct) {
-            correctAnswer++
-            score += 5;
-        }
-
-        currentQuiz++
-
-        if (currentQuiz < quizQuestion.length) {
-            loadQuiz()
-            console.log("rejouer")
-        } else {
-            win();
-
-        }
-    }
-})
-
-/* window.onload = */
-function win() {
-    console.log("la fonction win est appelé");
-    if (score == 15) {
-
-        quiz.innerHTML = `
-        
-           <h3>Bravo! ${correctAnswer}/${quizQuestion.length} réponses correctes</h3>
-           <h3>Votre score final : <em> ${score}</em></h3>
-           <h3>Vous avez gagné une carte digitale qui vous permet de passer au niveau suivant</h3>
-         <div class="cartedigi">  <img src="../image/carteDigi.png" alt="carte digital"  >
-         <img src="../image/cartefind.png" alt="carte digital"  >
-         </div>
-           <a href=''>  
-           
-           </a>
-           <button class="btn" onclick="save1();">SAVE</button>
-           
-
-           
-           <div class="elcontent">
-           <img src="../image/mentorGuide.png" alt="carte digital"  >
-           </div>
-           `
-    } else if (score == 10) {
-        quiz.innerHTML = `
-           <h3>${correctAnswer}/${quizQuestion.length} réponses correctes</h3>
-           <h3>Votre score final : <em> ${score}</em></h3> 
-           <span class="affichage" onclick="closeForm()">&times;</span>
-           <button onclick="location.reload()">Rejouer</button>
-           
-           `
-
-
-    } else if (score == 5) {
-        quiz.innerHTML = `
-           <h3>Oups! ${correctAnswer}/${quizQuestion.length} réponses correctes</h3>
-           <h3>Votre score final : <em> ${score}</em></h3> 
-           <button onclick="location.reload()">Rejouer</button>
-           `
-
-    } else if (score == 0) {
-        quiz.innerHTML = `
-           <h3>Oups! ${correctAnswer}/${quizQuestion.length} réponses correctes</h3>
-           <h3>Votre score final : <em> ${score}</em></h3> 
-           <button onclick="location.reload()">Rejouer</button>
-           `
-    }
-}
-
-
-function save1() {
-    console.log("le score 1");
-    console.log(score);
-
-    if (score === 15) {
-        console.log('push image');
-        inventory.push('./image/carteDigi.png');
-        const img = document.createElement("img");
-        img.src = './image/carteDigi.png';
-        img.id = 'imgObject';
-        contentInventory.appendChild(img);
-        document.querySelector('.open-button-quizz').style.display = 'none';
-        document.querySelector('.button2').style.display = 'block';
-    }
-    document.getElementById("popupForm-quizz").style.display = "none";
-
-}
-
-/* fonction save localStorage */
-
-/* function save() {
-    var new_data = score;
-
-    if (localStorage.getItem('data') == null) {
-        localStorage.setItem('data', '[]');
-    }
-
-    var old_data = JSON.parse(localStorage.getItem('data'));
-    old_data.push(new_data);
-
-    localStorage.setItem('data', JSON.stringify(old_data));
-    document.getElementById("popupForm").style.display = "none";
-    document.getElementById("popupForm2").style.display = "none";
-    document.getElementById("popupForm3").style.display = "none";
-
-} */
-
-
-
-
-// window.onload = function view() {
-function view() {
-    console.log('marche');
-    newScore = localStorage.getItem('data')
-    var Score_data = JSON.parse(localStorage.getItem('data'));
-    // Score_data.push(newScore);
-    console.log(localStorage.getItem('data'));
-    console.log(Score_data);
-
-    if (Score_data[0] === 15) {
-        console.log('push image');
-        inventory.push('./image/carteDigi.png');
-        const img = document.createElement("img");
-        img.src = './image/carteDigi.png';
-        img.id = 'imgObject';
-        contentInventory.appendChild(img);
-        document.querySelector('.open-button').style.display = 'none';
-        document.querySelector('.button2').style.display = 'block';
-    }
-    if (Score_data[1] === 25) {
-        console.log('round 2');
-        inventory.push('./image/potion1.png');
-        const img = document.createElement("img");
-        img.src = './image/potion1.png';
-        img.id = 'imgObject';
-        contentInventory.appendChild(img);
-
-        document.querySelector('.button2').style.display = 'none';
-        document.querySelector('.button3').style.display = 'block';
-
-
-    }
-    if (Score_data[2] === 35) {
-        console.log('round 3');
-
-        inventory.push('./image/bouclier.png');
-        const img = document.createElement("img");
-        img.src = './image/bouclier.png';
-        img.id = 'imgObject';
-        contentInventory.appendChild(img);
-
-        document.querySelector('.button3').style.display = 'none';
-
-    }
-
-}
 
 
 

@@ -23,3 +23,6 @@ AJOUTS:
 - XP de la planète impactés si...
 - Accessibilité
 - Responsive sur tablette ou au moins indiquer un message comme quoi on ne peux y jouer sur cette taille d'écran.
+
+
+  <!--    <span class="affichage" onclick="closeForm()">&times;</span> -->

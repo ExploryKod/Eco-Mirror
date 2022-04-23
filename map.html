@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="css/game.css">
     <link rel="stylesheet" href="css/game-menu.css">
 
@@ -12,7 +13,6 @@
     <link rel="stylesheet" href="css/dialogue.css">
     <link rel="stylesheet" href="css/dialogue-guard.css">
 
-    <link rel="stylesheet" href="./css/Style_Map.css">
     <link rel="stylesheet" href="./css/quiz.css">
     <link rel="stylesheet" href="./css/findNumber.css">
     <link rel="stylesheet" href="./css/PFC.css">
@@ -20,7 +20,7 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
-    <title>Farmata RPG</title>
+    <title>Eco-mirror RPG</title>
 
 </head>
 
@@ -28,19 +28,16 @@
     <header>
         <a href="./index.html"><button class="btn-main">MENU</button></a>
         <div class="line"></div>
-        <img src="./image/logoRPG-removebg-preview.png" alt="logo du jeu">
+        <img src="./ressources/static-images/EcoMirrorLogo.png" alt="logo du jeu">
         <div class="line"></div>
-        <!-- <button class="btn-main" onclick="save();">SAVE</button> -->
         <button class="btn-main" onclick="view();">SAVE</button>
-
-
     </header>
 
     <main>
         <aside id="left-menu">
             <div>
                 <h2>Mes XP</h2>
-                <progress aria-label="your xp" id="myXp" class="file" max="100" value="100"></progress>
+                <progress aria-label="votre vie" id="myXp" class="file" max="100" value="100"></progress>
             </div>
           
 
@@ -57,7 +54,8 @@
                 <p>Mince alors ! Vous vouliez vous poser mais vous avez été pris dans une turbulence<br/>
                 Le vaisseau s'est alors mis en phase de sécurité : il vous a éjecté via la nacelle de secours.<br/>
                 Mais où est donc notre vaisseau ? Partez à sa recherche pour revenir au plus vite.</p>
-                <p>Tapez ENTREE pour atterir sans trop de dommage</p>
+                <br/><br/>
+                <p>Tapez sur <span>ENTREE</span> pour atterir sans trop de dommage</p>
             </div>
 
             <!--Objects and pnj from each maps  -->
@@ -152,8 +150,8 @@
 
         <div class="open-btn-jeu">
             <button class="open-button-quizz" onclick="openFormQuiz()">Défiez le transhumain !</button>
-            <button class="open-button-quizz button2" onclick="openForm2Find()">Tentez de gagner un artefact</button>
-            <button class="open-button-quizz button3" onclick="openForm3PFC()">Encore une fois ?</button>
+            <button class="open-button-quizz button2" onclick="openForm2Find()">Tentez de gagner une potion anti-pollution</button>
+            <button class="open-button-quizz button3" onclick="openForm3PFC()">Gagner un bouclier anti-pollution</button>
         
         </div>
 
@@ -250,14 +248,15 @@
 
     </main>
 
-
-    <!-- <script src="./js/quiz1.js"></script> -->
+    <script src="./js/score-inventory.js"></script>
+    <script src="./js/quiz1.js"></script>
     <script src="./js/findNumber.js"></script>
     <script src="./js/PFC.js"></script>
 
     <script src="./js/dialogue.js"></script>
     <script src="./js/dialogue-guard.js"></script>
     
+    <script src="./js/map-global-variables.js"></script>
     <script src="./js/script.js"></script>
 
 

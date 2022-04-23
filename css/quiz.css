@@ -242,17 +242,11 @@ a {
 /* -------------------------- */
 
 
-/* Fixer le bouton sur le côté gauche de la page */
-
-.open-btn-jeu {
-    display: flex;
-    justify-content: flex-start;
-}
 
 
 /* Stylez et fixez le bouton sur la page */
 
-.open-button-quizz {
+/* .open-button-quizz {
     background-color: #1c87c9;
     color: white;
     padding: 12px 20px;
@@ -261,21 +255,21 @@ a {
     cursor: pointer;
     opacity: 0.8;
     position: fixed;
-}
+} */
 
 
 /* Positionnez la forme Popup */
 
-.login-popup-quizz {
+/* .login-popup-quizz {
     position: relative;
     text-align: center;
     width: 100%;
-}
+} */
 
 
 /* Masquez la forme Popup */
 
-.form-popup-quizz {
+/* .form-popup-quizz {
     display: none;
     position: fixed;
     transform: translate(-45%, 5%);
@@ -284,5 +278,5 @@ a {
 }
 
 #inventory #contentInventory {
-    width: 19%;
+    width: 19%; */
 }
