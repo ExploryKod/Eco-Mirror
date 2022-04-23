@@ -8,7 +8,12 @@ MINIMUM:
 -style de naming des noms de ficheirs
 - Style du texte avec l'image du vaisseau de début
 - dialogue avait un souci encore
+- affichage des boite de dialogue
+- changer l'animation de l'écran de départ : pas d'écran noir.
 
+Questions: 
+- removeElement(htmlelement) / createElement and appendchild plutôt que display = "none" notamment pour les élements dialogues etc ?
+- remove en bubbling et capturing : utile ?
 AJOUTS:
 - meilleurs dialogues
 - Introduire les jeux sur défier le transhumain
@@ -17,4 +22,4 @@ AJOUTS:
 - Créer des objet pour recharge des XP 
 - XP de la planète impactés si...
 - Accessibilité
-- Responsive 
+- Responsive sur tablette ou au moins indiquer un message comme quoi on ne peux y jouer sur cette taille d'écran.

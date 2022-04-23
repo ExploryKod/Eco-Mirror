@@ -27,10 +27,12 @@ heroImageURL = {
     down: 'ressources/hero/hero-face.png'
 }
 
-// Shuttle that crashed on first map in the foreign world
+// Crash elements : explaining and image of the shuttle on the second map
 let shuttleImage = document.querySelector('#shuttle');
-
 let crashText = document.querySelector("#crash-explain");
+
+// Life bar of the hero: the bar itself.
+let heroLifeBar = document.querySelector("#myXp"); 
 
 // URL of images 
 let mapShipURL = 'ressources/maps/map_1_ship.png';
@@ -68,20 +70,27 @@ playGames = document.querySelector(".open-btn-jeu");
 
 // ============= FONCTIONS ================
 
+// On load, we display spaceship map : 
+
 function LoadGame() {
-       
+    
+    // We display the map container itself:
     map.style.display = "grid";
+
+    // We hide other containers: 
     dialogueContainer.style.display = "none";
     dialogueContainerGuardian.style.display = "none";
     playGames.style.display = "none";
 
     mapImage.src = mapShipURL;
     heroImage.src = heroImageURL.fromSky;
+
     ligne = 10;
     colonne = 8;
-
     hero.style.gridRow = 10;
     hero.style.gridColumn = 8;
+
+    
 
     console.log("la map est chargée!");
     console.log("url de la map chargée:" + mapImage.src)
@@ -89,7 +98,16 @@ function LoadGame() {
 
 }
 
+// function to deciding that you lose if HeroLifeBar = 0
 
+function KillHero() {
+
+    if (heroLifeBar.value == 0) {
+        document.location.href = "../game-over.html";
+    }
+}
+
+// ========== After loading, every maps are displayed with this function:
 
 function newMap(mapPlace) {
 
@@ -97,19 +115,26 @@ function newMap(mapPlace) {
 
         case "exitShip":
 
+            // We position elements on the map
             ligne = 8;
             colonne = 8;
             hero.style.gridRow = 8;
             hero.style.gridColumn = 8;
 
+            // hero lose life due to lack of oxygene in the world
+            heroLifeBar.value -= 10;
+            console.log("Life value " + heroLifeBar.value);
+
+            // We display the map itself and hide dialogue popups
             mapImage.src = FallingShipImage;
             dialogueContainer.style.display = "none";
             dialogueContainerGuardian.style.display = "none";
+
+            // We position elements on the map:
             hero.style.display = "none";
             crashText.style.display = "block";
             
-
-
+            // We change map movements settings
             document.removeEventListener('keyup', moveHeroMapShip, false);
             document.removeEventListener('keyup', moveHeroMapShip, true);
             document.addEventListener('keyup', moveHeroMapCrash);
@@ -126,6 +151,10 @@ function newMap(mapPlace) {
             dialogueContainer.style.display = "none";
             dialogueContainerGuardian.style.display = "none";
             shuttleImage.style.display = "none";
+
+             // hero lose life due to lack of oxygene in the world
+            heroLifeBar.value -= 10;
+            console.log("Life value " + heroLifeBar.value);
 
             document.removeEventListener('keyup', moveHeroMapCrash, false);
             document.removeEventListener('keyup', moveHeroMapCrash, true);
@@ -144,6 +173,10 @@ function newMap(mapPlace) {
             dialogueContainerGuardian.style.display = "none";
             shuttleImage.style.display = "none";
 
+             // hero lose life due to lack of oxygene in the world
+            heroLifeBar.value -= 10;
+            console.log("Life value in case exitShip after" + heroLifeBar.value);
+
             document.removeEventListener('keyup', moveHeroMapCrash, false);
             document.removeEventListener('keyup', moveHeroMapCrash, true);
             document.addEventListener('keyup', moveHeroMapBeforeCamp);
@@ -156,10 +189,15 @@ function newMap(mapPlace) {
             hero.style.gridRow = 1;
             hero.style.gridColumn = 8;
             mapImage.src = mapFinalURL;
+
             dialogueContainer.style.display = "none";
             dialogueContainerGuardian.style.display = "none";
             shuttleImage.style.display = "none";
             playGames.style.display = "none";
+
+            // hero lose life due to lack of oxygene in the world
+            heroLifeBar.value -= 20;
+            console.log("Life value " + heroLifeBar.value);
 
             document.removeEventListener('keyup', moveHeroMapBeforeFinal, false);
             document.removeEventListener('keyup', moveHeroMapBeforeFinal, true);
@@ -167,7 +205,7 @@ function newMap(mapPlace) {
             break;
 
         case "exitBeforeCamp":
-
+            
             ligne = 10;
             colonne = 1;
             hero.style.gridRow = 10;
@@ -177,7 +215,10 @@ function newMap(mapPlace) {
             dialogueContainer.style.display = "none";
             dialogueContainerGuardian.style.display = "none";
             shuttleImage.style.display = "none";
-        
+
+            // hero lose life due to lack of oxygene in the world
+            heroLifeBar.value -= 30;
+            console.log("Life value " + heroLifeBar.value);
 
             document.removeEventListener('keyup', moveHeroMapBeforeCamp, false);
             document.removeEventListener('keyup', moveHeroMapBeforeCamp, true);
@@ -198,6 +239,9 @@ function newMap(mapPlace) {
             shuttleImage.style.display = "none";
             playGames.style.display = "none";
 
+            heroLifeBar.value -= 10;
+            console.log("Life value " + heroLifeBar.value);
+
             document.removeEventListener('keyup', moveHeroMapCamp, false);
             document.removeEventListener('keyup', moveHeroMapCamp, true);
             document.addEventListener('keyup', moveHeroMapBeforeCamp_2);
@@ -214,6 +258,9 @@ function newMap(mapPlace) {
             dialogueContainerGuardian.style.display = "none";
             playGames.style.display = "none";
 
+            heroLifeBar.value -= 10;
+            console.log("Life value " + heroLifeBar.value);
+
             document.removeEventListener('keyup', moveHeroMapBeforeCamp_2, false);
             document.removeEventListener('keyup', moveHeroMapBeforeCamp_2, true);
             document.addEventListener('keyup', moveHeroMapCrash_2);
@@ -227,33 +274,27 @@ function newMap(mapPlace) {
             shuttleImage.style.display = "none";
             playGames.style.display = "none";
 
+            heroLifeBar.value -= 10;
+            console.log("Life value " + heroLifeBar.value);
+
             document.removeEventListener('keyup', moveHeroMapFinal, false);
             document.removeEventListener('keyup', moveHeroMapFinal, true);
             document.addEventListener('keyup', moveHeroMapEnd);
             break;
-
-        case "game-over":
-            document.location.href = "../game_over.html";
-            break;
-
     }
 }
 
 
-// ======= HERO MOVEMENTS ================
+// ======= FUNCTIONS USED TO MAKE HERO MOVEMENTS AND MAP EVENTS ================
 
 function moveHeroMapShip(event) {
-
-    // Enter/Exit from map to map :
-
 
     let touche = event.key;
     dialogueContainer.style.display = "none";
     dialogueContainerGuardian.style.display = "none";
     shuttleImage.style.display = "none";
 
-    // console.log("============ PNJ MANAGEMENT =============")
-
+    KillHero()
 
     console.log("===== HERO MOVEMENTS =======")
     console.log("--- touche pressée: ---------")
@@ -269,7 +310,6 @@ function moveHeroMapShip(event) {
         "r15c8", "r14c10", "r15c10", "r14c11", "r15c11", "r12c12", "r12c13", "r4c8", "r5c8", "r4c9", "r5c9", "r4c4", "r7c12", "r8c12"
     ];
 
-    
 
     // fleche haut
     if (touche == "ArrowUp") {
@@ -337,6 +377,7 @@ function moveHeroMapCrash(event) {
 
     let touche = event.key;
 
+    KillHero()
 
     if (touche == "Enter") {
         mapImage.src = mapCrashURL;
@@ -477,7 +518,6 @@ function moveHeroMapCrash(event) {
             }
 
                 if (exitToCamp.includes(`r${ligne}c${colonne}`)) {
-                    alert("Vous allez vers le camp");
                     newMap("exitToCamp");
                 }
             }
@@ -575,19 +615,16 @@ function moveHeroMapCrash(event) {
 
 function moveHeroMapCrash_2(event) {
 
-   
-
 
     let touche = event.key;
-
-    // console.log("============ PNJ MANAGEMENT =============")
-
 
     console.log("===== HERO MOVEMENTS =======")
     console.log("--- touche pressée: ---------")
     console.log(touche)
     console.log("==== MAP URL =======")
     console.log(mapImage.src)
+
+    KillHero()
 
     shuttleImage.style.display = "block";
     shuttleImage.style.gridRow = "10 / span 2";
@@ -614,7 +651,6 @@ function moveHeroMapCrash_2(event) {
     house = ["r6c8", "r6c9", "r5c9", "r5c8"];
 
     obstacle = obstaclePurpleTrees.concat(obstacleDeadTree, house);
-
 
     pnjMeetArray = ["r3c3", "r3c6", "r3c8"];
     objectFoundArray = ["r3c2", "r4c3", "r2c7"];
@@ -752,17 +788,13 @@ function moveHeroMapCrash_2(event) {
 
 function moveHeroMapBeforeCamp(event) {
 
-    // Enter/Exit from map to map :
-    // changeMap();
-
     let touche = event.key;
     shuttleImage.style.display = "none";
 
     pnj01.style.display = "none";
     pnj02.style.display = "none";
 
-    // console.log("============ PNJ MANAGEMENT =============")
-
+    KillHero()
 
     console.log("===== HERO MOVEMENTS =======")
     console.log("--- touche pressée: ---------")
@@ -845,16 +877,13 @@ function moveHeroMapBeforeCamp(event) {
 
 function moveHeroMapBeforeCamp_2(event) {
 
-    // Enter/Exit from map to map :
-    // changeMap();
-
     let touche = event.key;
 
     shuttleImage.style.display = "none";
     pnj01.style.display = "none";
     pnj02.style.display = "none";
-    // console.log("============ PNJ MANAGEMENT =============")
 
+    KillHero()
 
     console.log("===== HERO MOVEMENTS =======")
     console.log("--- touche pressée: ---------")
@@ -937,13 +966,12 @@ function moveHeroMapBeforeCamp_2(event) {
 
 function moveHeroMapCamp(event) {
 
-    // Enter/Exit from map to map :
-    // changeMap();
-
     let touche = event.key;
+
     shuttleImage.style.display = "none";
     mapImage.style.opacity = 1;
 
+    KillHero()
 
     pnj01.style.display = "block";
     pnj01Image.src = pnjTranshumanURL;
@@ -1070,16 +1098,12 @@ function moveHeroMapCamp(event) {
 
 function moveHeroMapBeforeFinal(event) {
 
-    // Enter/Exit from map to map :
-    // changeMap();
-
     let touche = event.key;
     shuttleImage.style.display = "none";
     pnj01.style.display = "none";
     pnj02.style.display = "none";
 
-    // console.log("============ PNJ MANAGEMENT =============")
-
+    KillHero()
 
     console.log("===== HERO MOVEMENTS =======")
     console.log("--- touche pressée: ---------")
@@ -1165,8 +1189,7 @@ function moveHeroMapFinal(event) {
     pnj01.style.display = "none";
     pnj02.style.display = "none";
 
-    // console.log("============ PNJ MANAGEMENT =============")
-
+    KillHero()
 
     console.log("===== HERO MOVEMENTS =======")
     console.log("--- touche pressée: ---------")
@@ -1245,9 +1268,8 @@ function moveHeroMapFinal(event) {
 
     hero.style.gridColumn = colonne;
     hero.style.gridRow = ligne;
-    console.log("IT IS MAP final")
+    console.log("IT IS MAP FINAL BEFORE THE ENDING MAP WITH SHIP")
 }
-
 
 
 function moveHeroMapEnd(event) {
@@ -1257,8 +1279,12 @@ function moveHeroMapEnd(event) {
     pnj01.style.display = "none";
     pnj02.style.display = "none";
 
-    // console.log("============ PNJ MANAGEMENT =============")
+    KillHero()
 
+    dialogueContainer.style.display = "none";
+    dialogueContainerGuardian.style.display = "none";
+    shuttleImage.style.display = "none";
+    playGames.style.display = "none";
 
     console.log("===== HERO MOVEMENTS =======")
     console.log("--- touche pressée: ---------")
@@ -1266,16 +1292,20 @@ function moveHeroMapEnd(event) {
     console.log("==== MAP URL =======")
     console.log(mapImage.src)
 
-    exitToYourShip = ["r14c7", "r14c8"];
+    exitToYourShip = ["r8c8", "r8c7"];
 
     // fleche haut
     if (touche == "ArrowUp") {
-        if (ligne > 9) {
+        if (ligne > 1) {
 
             if ((!obstacle.includes(`r${ligne - 1}c${colonne}`))) {
                 ligne--;
                 console.log(ligne.toString())
                 heroImage.src = heroImageURL.up;
+
+                if (exitToYourShip.includes(`r${ligne}c${colonne}`)) {
+                    document.location.href = "../win.html";
+                }
             }
         }
 
@@ -1283,14 +1313,14 @@ function moveHeroMapEnd(event) {
 
     // fleche bas
     else if (touche == "ArrowDown") {
-        if (ligne < 10) {
+        if (ligne < 15) {
 
             if ((!obstacle.includes(`r${ligne + 1}c${colonne}`))) {
                 ligne++;
                 console.log(ligne.toString())
                 heroImage.src = heroImageURL.down;
 
-                if (exitToYourShip.includes(`r${ligne + 1}c${colonne}`)) {
+                if (exitToYourShip.includes(`r${ligne}c${colonne}`)) {
                     document.location.href = "../win.html";
                 }
             }
@@ -1300,12 +1330,16 @@ function moveHeroMapEnd(event) {
 
     // fleche gauche
     else if (touche == "ArrowLeft") {
-        if (colonne > 5) {
+        if (colonne > 1) {
 
             if ((!obstacle.includes(`r${ligne}c${colonne - 1}`))) {
                 colonne--;
                 console.log(ligne.toString())
                 heroImage.src = heroImageURL.left;
+
+                if (exitToYourShip.includes(`r${ligne}c${colonne}`)) {
+                    document.location.href = "../win.html";
+                }
             }
         }
     }
@@ -1318,6 +1352,10 @@ function moveHeroMapEnd(event) {
                 colonne++;
                 console.log(ligne.toString())
                 heroImage.src = heroImageURL.right;
+
+                if (exitToYourShip.includes(`r${ligne}c${colonne}`)) {
+                    document.location.href = "../win.html";
+                }
             }
         }
 
@@ -1566,26 +1604,6 @@ function view() {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
