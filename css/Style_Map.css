@@ -7,18 +7,7 @@
     display: inline-block;
 }
 
-body {
-    display: grid;
-    justify-content: center;
-    grid-template-rows: 10vh 90vh;
-    height: 100vh;
-    /* background-image: url(../image/paysageRoche.png); */
-    background: #21475e;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: right;
-    /* transform: scale(1); */
-}
+
 
 .viewport {
     transform: translate(25%, 0%);
