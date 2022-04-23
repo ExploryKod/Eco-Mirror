@@ -44,9 +44,11 @@ let pnjGuardURL = 'ressources/pnj/guard.png';
 let pnjGuideURL = 'ressources/pnj/mentor.png';
 let pnjTranshumanURL = 'ressources/pnj/transhuman.png';
 
-// Objects positions
+// Objects and their image
 let object01 = document.querySelector("#object-1");
 let object02 = document.querySelector("#object-2");
+let imageObject01 = document.querySelector("#object-1 img");
+let imageObject02 = document.querySelector("#object-2 img");
 
 // CSS grid: lines and columns
 let ligne = 1;

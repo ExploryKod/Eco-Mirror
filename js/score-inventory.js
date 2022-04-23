@@ -16,14 +16,14 @@ function win() {
            <h3>Bravo! ${correctAnswer}/${quizQuestion.length} réponses correctes</h3>
            <h3>Votre score final : <em> ${score}</em></h3>
            <h3>Vous avez gagné une carte digitale qui vous permet de passer au niveau suivant</h3>
-         <div class="cartedigi">  <img src="../image/carteDigi.png" alt="carte digital"  >
-         <img src="../image/cartefind.png" alt="carte digital"  >
+         <div class="cartedigi"> 
+         <img src="./ressources/inventory/carteDigi.png" alt="carte digital"  >
          </div>
            <a href=''>  
            </a>
            <button class="btn" onclick="save1();">SAVE</button>
            <div class="elcontent">
-           <img src="../image/mentorGuide.png" alt="carte digital"  >
+           <img src="./ressources/pnj/mentorGuide.png" alt="carte digital"  >
            </div>`
 
     } else if (score == 10) {

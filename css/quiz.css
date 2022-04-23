@@ -143,11 +143,14 @@ a {
 }
 
 .elcontent img {
-    width: 193px;
+    width: 70%;
+    height:auto;
+    margin-top:3em;
 }
 
 .cartedigi img {
     width: 6em;
+    height:auto;
 }
 
 .cartedigi {
@@ -239,44 +242,3 @@ a {
 }
 
 
-/* -------------------------- */
-
-
-
-
-/* Stylez et fixez le bouton sur la page */
-
-/* .open-button-quizz {
-    background-color: #1c87c9;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    opacity: 0.8;
-    position: fixed;
-} */
-
-
-/* Positionnez la forme Popup */
-
-/* .login-popup-quizz {
-    position: relative;
-    text-align: center;
-    width: 100%;
-} */
-
-
-/* Masquez la forme Popup */
-
-/* .form-popup-quizz {
-    display: none;
-    position: fixed;
-    transform: translate(-45%, 5%);
-    border: 2px solid #666;
-    z-index: 9;
-}
-
-#inventory #contentInventory {
-    width: 19%; */
-}

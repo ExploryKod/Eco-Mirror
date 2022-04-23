@@ -85,8 +85,17 @@ function newMap(mapPlace) {
             shuttleImage.style.display = "none";
             pnj01.style.display = "none";
             pnj02.style.display = "none";
-            object01.style.display = "none";
             object02.style.display = "none";
+
+            object01.style.display = "block";
+            imageObject01.src = "ressources/objects/animal.png";
+            object01.style.gridRow = 9;
+            object01.style.gridColumn = 9;
+
+            object02.style.display = "block";
+            imageObject02.src = "ressources/objects/goodfood.png";
+            object02.style.gridRow = 7;
+            object02.style.gridColumn = 7;
 
              // hero lose life due to lack of oxygene in the world
             heroLifeBar.value -= 10;
@@ -143,7 +152,7 @@ function newMap(mapPlace) {
             object02.style.display = "none";
 
             // hero lose life due to lack of pure air in the world
-            heroLifeBar.value -= 20;
+            heroLifeBar.value -= 40;
             console.log("Life value " + heroLifeBar.value);
 
             document.removeEventListener('keyup', moveHeroMapBeforeFinal, false);
@@ -180,8 +189,8 @@ function newMap(mapPlace) {
             console.log("Life value " + heroLifeBar.value);
 
             // We display and position the object to regain life (good food):
-            imgObject01 = document.querySelector("#object-1 img");
-            imgObject01.src = "./ressources/objects/goodfood.png";
+           
+            imageObject01.src = "./ressources/objects/goodfood.png";
             object01.style.gridRow = 8;
             object01.style.gridColumn = 8;
             object01.style.display = "block";
@@ -200,10 +209,15 @@ function newMap(mapPlace) {
             hero.style.gridColumn = 15;
 
             mapImage.src = mapBeforeCampURL;
+           
+            // We need to hide these items on the camp map:
             dialogueContainer.style.display = "none";
             dialogueContainerGuardian.style.display = "none";
             shuttleImage.style.display = "none";
-            playGames.style.display = "none";
+            pnj02.style.display = "none";
+            pnj01.style.display = "none";
+            object01.style.display = "none";
+            object02.style.display = "none";
 
             heroLifeBar.value -= 10;
             console.log("Life value " + heroLifeBar.value);
@@ -220,9 +234,14 @@ function newMap(mapPlace) {
             hero.style.gridColumn = 8;
 
             mapImage.src = mapCrashURL;
+
+             // We need to hide these items on the camp map (we didn't hide the shuttle):
             dialogueContainer.style.display = "none";
             dialogueContainerGuardian.style.display = "none";
-            playGames.style.display = "none";
+            pnj02.style.display = "none";
+            pnj01.style.display = "none";
+            object01.style.display = "none";
+            object02.style.display = "none";
 
             heroLifeBar.value -= 10;
             console.log("Life value " + heroLifeBar.value);
@@ -236,6 +255,7 @@ function newMap(mapPlace) {
        
             mapImage.src = ShipImage;
 
+            // Objects and containers we hide:
             dialogueContainer.style.display = "none";
             dialogueContainerGuardian.style.display = "none";
             shuttleImage.style.display = "none";
@@ -282,14 +302,14 @@ function moveHeroMapShip(event) {
     // fleche haut
     if (touche == "ArrowUp") {
         if (ligne > 1) {
-
+             // Hero can move only if obstacle isn't on the way (same for every map)
             if ((!obstacle.includes(`r${ligne - 1}c${colonne}`))) {
                 ligne--;
                 console.log(ligne.toString())
                 heroImage.src = heroImageURL.up;
 
             }
-
+            // Hero can exit only at these points (same logic for every map)
             if (exit.includes(`r${ligne}c${colonne}`)) {
                 newMap("exitShip");
             }
@@ -403,7 +423,7 @@ function moveHeroMapCrash(event) {
     let pnjGuard = ["r4c14"];
     objectFoundArray = ["r3c2", "r4c3", "r2c7"];
 
-    exitToCamp = ["r15c8"];
+    exitToCamp = ["r15c8","r16c8"];
 
     // fleche haut
     if (touche == "ArrowUp") {
@@ -482,7 +502,6 @@ function moveHeroMapCrash(event) {
 
              
             }
-
                 if (exitToCamp.includes(`r${ligne}c${colonne}`)) {
                     newMap("exitToCamp");
                 }
@@ -674,7 +693,7 @@ function moveHeroMapCrash_2(event) {
                 }
 
                 if (exitToCamp.includes(`r${ligne}c${colonne}`)) {
-                   
+                    newMap("exitToCamp")
 
                 }
             }
@@ -952,14 +971,23 @@ function moveHeroMapCamp(event) {
 
     games = ["r5c10","r4c10","r4c9","r3c9"];
 
+    goodFood = ["r8c8"];
+
     // fleche haut
     if (touche == "ArrowUp") {
         if (ligne > 1) {
 
             if ((!obstacle.includes(`r${ligne - 1}c${colonne}`))) {
-                ligne--;
-                console.log(ligne.toString())
+                ligne--;               
                 heroImage.src = heroImageURL.up;
+                
+                // Life of the hero is better once he goes on this position (goodfood objects):
+                if (goodFood.includes(`r${ligne}c${colonne}`)) {
+                    if (heroLifeBar.value < 60) {
+                        heroLifeBar.value += 5;
+                    }
+   
+                }
             }
         }
 
@@ -971,13 +999,22 @@ function moveHeroMapCamp(event) {
 
             if ((!obstacle.includes(`r${ligne + 1}c${colonne}`))) {
                 ligne++;
-                console.log(ligne.toString())
                 heroImage.src = heroImageURL.down;
 
+                // The hero is challenged once he go on this positions:
                 if (games.includes(`r${ligne + 1}c${colonne}`)) {
-                    console.log("defi")
+                    mapImage.style.opacity = 0.5;
                     playGames.style.display = "block";
                     
+                } else {
+                    mapImage.style.opacity = 1;
+                    playGames.style.display = "none";
+                }
+                // Life of the hero is better once he goes on this position (goodfood objects):
+                if (goodFood.includes(`r${ligne}c${colonne}`)) {
+                    if (heroLifeBar.value < 60) {
+                        heroLifeBar.value += 5;
+                    }
                 }
 
             } 
@@ -988,19 +1025,25 @@ function moveHeroMapCamp(event) {
     // fleche gauche
     else if (touche == "ArrowLeft") {
         if (colonne > 1) {
-
+           
             if ((!obstacle.includes(`r${ligne}c${colonne - 1}`))) {
                 colonne--;
                 console.log(ligne.toString())
                 heroImage.src = heroImageURL.left;
 
                 if (games.includes(`r${ligne + 1}c${colonne}`)) {
-                    console.log("defi")
                     mapImage.style.opacity = 0.5;
                     playGames.style.display = "block";
                 } else {
                     mapImage.style.opacity = 1;
                     playGames.style.display = "none";
+                }
+
+                // Life of the hero is better once he goes on this position (goodfood objects):
+                if (goodFood.includes(`r${ligne}c${colonne}`)) {
+                    if (heroLifeBar.value < 60) {
+                        heroLifeBar.value += 5;
+                    }
                 }
 
                 if (exit.includes(`r${ligne}c${colonne}`)) {
@@ -1031,9 +1074,19 @@ function moveHeroMapCamp(event) {
                 heroImage.src = heroImageURL.right;
 
                 if (games.includes(`r${ligne + 1}c${colonne}`)) {
-                    console.log("defi")
                     playGames.style.display = "block";
 
+                } else {
+                    mapImage.style.opacity = 1;
+                    playGames.style.display = "none";
+                }
+
+                // Life of the hero is better once he goes on this position (goodfood objects):
+                if (goodFood.includes(`r${ligne}c${colonne}`)) {
+                    
+                    if(heroLifeBar.value < 60){
+                        heroLifeBar.value += 5;
+                    }
                 }
             }
 
