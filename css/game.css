@@ -35,11 +35,12 @@
     height:fit-content;
     width:fit-content;
     padding:0.8em;
+
 }
 
 #crash-explain p {
     text-align:left;
-    font-family: Orkney, Helvetica, Times, sans-serif;
+    font-family: 'heavy weight gamer', Helvetica, Times, sans-serif;
     color:black;
 }
 

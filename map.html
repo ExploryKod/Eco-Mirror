@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/game.css">
     <link rel="stylesheet" href="css/game-menu.css">
 
-    <link rel="stylesheet" href="css/mini-games.css">
     <link rel="stylesheet" href="css/dialogue.css">
     <link rel="stylesheet" href="css/dialogue-guard.css">
 
@@ -18,7 +17,10 @@
     <link rel="stylesheet" href="./css/PFC.css">
 
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="http://fonts.cdnfonts.com/css/heavy-weight-gamer" rel="stylesheet">
+    <link href="http://fonts.cdnfonts.com/css/game-space-academy" rel="stylesheet">
 
     <title>Eco-mirror RPG</title>
 
@@ -30,7 +32,7 @@
         <div class="line"></div>
         <img src="./ressources/static-images/EcoMirrorLogo.png" alt="logo du jeu">
         <div class="line"></div>
-        <button class="btn-main" onclick="view();">SAVE</button>
+        <button class="btn-main">SAVE</button>
     </header>
 
     <main>
@@ -39,7 +41,45 @@
                 <h2>Mes XP</h2>
                 <progress aria-label="votre vie" id="myXp" class="file" max="100" value="100"></progress>
             </div>
-          
+
+            <div class="info-map" id="info-mapShip">
+                <h2>Message</h2>
+                <p>Bonjour, je suis votre ami le satellite, je n'ai pas été désactivé lors du désastre donc je suis là pour vous informer</p>
+                <p>Vous êtes dans votre vaisseau, essayez donc les flèches haut, bas, droite et gauche du clavier et foncez sur la porte.</p>
+            </div>
+
+            <div class="info-map" id="info-mapCrash">
+                <h2>Message</h2>
+                <p>Vous vous êtes crashé sur ce morceau de terre et vous avez établi un camp sommaire, trouvez quelqu'un pour vous guider.</p>
+                <p>Votre mission est de fuir avec des artefacts pour sauver votre planète: un bouclier anti-pollution et autre chose.</p>
+            </div>
+
+            <div class="info-map" id="info-mapBeforeCamp">
+                <h2>Message</h2>
+                <p>Comme vous vous en apercevez votre vie diminue sur cette planète dont l'air est impure : 
+                    votre organisme ici a muté et il ne supporte qu'une source de nourriture qui produit aussi de l'oxygène. 
+                    Ce sont les rares fruits encore présent.</p>
+            </div>
+
+            <div class="info-map" id="info-mapCamp">
+                <h2>Message</h2>
+                <p>Oh là là vous êtes dans le camps des transhumains, ce sont des cyborgs magiciens un peu borgne qui ne vous verront pas forcément</p>
+                <p>ils contrôlent ce monde et les sorties des terres...défiez-les pour fuir ! Sinon ils vous garde ou vous renvoient dans le passé.</p>
+                <p>Remarquez les fruits aussi....votre rare chance de survie.</p>
+            </div>
+
+            <div class="info-map" id="info-mapFinal">
+                <h2>Message</h2>
+                <p>Le carte de l'illusion, ici ce que vous voyez n'est pas ce que vous croyez, 
+                   trouvez à l'aveugle la porte vers l'emplacement de votre vaisseau.</p>
+            </div>
+
+            <div class="info-map" id="info-mapEnd">
+                <h2>Message</h2>
+                <p>L'illusion s'estompte, foncez tout droit sur le vaisseau et 
+                    il sera peut-être possible de repartir avec ou sans artefacts, 
+                    c'est vous qui avez choisis de sauver ou non votre monde.</p>
+            </div>
 
         </aside>
 
@@ -51,31 +91,29 @@
             <img id="shuttle" src="./ressources/objects/vessel.png" alt="shuttle">
 
             <div id="crash-explain">
-                <p>Mince alors ! Vous vouliez vous poser mais vous avez été pris dans une turbulence<br/>
-                Le vaisseau s'est alors mis en phase de sécurité : il vous a éjecté via la nacelle de secours.<br/>
-                Mais où est donc notre vaisseau ? Partez à sa recherche pour revenir au plus vite.</p>
-                <br/><br/>
+                <p>Mince alors ! Vous vouliez vous poser mais vous avez ete pris dans une turbulence<br />
+                    Le vaisseau se met alors en phase de securite: il vous a ejecte via la nacelle de secours.<br />
+                    Vous allez atterir sur la planete mais vous devez retrouver votre vaisseau au plus vite</p>
+                <br /><br />
                 <p>Tapez sur <span>ENTREE</span> pour atterir sans trop de dommage</p>
             </div>
 
             <!--Objects and pnj from each maps  -->
-            <div class="objects" id="object-1"><img  src="" alt="nourriture première"></div>
-            <div class="objects" id="object-2"><img  src="" alt="nourriture seconde"></div>
-
+            <div class="objects" id="object-1"><img src="" alt="arbres fruitiers"></div>
+           
             <div class="pnj" id="pnj-1"><img class="pnj-image" id="pnj-image-1" src="" alt="personnage premier"></div>
             <div class="pnj" id="pnj-2"><img class="pnj-image" src="" id="pnj-image-2" alt="personnage second"></div>
-
 
             <section class="hero">
                 <img src="" alt="le hero" id="image-hero">
             </section>
 
 
-           
+
             <!-- Dialogue pop up when you meet the mentor -->
             <section id="" class="message-container">
-            
-                <div class="open-btn">
+
+                <div class="open-btn-dial-mentor">
                     <button class="open-button-dial"><strong>Me parler</strong></button>
                     <button class="close-button-dial"><strong>Me quitter</strong></button>
                 </div>
@@ -83,35 +121,32 @@
                     <div class="form-popup-dial" id="popupForm-dial">
                         <div class="container-dial animation-haut" id="dial">
                             <div class="header-dial">
-            
+
                                 <section class="blue-container">
                                     <span class="bouton affichage-dial" onclick="closeFormDial()">&times;</span>
                                     <h2 id="title">Guide</h2>
                                 </section>
                                 <div id="inner-container-dial" class="inner-container-dial">
                                     <img src="ressources/pnj/mentor.png" alt="le guide">
-                                    <p id="textguide">'Salutation Humanoïde, Je suis le Guide. Bienvenue sur cette Planète.
-                                        Pour survivre ici tu vas devoir: chercher les objets que tu as besoin pour repartir sur la
-                                        Terre.
-                                        Tu vas aussi devoir gagner aux minijeux pour passer à d'autres étapes dans ton aventure.</p>
+                                    <p id="textguide"></p>
                                 </div>
                             </div>
-            
+
                             <!-- <button id="submit">commencer le jeu</button> -->
-                            <button Class="answer1" id="answer1">Enchanté ! Avez-vous des objets utiles pour survivre ?</button>
-                            <button Class="answer2" id="answer2">Enchanté ! Quels défis m'attendent ici?</button>
-            
+                            <button Class="answer1" id="answer1"></button>
+                            <button Class="answer2" id="answer2"></button>
+
                         </div>
                     </div>
                 </div>
-            
+
             </section>
 
             <!-- Dialogue face to the guardian -->
 
             <!-- Dialogue pop up when you meet the mentor -->
             <section id="" class="message-container-guard">
-            
+
                 <div class="open-btn-guard">
                     <button class="open-button-dial-guard"><strong>Me parler</strong></button>
                     <button class="close-button-dial-guard"><strong>Me quitter</strong></button>
@@ -120,28 +155,26 @@
                     <div class="form-popup-dial-guard" id="popupForm-dial-guard">
                         <div class="container-dial-guard animation-haut-guard" id="dial-guard">
                             <div class="header-dial-guard">
-            
+
                                 <section class="blue-container-guard">
-                                    <span class="bouton-guard affichage-dial-guard" onclick="closeFormDialGuard()">&times;</span>
+                                    <span class="bouton-guard affichage-dial-guard"
+                                        onclick="closeFormDialGuard()">&times;</span>
                                     <h2 id="title-guard">The guard</h2>
                                 </section>
                                 <div id="inner-container-dial-guard" class="inner-container-dial-guard">
                                     <img src="ressources/pnj/guard.png" alt="le gardien">
-                                    <p id="textguard">'Salutation Humanoïde, Je suis le gardien. Le guide ne t'a pas dis ? Ici tu ne peux pas passer.
-                                        tu dois prouver ta valeur en remplissant nos défis. Va au camp vers le sud et rencontre le transhumain et ne revient ici qu'une fois ta quête terminée.
-                                        Si dumoins tu reviens vivant du camp des transhumains...
-                                    </p>
+                                    <p id="textguard"></p>
                                 </div>
                             </div>
-            
+
                             <!-- <button id="submit">commencer le jeu</button> -->
-                            <button Class="answer1-guard" id="answer1-guard">Enchanté ! Avez-vous des objets utiles pour survivre ?</button>
-                            <button Class="answer2-guard" id="answer2-guard">Enchanté ! Quels défis m'attendent ici?</button>
-            
+                            <button Class="answer1-guard" id="answer1-guard"></button>
+                            <button Class="answer2-guard" id="answer2-guard"></button>
+
                         </div>
                     </div>
                 </div>
-            
+
             </section>
 
 
@@ -150,9 +183,11 @@
 
         <div class="open-btn-jeu">
             <button class="open-button-quizz" onclick="openFormQuiz()">Défiez le transhumain !</button>
-            <button class="open-button-quizz button2" onclick="openForm2Find()">Tentez de gagner une potion anti-pollution</button>
-            <button class="open-button-quizz button3" onclick="openForm3PFC()">Gagner un bouclier anti-pollution</button>
-        
+            <button class="open-button-quizz button2" onclick="openForm2Find()">Tentez de gagner une potion
+                anti-pollution</button>
+            <button class="open-button-quizz button3" onclick="openForm3PFC()">Gagner un bouclier
+                anti-pollution</button>
+
         </div>
 
         <aside id="right-menu">
@@ -160,7 +195,7 @@
                 <h2>Mes objets</h2>
 
                 <div id="contentInventory">
-             
+
 
                 </div>
             </div>
@@ -248,18 +283,17 @@
 
     </main>
 
-    <script src="./js/score-inventory.js"></script>
-    <script src="./js/quiz1.js"></script>
-    <script src="./js/findNumber.js"></script>
-    <script src="./js/PFC.js"></script>
-
-    <script src="./js/dialogue.js"></script>
-    <script src="./js/dialogue-guard.js"></script>
     
+    <script src="./js/mini-game/findNumber.js"></script>
+    <script src="./js/mini-game/PFC.js"></script>
+    <script src="./js/mini-game/quiz1.js"></script>
+
+    <script src="./js/dialogues/dialogue.js"></script>
+    <script src="./js/dialogues/dialogue-guard.js"></script>
+
     <script src="./js/map-global-variables.js"></script>
-    <script src="./js/script.js"></script>
-
-
+    <script src="./js/map-settings.js"></script>
+    <script src="./js/hero-movements.js"></script>
 
 </body>
 

@@ -1,50 +1,16 @@
+/* CSS QUIZ */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
 * {
     box-sizing: border-box;
 }
 
 body {
-    font-family: Roboto, Helvetica, sans-serif;
-}
-
-.affichage {
-    position: absolute;
-    top: -5px;
-    right: 9px;
-    font-size: 33px;
-    color: crimson;
-    cursor: pointer;
+    font-family: Helvetica,sans-serif;
 }
 
 
-/* Fixez le bouton sur le côté gauche de la page the button on the left side of the page */
-
-.open-btn-jeu {
-    position:absolute;
-    top:50%;
-    right:50%;
-}
-
-
-/* Stylez et fixez le bouton sur la page */
-
-.open-button-quizz {
-    background-color: #1c87c9;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    opacity: 0.8;
-    position: fixed;
-}
-
-.button2 {
-    display: none;
-}
-
-
-/* Positionnez la forme Popup */
+/* Positionnez la forme Popup du bloc de jeu quizz */
 
 .login-popup-quizz {
     position: relative;
@@ -53,7 +19,7 @@ body {
 }
 
 
-/* Masquez la forme Popup */
+/* Masquez la forme le bloc de jeu quizz */
 
 a {
     text-decoration: none;
@@ -70,7 +36,7 @@ a {
     z-index: 9;
     width: 100%;
     background: #4d6780;
-    font-family: 'Poppins', sans-serif;
+    color: #ffff;
     align-items: center;
     justify-content: center;
     height: 100vh;
@@ -80,82 +46,6 @@ a {
 
 
 /* Styles pour le conteneur de la forme */
-
-.form-container {
-    max-width: 300px;
-    padding: 20px;
-    background-color: #fff;
-}
-
-
-/* Largeur complète pour les champs de saisie */
-
-.form-container input[type="text"],
-.form-container input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0 22px 0;
-    border: none;
-    background: #eee;
-}
-
-
-/* Quand les entrées sont concentrées, faites quelque chose */
-
-.form-container input[type="text"]:focus,
-.form-container input[type="password"]:focus {
-    background-color: #ddd;
-    outline: none;
-}
-
-
-/* Stylez le bouton de connexion */
-
-.form-container .btn {
-    background-color: #8ebf42;
-    color: #fff;
-    padding: 12px 20px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    margin-bottom: 10px;
-    opacity: 0.8;
-}
-
-
-/* Stylez le bouton pour annuler */
-
-
-/* Planez les effets pour les boutons */
-
-.form-container .btn:hover,
-.open-button:hover {
-    opacity: 1;
-}
-
-
-/* CSS QUIZ */
-
-.elcontent {
-    top: 36px;
-    position: absolute;
-    left: 440px;
-}
-
-.elcontent img {
-    width: 70%;
-    height:auto;
-    margin-top:3em;
-}
-
-.cartedigi img {
-    width: 6em;
-    height:auto;
-}
-
-.cartedigi {
-    text-align: center;
-}
 
 .quiz-container-quizz {
     border-radius: 20px;
@@ -226,7 +116,6 @@ a {
     width: 100%;
     cursor: pointer;
     font-size: 1.1rem;
-    font-family: inherit;
     padding: 1.3rem;
 }
 
@@ -241,4 +130,65 @@ a {
     box-shadow: inset 2px 2px 6px #69a069, inset -2px -2px 6px #8dd88f;
 }
 
+.elcontent {
+    top: 36px;
+    position: absolute;
+    left: 440px;
+}
 
+.elcontent img {
+    width: 164px;
+    transform: translateY(25px);
+}
+
+
+/* ============ carte digital objet ============= */
+
+.cartedigi img {
+    width: 6em;
+}
+
+.cartedigi {
+    text-align: center;
+}
+
+.affichage {
+    position: absolute;
+    top: -5px;
+    right: 9px;
+    font-size: 33px;
+    color: crimson;
+    cursor: pointer;
+}
+
+.open-btn-jeu {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+/* Stylez et fixez le bouton sur la page */
+
+.open-button-quizz {
+    background-color: #1c87c9;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+}
+
+
+/* inventory  */
+
+#inventory #contentInventory {
+    width: 17.7%;
+    display: inline-block;
+    position: absolute;
+    margin-left: -10px;
+}

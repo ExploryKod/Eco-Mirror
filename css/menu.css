@@ -3,7 +3,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     height: 120vh;
-    font-family: Helvetica, sans-serif;
+    font-family: 'Heavy Weight Gamer', sans-serif;
 }
 
 #logo {
@@ -30,7 +30,7 @@ form {
 
 h1 {
     color: rgb(250, 245, 245);
-    font-family: "Crimson Text";
+    font-family: 'Heavy Weight Gamer', sans-serif;
 }
 
 img {
@@ -50,7 +50,7 @@ a,
 button {
     background-color: rgb(60, 101, 119, 0.6);
     box-shadow: inset 9px 9px 17px #3c6577, inset -9px -9px 17px #40758d;
-    font-family: "Crimson Text";
+    font-family: 'Heavy Weight Gamer', sans-serif;
     color: aliceblue;
     height: 41px;
     font-size: 20px;
@@ -58,7 +58,6 @@ button {
     border: none;
     text-decoration: none;
 }
-
 
 button:hover,
 a:hover {

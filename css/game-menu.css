@@ -5,25 +5,26 @@
     overflow: hidden;
 }
 
+@import url('http://fonts.cdnfonts.com/css/heavy-weight-gamer');
+
 body {
-    font-family: Helvetica, sans-serif;
     display: grid;
     justify-content: center;
     grid-template-rows: 10vh 90vh;
     height: 100vh;
-
-    background: #21475e;
- }
-
-.viewport {
-    transform: translate(25%, 0%);
+    font-family: 'Heavy Weight Gamer', sans-serif;
+    background: #1a1a1a;
+    color: #fff;
 }
 
 #imgObject {
     width: 56px;
 }
 
+
 /* =================== HEADER ======================== */
+
+
 header {
     position: fixed;
     grid-row: 1;
@@ -45,24 +46,33 @@ header img {
     margin: auto 0;
 }
 
+/* Boutons du menu */
 .btn-main {
-    background: #21475e;
-    box-shadow: 26px 26px 58px #16303f, -26px -26px 58px #2c5e7d;
-    border-radius: 0.6em;
+    background: #151414;
+    box-shadow: 9px 9px 34px #100f0f, -9px -9px 34px #1a1919;
+    border-radius: 5px;
     color: white;
-    font-weight: 900;
     height: 6vh;
     padding: 0.6em;
     margin: 1.2em;
     border: none;
+    font-family: 'Heavy Weight Gamer', sans-serif;
+    font-size: 1.2em;
 }
 
 .btn-main:hover {
-    background: #21475e;
-    box-shadow: inset 26px 26px 58px #16303f, inset -26px -26px 58px #2c5e7d;
+    background: #151414;
+    box-shadow: inset 9px 9px 34px #100f0f, inset -9px -9px 34px #1a1919;
     color: whitesmoke;
     cursor: pointer;
     transition: ease 0.8s;
+}
+
+
+/* ===========NAV : barres de style de part et d'autre du logo ===================== */
+
+ul {
+    list-style: none;
 }
 
 nav {
@@ -75,12 +85,7 @@ nav {
     border-top: none;
     height: 10vh;
     width: 100%;
-}
-
-/* lines before and after the logo  */
-
-ul {
-    list-style: none;
+    position: fixed;
 }
 
 nav div ul li:nth-of-type(1) {
@@ -123,7 +128,7 @@ nav div h1 {
     margin: 0.2em;
 }
 
-/* === MAIN === */
+/* ===== MAIN ====== */
 
 main {
     grid-row: 2;
@@ -132,26 +137,24 @@ main {
 }
 
 /* ========== LEFT AND RIGHT PANELS ================ */
+/* Panneaux de gauche et de droite de la carte donnant des informations au joueur */
 
 #left-menu,
 #right-menu {
-    background: linear-gradient(145deg, #234c65, #1e4055);
-    box-shadow: 26px 26px 58px #16303f, -26px -26px 58px #2c5e7d;
-    border-radius: 30px;
+    margin-top: 32px;
+    border-radius: 20px;
     padding: 25px 7px;
-    width: 18vw;
-    height: 68%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    height: 68%; 
 }
 
 #left-menu {
     grid-column: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    margin-left: 19px;
+    justify-content: flex-start;
+    margin-left: 17px;
+    background: #1a1a1a;
+    box-shadow: 13px 13px 27px #0d0d0d, -13px -13px 27px #131212;
 }
 
 #right-menu {
@@ -159,7 +162,21 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-left: 6px;
+    margin-right: 17px;
+    background: #1a1a1a;
+    box-shadow: 13px 13px 27px #0d0c0c, -13px -13px 27px #0f0d0d;
+}
+
+#left-menu:hover {
+    margin-left: 17px;
+    background: #1a1a1a;
+    box-shadow: inset 13px 13px 27px #121212, inset -13px -13px 27px #222222;
+}
+
+#right-menu:hover {
+    margin-right: 17px;
+    background: #1a1a1a;
+    box-shadow: inset 13px 13px 27px #121212, inset -13px -13px 27px #222222;
 }
 
 #right-menu div {
@@ -173,20 +190,19 @@ main {
 
 #left-menu div,
 #right-menu div {
-    width: 90%;
+    width: 100%;
     height: auto;
-    padding: 0.5em;
+    padding: 0.7em;
     border-right: none;
     border-left: none;
-    background: linear-gradient(145deg, #234c65, #1e4055);
-    box-shadow: 26px 26px 58px #16303f, -26px -26px 58px #2c5e7d;
-    border-radius: 10px;
+    background: #1a1a1a;
+    box-shadow: 13px 13px 27px #121212, -13px -13px 27px #222222;
 }
 
 #left-menu div:hover,
 #right-menu div:hover {
-    background: #21475e;
-    box-shadow: inset 26px 26px 58px #16303f, inset -26px -26px 58px #2c5e7d;
+    background: #1a1a1a;
+    box-shadow: inset 13px 13px 27px #121212, inset -13px -13px 27px #222222;
     padding: 0.5em;
     cursor: pointer;
 }
@@ -195,13 +211,44 @@ main {
 #right-menu h2 {
     color: white;
     opacity: 1;
-    font-size: 1.2em;
+    font-size: 1.3em;
+    margin-bottom: 1.1em;
+    padding-left: 36px;
+    font-family: 'Heavy Weight Gamer', sans-serif;
 }
 
-/* XP : "webkit.." is to reset browser appearance */
+/* User information while playing - on the left panel */
+
+.info-map {
+    font-size: 0.9em;
+    color: #fff;
+    
+}
+
+#info-mapCrash {
+    display:none;
+}
+
+#info-mapBeforeCamp{
+    display: none;
+}
+
+#info-mapCamp {
+    display: none;
+}
+
+#info-mapFinal {
+    display: none;
+}
+
+#info-mapEnd {
+    display: none;
+}
+
+/* ======= Life bar of the hero and its style with browsers compatibility ============ */
 
 .file {
-    margin-top:1em;
+    margin-top: 1em;
     border-radius: 10px;
     transition: 2s;
 }
@@ -216,10 +263,10 @@ progress[value] {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    
+
     /* Get rid of default border in Firefox. */
     border: none;
-    
+
     /* Sizing the element */
     width: 12em;
     height: 1.5em;
@@ -242,17 +289,10 @@ progress[value]::-webkit-progress-value {
     border-radius: 2px;
 
     /* IE10+ change the color through color attribute */
-    color:red;
+    color: red;
 }
 
 /* Opera */
 progress[value]::-moz-progress-bar {
     background-color: red;
-}
-
-
-@media screen and (max-width:1024px) {
-    .viewport {
-        transform: translate(-15%, 0%);
-    }
 }

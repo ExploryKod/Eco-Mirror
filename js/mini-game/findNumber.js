@@ -11,7 +11,7 @@ function randint(min, max) {
 // Générer un nombre entre 1 et 100
 const genererNombreMystere = () => {
     const MysteryNumber = randint(1, 100);
-    console.log("Nombre à trouver:"+MysteryNumber);
+
     return MysteryNumber;
 }
 
@@ -54,7 +54,7 @@ const proposerNombre = () => {
         <p class="pBravo">Vous avez gagné un Potion de vie!</p>
         <p class="pBravo">Sauvegarder la partie</p>
           </div>
-        <img src="../image/potion1.png" alt="potion" >
+        <img src="./ressources/inventory/potion.png" alt="potion" >
         `
         document.querySelector('.btnSave-find').style.display = 'inline-block';
 
@@ -99,13 +99,11 @@ boutton.addEventListener('click', proposerNombre)
 
 
 function save2() {
-    console.log("score 2");
-    console.log(score);
+
     if (score === 30) {
-        console.log('round 2');
-        inventory.push('./image/potion1.png');
+        inventory.push('./ressources/inventory/potion.png');
         const img = document.createElement("img");
-        img.src = './image/potion1.png';
+        img.src = './ressources/inventory/potion.png';
         img.id = 'imgObject';
         contentInventory.appendChild(img);
 

@@ -1,7 +1,15 @@
 // Maps variables
 let map = document.querySelector(".maps");
 let mapImage = document.querySelector("#image-map");
+
+// User information variable : on the map when the ship failed and during the game in the left panel.
 let introText = document.querySelector(".intro-text");
+let userInfoOnShip = document.querySelector("#info-mapShip");
+let userInfoCrash = document.querySelector("#info-mapCrash");
+let userInfoBeforeCamp = document.querySelector("#info-mapBeforeCamp");
+let userInfoCamp = document.querySelector("#info-mapCamp");
+let userInfoFinal = document.querySelector("#info-mapFinal");
+let userInfoEnd = document.querySelector("#info-mapEnd");
 
 // hero : container and image.
 let hero = document.querySelector(".hero");
@@ -24,7 +32,7 @@ let crashText = document.querySelector("#crash-explain");
 let heroLifeBar = document.querySelector("#myXp");
 
 // URL of images 
-let mapShipURL = 'ressources/maps/map_1_ship.png';
+let mapShipURL = 'ressources/maps/map_1_ship.jpeg';
 let mapCrashURL = 'ressources/maps/map_2_crash.png';
 let mapBeforeCampURL = 'ressources/maps/map_3bis_before_camp.png';
 let mapCampURL = 'ressources/maps/map_4_camp.png';
@@ -46,9 +54,8 @@ let pnjTranshumanURL = 'ressources/pnj/transhuman.png';
 
 // Objects and their image
 let object01 = document.querySelector("#object-1");
-let object02 = document.querySelector("#object-2");
 let imageObject01 = document.querySelector("#object-1 img");
-let imageObject02 = document.querySelector("#object-2 img");
+
 
 // CSS grid: lines and columns
 let ligne = 1;

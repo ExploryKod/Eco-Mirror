@@ -13,20 +13,20 @@
     top: 9px;
     right: 9px;
     cursor: pointer;
+    color:#000;
+    font-size: 2em;
 }
 
 .blue-container-guard {
     border-bottom: #000 2px solid;
 }
 
-/* CSS QUIZ */
-
 
 /* Outer container */
 .container-dial-guard {
     border-radius: 20px;
     background: #e0e0e0;
-    box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+    box-shadow: inset 10px 10px 0px #c9c5c5,inset -10px -10px 48px #817575;
     width: 80%;
     height: auto;
     overflow: hidden;
@@ -49,10 +49,22 @@
 }
 
 .header-dial-guard h2 {
+    color:#000;
+    font-family: 'Game Space Academy',sans-serif;
     padding: 1rem;
     padding-left: 151px;
     text-align: start;
     margin: 0;
+}
+
+.inner-container-dial-guard p {
+    text-align: start;
+    padding-left: 151px;
+    animation-duration: 3s;
+    animation-name: slidein;
+    color:#000;
+    font-family: 'Game Space Academy',sans-serif;
+    font-size: 1.5em;
 }
 
 /* button to answer - child of outer container dial */
@@ -75,13 +87,15 @@
 .container-dial-guard button {
     background: #7ba9bc;
     box-shadow: 2px 2px 4px #6990a0, -2px -2px 8px #8dc2d8;
-    color: #fff;
+    color:#fff;
+    font-family: 'Game Space Academy',sans-serif;
+    font-size: 1.5em;
+    letter-spacing:0.1em;
     border: none;
     display: inline-block;
     width: 36%;
     cursor: pointer;
     font-size: 1.1rem;
-    font-family: inherit;
     padding: 1.3rem;
     text-align: center;
 }
@@ -102,7 +116,7 @@
     width: auto;
     display:grid;
     grid-template-columns: 1fr 1fr;
-
+    align-items: center;
 }
 
 
@@ -110,29 +124,32 @@
 
 .open-button-dial-guard {
     grid-column: 1;
-    background-color: #1c87c9;
+    background-color: #52ad76;
+    font-size: 1.5em;
+    font-family: 'Game Space Academy',sans-serif;
     color: white;
     padding: 12px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     opacity: 0.8;
-   
-
-
+    margin-right: 2em;
+    justify-self: flex-end;
 }
 
 .close-button-dial-guard {
     grid-column: 2;
-    background-color: #1c87c9;
+    background-color: #df4242;
+    font-size: 1.5em;
+    font-family: 'Game Space Academy',sans-serif;
     color: white;
     padding: 12px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     opacity: 0.8;
- 
-
+    margin-left: 2em;
+    justify-self: flex-start;
 }
 
 
@@ -151,8 +168,9 @@ a {
     text-decoration: none;
 }
 
+/* L'image du gardien sur le pop up de dialogue */
 .inner-container-dial-guard img {
-    width: 20%;
+    width: 15%;
     height: auto;
     position: absolute;
     left: -1px;
@@ -199,12 +217,6 @@ a {
     ;
 }
 
-.inner-container-dial-guard p {
-    text-align: start;
-    padding-left: 151px;
-    animation-duration: 3s;
-    animation-name: slidein;
-}
 
 @keyframes slidein {
     from {
