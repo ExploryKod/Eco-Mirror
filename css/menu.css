@@ -1,16 +1,20 @@
 body {
+    /* Waiting to know if coptright is ok for this image 
     background-image: url("../ressources/static-images/menu-background.jpg");
+    */
+    background-image: url("../ressources/static-images/image-background.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
     height: 120vh;
     font-family: 'Heavy Weight Gamer', sans-serif;
+    background-color: rgb(60, 101, 119, 0.9);
 }
 
 #logo {
     width: 94px;
     position: absolute;
     top: 5px;
-    background-color: rgb(60, 101, 119, 0.6);
+    background-color: rgba(119, 68, 60, 0.6);
     opacity: 0.6;
     border-radius: 8px;
 }
@@ -24,11 +28,14 @@ body {
 form {
     width: 350px;
     height: 400px;
-    background-color: rgb(60, 101, 119, 0.6);
-    box-shadow: inset 9px 9px 17px #3c6577, inset -9px -9px 17px #112731;
+    /* background-color: rgb(60, 101, 119, 0.6); */
+    background-color: rgba(102, 58, 51, 0.6);
+    /* box-shadow: inset 9px 9px 17px #3c6577, inset -9px -9px 17px #112731; */
+    box-shadow: inset 9px 9px 17px #77443c99,inset -9px -9px 17px #77443c;
     display: grid;
     justify-content: center;
     border-radius: 10px;
+    
 }
 
 h1 {
@@ -51,10 +58,12 @@ a {
 
 a,
 button {
-    background-color: rgb(60, 101, 119, 0.6);
-    box-shadow: inset 9px 9px 17px #3c6577, inset -9px -9px 17px #40758d;
+    /* background-color: rgb(60, 101, 119, 0.6); */
+    background-color: #48292499;
+    /* box-shadow: inset 9px 9px 17px #3c6577, inset -9px -9px 17px #40758d; */
+    box-shadow: inset 9px 9px 17px #77443c99,inset -9px -9px 17px #77443c99;
     font-family: 'Heavy Weight Gamer', sans-serif;
-    color: aliceblue;
+    color: aliceblue; 
     height: 41px;
     font-size: 20px;
     border-radius: 5px;
