@@ -42,19 +42,6 @@ img:nth-of-type(2) {
     
 }
 
-#earth-burn-image-container {
-    width: 350px;
-    height: 400px;
-    display:flex;
-    align-items: flex-end;
-    justify-content: end;
-}
-
-#earth-burn-image-container img{
-    width:70%;
-    height:auto;
-}
-
 .content {
     display: grid;
     justify-content: center;
@@ -107,6 +94,24 @@ a:hover {
     background-color: #b39a40;
     box-shadow: inset -9px -9px 4px #e3c24b, inset -2px -2px 28px #8a7a39;
     color: black;
-    height: 8.2vh;
+    height: 8vh;
     transition: ease 0.3s;
+}
+
+@media screen and (min-width:2560px) {
+    form {
+        width:50rem;
+        height:50rem;
+    }
+
+    form h1 {
+        font-size:4rem;
+    }
+
+   form button, a {
+        font-size:3rem; 
+        height:7rem;
+        width:8em;
+          
+    }
 }
