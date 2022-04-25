@@ -49,7 +49,7 @@ let pnj01Image = document.querySelector("#pnj-image-1")
 let pnj02Image = document.querySelector("#pnj-image-2")
 
 let pnjGuardURL = 'ressources/pnj/guard.png';
-let pnjGuideURL = 'ressources/pnj/mentor.png';
+let pnjGuideURL = 'ressources/pnj/guide.png';
 let pnjTranshumanURL = 'ressources/pnj/transhuman.png';
 
 // Objects and their image
