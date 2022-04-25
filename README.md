@@ -15,7 +15,7 @@ Nous avons donc, en plus d'un but pédagogique, le but de passer un message qui 
 
 ## Installation
 
-Cliquez sur le lien à gauche pour jouer directement.<br/>
+Cliquez sur le lien du titre "Eco-Mirror' pour jouer directement.<br/>
 Importer le zip du github et installer les fichiers dans votre environnement local de développement.<br/> 
 
 ## Objectifs du projet
