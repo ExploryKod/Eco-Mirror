@@ -44,6 +44,8 @@ header img {
     width: 4rem;
     height: 4rem;
     margin: auto 0;
+    color:#fff;
+    background-color: #fff;
 }
 
 /* Boutons du menu */
