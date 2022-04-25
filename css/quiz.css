@@ -192,3 +192,25 @@ a {
     position: absolute;
     margin-left: -10px;
 }
+
+@media screen and (max-width:768px) {
+
+    #inventory #contentInventory {
+        width: fit-content;
+        width: -moz-fit-content;
+        display: inline-block;
+        position: relative;
+        margin-left: 0;
+        overflow:scroll;
+    }
+
+    #inventory h2 {
+        margin-top:0.5em;
+        margin-left:1em;
+    }
+
+    #contentInventory img {
+        width:30%;
+    }
+
+}

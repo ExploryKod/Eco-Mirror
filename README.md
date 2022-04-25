@@ -2,7 +2,7 @@
   <img width="20%" src="ressources/static-images/EcoMirrorLogo.png" />
 </p>
 
-### <p align="center"> Jeu de RPG en 2D • <a href="https://colladraw.fun" > Eco-Mirror </a> </p>
+### <p align="center"> Jeu de RPG en 2D • <a href="https://explorykod.github.io/Eco-Mirror/" > Eco-Mirror </a> </p>
 
 Dans le cadre du cours de front-end dans notre [école](https://www.hetic.net/), nous avons eu à réaliser un jeu RPG.<br/>
 La consigne était que nous ne devions utiliser que le HTML/CSS et vanilla Javascript sans aucune autre technologie impliquée.<br/>
