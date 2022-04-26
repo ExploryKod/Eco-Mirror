@@ -300,7 +300,14 @@ progress[value]::-moz-progress-bar {
 }
 
 
+
 /* RESPONSIVE */
+
+.mobile-message {
+    display:none;
+}
+
+
 
 @media screen and (max-width:1024px) {
 
@@ -401,5 +408,53 @@ progress[value]::-moz-progress-bar {
     }
 
 
+
+}
+
+@media screen and (max-width:425px) {
+
+    .maps section {
+        display:none;
+    }
+
+    .maps div {
+        display: none;
+    }
+
+    .maps img {
+        display:none;
+    }
+
+    .mobile-message {
+        position:absolute;
+        top:0;
+        bottom:0;
+        right:0;
+        left:0;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width:70vw;
+        height: 40vh;
+        margin: 2em auto;
+        overflow: scroll;
+        background-color:#fff;
+        color:#1a1a1a;
+        border-radius: 10px;
+        padding:2em;
+        z-index:99;
+       
+    }
+
+    .mobile-message h1 {
+        font-size: 1em;
+    }
+
+    .mobile-message p {
+        margin-top:1em;
+        font-size: 0.8em;
+        font-weight: 700;
+    }
 
 }
