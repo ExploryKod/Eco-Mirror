@@ -96,3 +96,56 @@ form {
         opacity: 1;
     }
 }
+
+@media screen and (max-width:1024px) {
+
+    body {
+        overflow:scroll;
+    }
+
+    .container {
+        position: unset;
+        display:flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        overflow: hidden;
+        
+    }
+
+    form {
+        position:unset;
+        transform: none;
+        animation: none;
+        margin-top:2em;
+        margin-bottom:0;
+    }
+
+    .credits {
+        
+        display:flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        width:100%;
+        height:auto;
+        position: unset;
+        animation: none;
+      
+    }
+
+    h1 {
+        text-align: left;
+        margin-left: 0.2em;
+        font-size:4rem;
+        margin-bottom: 0.1em;
+    }
+
+    p {
+        font-size:1.5rem;
+        text-overflow: ellipsis;
+        margin: 0.5em;
+    }
+
+    
+}
