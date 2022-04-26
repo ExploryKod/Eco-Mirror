@@ -302,7 +302,7 @@ progress[value]::-moz-progress-bar {
 
 /* RESPONSIVE */
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:1024px) {
 
     body {
         grid-template-rows: 10vh auto;
@@ -329,7 +329,8 @@ progress[value]::-moz-progress-bar {
         padding:0;
         margin:0;
         text-overflow: ellipsis;
-        overflow: scroll;
+        
+       
     }
 
     #left-menu h2, #right-menu h2 {
@@ -337,7 +338,7 @@ progress[value]::-moz-progress-bar {
         margin-bottom: 0.7em;
         padding-left: 1px;
         text-overflow: ellipsis;
-        overflow: scroll;
+       
     }
 
  
@@ -345,7 +346,8 @@ progress[value]::-moz-progress-bar {
         width:90%;
         height: 100%;
         text-overflow: ellipsis;
-        overflow: scroll;
+        overflow-wrap: break-word;
+        overflow: hidden;
     }
 
     #left-menu {
