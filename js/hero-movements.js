@@ -982,7 +982,7 @@ function moveHeroMapEnd(event) {
                 heroImage.src = heroImageURL.up;
 
                 if (exitToYourShip.includes(`r${ligne}c${colonne}`)) {
-                    document.location.href = "../win.html";
+                    document.location.href = "./win.html";
                 }
             }
         }
