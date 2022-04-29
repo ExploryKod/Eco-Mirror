@@ -335,9 +335,7 @@ progress[value]::-moz-progress-bar {
     #left-menu div, #right-menu div {
         padding:0;
         margin:0;
-        text-overflow: ellipsis;
-        
-       
+        text-overflow: ellipsis; 
     }
 
     #left-menu h2, #right-menu h2 {
@@ -413,6 +411,42 @@ progress[value]::-moz-progress-bar {
 
 @media screen and (max-width:425px) {
 
+    header {
+        font-size: 0.5em;
+    }
+
+    header img {
+        width: 2rem;
+        height: auto;
+    }
+
+    main {
+        grid-template-rows: 25vh 75vh;
+        align-items: start; 
+
+    }
+
+    #left-menu {
+        grid-row: 1;
+        font-size: 0.8em;
+       
+    }
+    
+    #left-menu div h2 {
+        margin-top: 1em;
+    
+    }
+
+    #right-menu {
+        grid-row: 1;
+    
+    }
+
+    #right-menu div h2 {
+        font-size: 0.8em;
+    
+    }
+
     .maps section {
         display:none;
     }
@@ -448,6 +482,7 @@ progress[value]::-moz-progress-bar {
     }
 
     .mobile-message h1 {
+        grid-row:3;
         font-size: 1em;
     }
 
