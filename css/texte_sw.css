@@ -153,8 +153,9 @@ form {
 @media screen and (max-width:425px) {
 
    #start_button {
-       font-size:1rem;
-       border-radius: 10px;
+        padding:1em;
+        font-size:1rem;
+        border-radius: 10px;
    }
 
 }
