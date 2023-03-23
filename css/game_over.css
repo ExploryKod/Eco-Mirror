@@ -95,7 +95,7 @@ main {
     margin-top: 0px;
     margin-bottom: 0px;
     font-size: 160px;
-    font-family: 'Black Ops One', cursive;
+    font-family: 'Arial', cursive, sans-serif;
     line-height: 120px;
     text-align: center;
     text-shadow: 5px 5px #000000;
@@ -205,7 +205,7 @@ main {
     text-align: center;
     font-size: 30px;
     font-weight: bold;
-    font-family: corbel;
+    font-family: sans-serif;
     color: #ffffff;
     text-decoration: none;
     text-shadow: 1.5px 1.5px #FB3733;

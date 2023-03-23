@@ -50,7 +50,7 @@
 
 .header-dial-guard h2 {
     color:#000;
-    font-family: 'Game Space Academy',sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     padding: 1rem;
     padding-left: 151px;
     text-align: start;
@@ -63,7 +63,7 @@
     animation-duration: 3s;
     animation-name: slidein;
     color:#000;
-    font-family: 'Game Space Academy',sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     font-size: 1.5em;
 }
 
@@ -88,7 +88,7 @@
     background: #7ba9bc;
     box-shadow: 2px 2px 4px #6990a0, -2px -2px 8px #8dc2d8;
     color:#fff;
-    font-family: 'Game Space Academy',sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     font-size: 1.5em;
     letter-spacing:0.1em;
     border: none;
@@ -126,7 +126,7 @@
     grid-column: 1;
     background-color: #52ad76;
     font-size: 1.5em;
-    font-family: 'Game Space Academy',sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     color: white;
     padding: 12px 20px;
     border: none;
@@ -141,7 +141,7 @@
     grid-column: 2;
     background-color: #df4242;
     font-size: 1.5em;
-    font-family: 'Game Space Academy',sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     color: white;
     padding: 12px 20px;
     border: none;
@@ -188,7 +188,7 @@ a {
     z-index: 9;
     width: 100%;
     background: #e0e0e02b;
-    font-family: 'Poppins', sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     align-items: center;
     justify-content: center;
     height: 100vh;

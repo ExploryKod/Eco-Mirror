@@ -5,14 +5,12 @@
     overflow: hidden;
 }
 
-@import url('http://fonts.cdnfonts.com/css/heavy-weight-gamer');
-
 body {
     display: grid;
     justify-content: center;
     grid-template-rows: 10vh 90vh;
     height: 100vh;
-    font-family: 'Heavy Weight Gamer', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     background: #1a1a1a;
     color: #fff;
 }
@@ -58,7 +56,6 @@ header img {
     padding: 0.6em;
     margin: 1.2em;
     border: none;
-    font-family: 'Heavy Weight Gamer', sans-serif;
     font-size: 1.2em;
 }
 
@@ -216,7 +213,7 @@ main {
     font-size: 1.3em;
     margin-bottom: 1.1em;
     padding-left: 36px;
-    font-family: 'Heavy Weight Gamer', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 /* User information while playing - on the left panel */

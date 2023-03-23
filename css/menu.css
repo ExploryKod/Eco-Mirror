@@ -6,7 +6,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
-    font-family: 'Heavy Weight Gamer', sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     background-color: rgba(119, 68, 60, 0.6);
 }
 
@@ -70,7 +70,6 @@ h1 {
     grid-row:1;
     grid-column:2;
     color: rgb(250, 245, 245);
-    font-family: 'Heavy Weight Gamer', sans-serif;
     text-align: center;
 }
 
@@ -98,7 +97,6 @@ button {
     background-color: #48292499;
     /* box-shadow: inset 9px 9px 17px #3c6577, inset -9px -9px 17px #40758d; */
     box-shadow: inset 9px 9px 17px #77443c99,inset -9px -9px 17px #77443c99;
-    font-family: 'Heavy Weight Gamer', sans-serif;
     color: aliceblue; 
     height: 41px;
     font-size: 20px;
