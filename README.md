@@ -14,9 +14,10 @@ Le GIEC a publié un rapport important et nous voulons contribuer à l'éveil de
 Nous avons donc, en plus d'un but pédagogique, le but de passer un message qui fait sens.<br/>
 
 ## Installation
+- Cloner ce repo
+- Importer le zip du github et installer les fichiers dans votre environnement local de développement
 
-Cliquez sur le lien du titre "Eco-Mirror' pour jouer directement.<br/>
-Importer le zip du github et installer les fichiers dans votre environnement local de développement.<br/> 
+Une fois le repo cloné, vous pouvez utiliser l'adresse local pour jouer.
 
 ## Objectifs du projet
 
