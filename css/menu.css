@@ -111,7 +111,6 @@ a:hover {
     background-color: #b39a40;
     box-shadow: inset -9px -9px 4px #e3c24b, inset -2px -2px 28px #8a7a39;
     color: black;
-    height: 8vh;
     transition: ease 0.3s;
 }
 
