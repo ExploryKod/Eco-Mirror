@@ -29,10 +29,10 @@ body {
 .credits {
     position: absolute;
     top: 0;
-    left: 13%;
-    right: 13%;
+    left: 18%;
+    right: 5%;
     height: 100%;
-    animation: play 50s infinite;
+    animation: play 80s infinite;
     animation-delay: -8s;
 }
 
@@ -62,15 +62,22 @@ p {
 }
 
 form {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: black;
+    height: 15%;
+    width: 15%;
     text-align: center;
-    margin-top: 50%;
-    margin-bottom: 30%;
     animation: bouton 50s infinite;
-    transform: translate(50px, -313px);
 }
 
 #start_button {
-    background-color: black;
+    position: absolute;
+    top: 0;
+    left: 5%;
+    transform: translateX(5%);
+    background-color: transparent;
     color: #ffbe00;
     padding: 1rem;
     border-radius: 25px;
