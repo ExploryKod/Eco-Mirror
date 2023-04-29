@@ -10,7 +10,7 @@ body {
     background-color: rgba(119, 68, 60, 0.6);
 }
 
-main {
+.main-menu main {
     height: 100vh;
     width:auto;
     display:flex;
@@ -18,12 +18,12 @@ main {
     justify-content: center;
 }
 
-#images-menu {
+.main-menu #images-menu {
     display:block;
    
 }
 
-#logo {
+.main-menu #logo {
     width: 94px;
     background-color: rgba(119, 68, 60, 0.6);
     opacity: 0.6;
@@ -34,7 +34,7 @@ main {
 
 }
 
-#images-menu img:nth-of-type(2) {
+.main-menu #images-menu img:nth-of-type(2) {
     width: 20%;
     height: auto;
     position: absolute;
@@ -43,7 +43,7 @@ main {
     
 }
 
-.content {
+.main-menu .content {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -51,7 +51,7 @@ main {
 
 }
 
-form {
+.main-menu form {
     width: 350px;
     height: 400px;
     /* background-color: rgb(60, 101, 119, 0.6); */
@@ -66,14 +66,14 @@ form {
     
 }
 
-h1 {
+.main-menu h1 {
     grid-row:1;
     grid-column:2;
     color: rgb(250, 245, 245);
     text-align: center;
 }
 
-a {
+.main-menu a {
     grid-row:2;
     grid-column: 2;
     display: flex;
@@ -81,18 +81,18 @@ a {
     align-items: center;
 }
 
-button:nth-last-of-type(1) {
+.main-menu a:nth-last-of-type(1) {
     grid-row:3;
     grid-column: 2;
 }
 
-button:nth-last-of-type(2) {
+.main-menu a:nth-last-of-type(2) {
     grid-row: 4;
     grid-column: 2;
 }
 
-a,
-button {
+.main-menu a,
+.main-menu button {
     /* background-color: rgb(60, 101, 119, 0.6); */
     background-color: #48292499;
     /* box-shadow: inset 9px 9px 17px #3c6577, inset -9px -9px 17px #40758d; */
@@ -105,8 +105,8 @@ button {
     text-decoration: none;
 }
 
-button:hover,
-a:hover {
+.main-menu button:hover,
+.main-menu a:hover {
     cursor: pointer;
     background-color: #b39a40;
     box-shadow: inset -9px -9px 4px #e3c24b, inset -2px -2px 28px #8a7a39;
@@ -116,22 +116,22 @@ a:hover {
 
 @media screen and (min-width:2560px) {
 
-    #logo {
+    .main-menu #logo {
         width:15rem;
         height: auto;
         left:7%;
     }
 
-    form {
+    .main-menu form {
         width:50rem;
         height:50rem;
     }
 
-    form h1 {
+    .main-menu form h1 {
         font-size:4rem;
     }
 
-   form button, a {
+    .main-menu form button, form a {
         font-size:3rem; 
         height:7rem;
         width:8em;
@@ -140,14 +140,14 @@ a:hover {
 
 @media screen and (max-width:425px) {
 
-    #logo {
+    .main-menu #logo {
         width: 12%;
         height: auto;
         margin:0 auto;
     
     }
 
-    form {
+    .main-menu form {
         width:100%;
         height:100%;
     }
