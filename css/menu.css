@@ -125,6 +125,11 @@ body {
     transition: ease 0.3s;
 }
 
+.credit-menu form, .rules-menu form {
+    display: flex;
+    flex-direction: column;
+}
+
 @media screen and (min-width:2560px) {
 
     .main-menu #logo {
