@@ -67,11 +67,21 @@ body {
 }
 
 .main-menu h1 {
+    font-size: 24px;
     grid-row:1;
     grid-column:2;
     color: rgb(250, 245, 245);
     text-align: center;
 }
+
+.main-menu p {
+    font-size: 24px;
+    grid-row:2;
+    grid-column:2;
+    color: rgb(250, 245, 245);
+    text-align: center;
+}
+
 
 .main-menu a {
     grid-row:2;
