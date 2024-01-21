@@ -54,6 +54,7 @@ body {
 .main-menu form {
     width: 350px;
     min-height: 150px;
+    max-height: 70%;
     /* background-color: rgb(60, 101, 119, 0.6); */
     background-color: rgba(102, 58, 51, 0.6);
     /* box-shadow: inset 9px 9px 17px #3c6577, inset -9px -9px 17px #112731; */
