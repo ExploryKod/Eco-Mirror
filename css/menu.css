@@ -125,6 +125,7 @@ body {
     min-width: 150px;
     max-width: 220px;
     margin-top: 15px;
+    text-align: center;
 }
 
 .credit-menu form, .rules-menu form {
