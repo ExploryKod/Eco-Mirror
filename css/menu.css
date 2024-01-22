@@ -122,8 +122,9 @@ body {
 }
 
 .credit-menu a, .rules-menu a {
-    padding: 8px 10px;
-    margin-top: 10px;
+    min-width: 150px;
+    max-width: 220px;
+    margin-top: 15px;
 }
 
 .credit-menu form, .rules-menu form {
