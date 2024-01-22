@@ -99,7 +99,7 @@ body {
 }
 
 .main-menu a,
-.main-menu button, .credit-menu a, .rules-menu a {
+.main-menu button {
     /* background-color: rgb(60, 101, 119, 0.6); */
     background-color: #48292499;
     /* box-shadow: inset 9px 9px 17px #3c6577, inset -9px -9px 17px #40758d; */
@@ -113,7 +113,7 @@ body {
 }
 
 .main-menu button:hover,
-.main-menu a:hover, .credit-menu a:hover, .rules-menu a:hover {
+.main-menu a:hover {
     cursor: pointer;
     background-color: #b39a40;
     box-shadow: inset -9px -9px 4px #e3c24b, inset -2px -2px 28px #8a7a39;
@@ -121,11 +121,24 @@ body {
     transition: ease 0.3s;
 }
 
-.credit-menu a, .rules-menu a {
-    min-width: 150px;
-    max-width: 220px;
+.credit-menu .btn-menu, .rules-menu .btn-menu {
+    background-color: #482;
+    width: 50%;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
     margin-top: 15px;
     text-align: center;
+    color: aliceblue;
+    font-size: 20px; 
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.credit-menu a:hover, .rules-menu a:hover {
+    background-color: #b39a40;
+    color: black;
+    transition: all ease 0.3s;
 }
 
 .credit-menu form, .rules-menu form {
