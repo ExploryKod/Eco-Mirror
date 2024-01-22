@@ -38,7 +38,6 @@ let mapBeforeCampURL = 'ressources/maps/map_3bis_before_camp.png';
 let mapCampURL = 'ressources/maps/map_4_camp.png';
 let mapBeforeFinalURL = 'ressources/maps/map_3_before_final.png';
 let mapFinalURL = 'ressources/maps/map_final.png';
-// let endGameURL = 'ressources/maps/EarthPhoto.jpeg';
 let ShipImage = 'ressources/static-images/SpaceShipLand.jpeg';
 let FallingShipImage = 'ressources/static-images/SpaceShipFall.jpeg';
 

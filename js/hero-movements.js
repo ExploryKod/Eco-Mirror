@@ -83,7 +83,6 @@ function moveHeroMapShip(event) {
 
 
 function moveHeroMapCrash(event) {
-
     let touche = event.key;
 
     KillHero()
