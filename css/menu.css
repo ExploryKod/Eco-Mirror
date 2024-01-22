@@ -10,7 +10,7 @@ body {
     background-color: rgba(119, 68, 60, 0.6);
 }
 
-.main-menu main {
+.main-menu main, .credit-menu main, .rules-menu main {
     height: 100vh;
     width:auto;
     display:flex;
@@ -18,12 +18,12 @@ body {
     justify-content: center;
 }
 
-.main-menu #images-menu {
+.main-menu #images-menu, .credit-menu #images-menu, .rules-menu #images-menu {
     display:block;
    
 }
 
-.main-menu #logo {
+.main-menu #logo, .credit-menu #logo, .rules-menu #logo {
     width: 94px;
     background-color: rgba(119, 68, 60, 0.6);
     opacity: 0.6;
@@ -34,7 +34,7 @@ body {
 
 }
 
-.main-menu #images-menu img:nth-of-type(2) {
+.main-menu #images-menu img:nth-of-type(2), .credit-menu #images-menu img:nth-of-type(2), .rules-menu #images-menu img:nth-of-type(2) {
     width: 20%;
     height: auto;
     position: absolute;
@@ -43,12 +43,10 @@ body {
     
 }
 
-.main-menu .content {
+.main-menu .content, .credit-menu .content, .rules-menu .content {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
- 
-
 }
 
 .main-menu form {
@@ -128,6 +126,7 @@ body {
 .credit-menu form, .rules-menu form {
     display: flex;
     flex-direction: column;
+    box-shadow: inset 9px 9px 17px #77443c99,inset -9px -9px 17px #77443c;
 }
 
 @media screen and (min-width:2560px) {
