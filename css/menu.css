@@ -122,6 +122,7 @@ body {
 }
 
 .credit-menu form, .rules-menu form {
+    padding: 20px 40px;
     display: flex;
     flex-direction: column;
     background-color: #48292499;
