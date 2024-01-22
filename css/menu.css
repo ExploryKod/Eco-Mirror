@@ -65,7 +65,7 @@ body {
     
 }
 
-.main-menu h1 {
+.main-menu h1, .rules-menu h1, .credit-menu h1 {
     font-size: 24px;
     grid-row:1;
     grid-column:2;
@@ -73,10 +73,8 @@ body {
     text-align: center;
 }
 
-.main-menu p {
-    font-size: 24px;
-    grid-row: auto;
-    grid-column:2;
+.credit-menu p, .rules-menu p {
+    font-size: 18px;
     color: rgb(250, 245, 245);
     text-align: center;
 }
